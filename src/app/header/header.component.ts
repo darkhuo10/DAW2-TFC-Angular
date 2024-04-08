@@ -5,6 +5,8 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
+
+// hooks order
 export class HeaderComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy{
   constructor() {
     console.log('cosntructor');
