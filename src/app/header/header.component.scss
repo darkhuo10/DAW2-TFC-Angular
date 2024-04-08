@@ -1,0 +1,38 @@
+/* SCSS for styling */
+$bar-main-color: #000;
+$bar-secondary-color: #fff;
+$bar-accent-color: #ccc;
+
+header {
+    background-color: $bar-main-color;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        color: $bar-secondary-color;
+        font-weight: bold;
+    }
+
+    .search-bar {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid $bar-accent-color;
+        margin-right: 10px; /* Add spacing between the button and input field */
+    }
+
+    .search-button {
+        padding: 5px 10px;
+        background-color: $bar-accent-color;
+        color: $bar-main-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover { /* Add hover effect */
+            background-color: darken($bar-accent-color, 50%); /* Darken the background color slightly */
+            color: $bar-secondary-color /* Lighten the text color slightly */
+        }
+    }
+}
