@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LibraryComponent } from './library/library.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MainComponent } from './main/main.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MainComponent } from './main/main.component';
     UserProfileComponent,
     LibraryComponent,
     WishlistComponent,
-    MainComponent
+    MainComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
