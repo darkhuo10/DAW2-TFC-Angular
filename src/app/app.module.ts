@@ -12,6 +12,7 @@ import { ReviewComponent } from './review/review.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LibraryComponent } from './library/library.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     ReviewComponent,
     UserProfileComponent,
     LibraryComponent,
-    WishlistComponent
+    WishlistComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
