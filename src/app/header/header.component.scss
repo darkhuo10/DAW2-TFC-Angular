@@ -11,10 +11,21 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    .logo {
+    .identity{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .logo{
+        width: 100px;
+        height: auto;
+    }
+    .name {
         color: $foreground-color;
+        font-size: 2.5rem;
         font-weight: bold;
     }
+
 
     .search-bar {
         padding: 5px;
@@ -36,4 +47,5 @@ header {
             color: $foreground-color /* Lighten the text color slightly */
         }
     }
+    
 }
