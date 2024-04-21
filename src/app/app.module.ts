@@ -6,13 +6,25 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
+import { GamePreviewComponent } from './game-preview/game-preview.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
+import { ReviewComponent } from './review/review.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LibraryComponent } from './library/library.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    MenuComponent
+    MenuComponent,
+    GamePreviewComponent,
+    GameDetailsComponent,
+    ReviewComponent,
+    UserProfileComponent,
+    LibraryComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
