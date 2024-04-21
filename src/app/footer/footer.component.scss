@@ -1,19 +1,19 @@
 /* SCSS for styling */
-$bar-main-color: #000;
-$bar-secondary-color: #fff;
-$bar-accent-color: #ccc;
+$backgorund-color: #13396E;
+$foreground-color: #fff;
+$accent-color: #1993F7;
 
 footer {
-    background-color: $bar-main-color;
+    background-color: $backgorund-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: $bar-secondary-color;
+    color: $foreground-color;
     a {
-        color: $bar-accent-color;
+        color: $accent-color;
         &:hover {
-            color: $bar-secondary-color
+            color: darken($accent-color, 50%); /* Darken the background color slightly */
         }
     }
 }

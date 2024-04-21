@@ -1,38 +1,39 @@
 /* SCSS for styling */
-$bar-main-color: #000;
-$bar-secondary-color: #fff;
-$bar-accent-color: #ccc;
+$backgorund-color: #13396E;
+$foreground-color: #fff;
+$accent-color: #1993F7;
+
 
 header {
-    background-color: $bar-main-color;
+    background-color: $backgorund-color;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .logo {
-        color: $bar-secondary-color;
+        color: $foreground-color;
         font-weight: bold;
     }
 
     .search-bar {
         padding: 5px;
         border-radius: 5px;
-        border: 1px solid $bar-accent-color;
+        border: 1px solid $accent-color;
         margin-right: 10px; /* Add spacing between the button and input field */
     }
 
     .search-button {
         padding: 5px 10px;
-        background-color: $bar-accent-color;
-        color: $bar-main-color;
+        background-color: $accent-color;
+        color: $foreground-color;
         border: none;
         border-radius: 5px;
         cursor: pointer;
 
         &:hover { /* Add hover effect */
-            background-color: darken($bar-accent-color, 50%); /* Darken the background color slightly */
-            color: $bar-secondary-color /* Lighten the text color slightly */
+            background-color: darken($accent-color, 50%); /* Darken the background color slightly */
+            color: $foreground-color /* Lighten the text color slightly */
         }
     }
 }
