@@ -43,4 +43,5 @@ export class HeaderComponent implements OnChanges, OnInit, DoCheck, AfterContent
   ngOnDestroy(): void {
     console.log('OnDestroy');
   }
+  logo = "assets/img/vgamestore_logo_white.svg";
 }
