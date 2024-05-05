@@ -1,3 +1,7 @@
+$backgorund-color: #0C2446;
+$foreground-color: #fff;
+$accent-color: #1993F7;
+
 .star-rating {
     display: inline-block;
     font-size: 30px;
@@ -5,12 +9,12 @@
   }
   
   .star-rating label {
-    color: #ccc;
+    color: darken($foreground-color, 25%);
     cursor: default;
   }
   
   .star-rating label.filled {
-    color: gold;
+    color: $accent-color;
   }
   
   .number {
