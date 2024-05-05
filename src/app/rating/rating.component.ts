@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
-  styleUrl: './rating.component.scss'
+  styleUrls: ['./rating.component.scss'] // Fixed typo here
 })
 export class RatingComponent {
-  rating: number = 3.5; // Será sacado de la base de datos
-  starRating = Math.round(this.rating);
+  @Input() rating: number = 0; // Initialize with default value
+  
   stars: number[] = Array.from({ length: 5 }, (_, i) => i + 1);
 }

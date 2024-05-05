@@ -5,7 +5,7 @@
         <p class="card-description">{{game.description}}</p>
         <div class="card-additional">
             <p class="card-price">{{game.price}}€</p>
-            <app-rating></app-rating>
+            <app-rating [rating]="game.rating"></app-rating>
         </div>        
     </div>
 </div>
