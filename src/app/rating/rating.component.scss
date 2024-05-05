@@ -1,18 +1,14 @@
 .star-rating {
     display: inline-block;
-  }
-  
-  .star-rating input[type="radio"] {
-    display: none;
+    font-size: 30px;
   }
   
   .star-rating label {
-    font-size: 30px;
     color: #ccc;
-    cursor: pointer;
+    cursor: default;
   }
   
-  .star-rating input[type="radio"]:checked ~ label {
+  .star-rating label.filled {
     color: gold;
   }
   
