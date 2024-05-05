@@ -1,6 +1,7 @@
 .star-rating {
     display: inline-block;
     font-size: 30px;
+    vertical-align: middle; /* Align the star rating vertically */
   }
   
   .star-rating label {
@@ -10,5 +11,12 @@
   
   .star-rating label.filled {
     color: gold;
+  }
+  
+  .number {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle; /* Align the paragraph with the star rating */
+    margin-left: 10px;
   }
   

@@ -1,4 +1,5 @@
 <div class="star-rating" [attr.data-stars]="starRating">
     <label *ngFor="let star of stars" [class.filled]="star <= starRating">&#9733;</label>
+    <p class="number">{{starRating}}</p>
   </div>
   
