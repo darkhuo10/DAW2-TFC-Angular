@@ -11,9 +11,9 @@ footer {
     align-items: center;
     color: $foreground-color;
     a {
-        color: $accent-color;
+        color: darken($foreground-color, 25%);
         &:hover {
-            color: darken($accent-color, 50%); /* Darken the background color slightly */
+            color: $accent-color;
         }
     }
 }
