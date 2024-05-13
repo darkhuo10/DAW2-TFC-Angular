@@ -14,6 +14,7 @@ import { LibraryComponent } from './library/library.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MainComponent } from './main/main.component';
 import { RatingComponent } from './rating/rating.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RatingComponent } from './rating/rating.component';
     LibraryComponent,
     WishlistComponent,
     MainComponent,
-    RatingComponent
+    RatingComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
