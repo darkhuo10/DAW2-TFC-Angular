@@ -7,23 +7,24 @@
   display: flex;
   flex-grow: 1;
   height: 100%;
+  position: relative;
 }
 
 app-menu {
   transition: width 0.3s;
-}
-
-app-menu .menu-content {
-  width: 0; // Initial collapsed state
-}
-
-app-menu .menu-content.open {
-  width: 25%; // Expanded state
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 .main-content {
   flex-grow: 1;
+  padding: 20px;
   overflow-y: auto;
+  position: relative;
+  top: 2px;
+  z-index: 1;
 }
 
 app-header, app-footer {

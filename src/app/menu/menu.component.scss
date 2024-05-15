@@ -4,19 +4,32 @@
   height: 100%;
 }
 
+.menu-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .menu-toggle {
   background-color: #3498db;
   color: white;
   padding: 10px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .menu-content {
   flex-grow: 1;
   background-color: #f8f9fa;
   overflow: hidden;
-  transition: width 0.3s;
-  height: 100%;
+  //transition: width 0.3s;
+  position: absolute;
+  padding: 0;
+  top: 38px;
+  left: 0;
+  width: 0;
+  z-index: 9;
 }
 
 .menu-content ul {
@@ -26,7 +39,7 @@
 }
 
 .menu-content li {
-  padding: 10px;
+  padding: 5px 0;
 }
 
 .menu-content a {
@@ -39,10 +52,7 @@
   }
 }
 
-.menu-content {
-  width: 0;
-}
-
-.menu-content.open {
+.menu-content.open, .menu-toggle.open {
   width: 100%;
+  padding: 10px;
 }
