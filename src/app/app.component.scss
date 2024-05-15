@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-body {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+app-menu {
+  transition: width 0.3s;
+}
+
+app-menu .menu-content {
+  width: 0; // Initial collapsed state
+}
+
+app-menu .menu-content.open {
+  width: 25%; // Expanded state
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+app-header, app-footer {
+  flex-shrink: 0;
+}

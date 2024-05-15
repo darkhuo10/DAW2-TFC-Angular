@@ -1,0 +1,48 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.menu-toggle {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-content {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  transition: width 0.3s;
+  height: 100%;
+}
+
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-content li {
+  padding: 10px;
+}
+
+.menu-content a {
+  text-decoration: none;
+  color: black;
+  display: block;
+
+  &:hover {
+    background-color: #e2e2e2;
+  }
+}
+
+.menu-content {
+  width: 0;
+}
+
+.menu-content.open {
+  width: 100%;
+}
