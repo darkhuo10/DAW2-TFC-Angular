@@ -31,8 +31,7 @@ $accent-color: #1993F7;
 
 .menu-content {
   flex-grow: 1;
-  background-color: transparent;
-  backdrop-filter: blur(10px);
+  background-color: $backgorund-color;
   overflow: hidden;
   transition: width 0.3s;
   position: absolute;
@@ -57,7 +56,7 @@ $accent-color: #1993F7;
 .menu-content a {
   text-decoration: none;
   font-weight: bolder;
-  color: $backgorund-color;
+  color: $foreground-color;
   display: block;
   padding: 10px;
 
