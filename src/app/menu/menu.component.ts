@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class MenuComponent {
   isMenuOpen = false;
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
+  toggleMenu(state: boolean) {
+    this.isMenuOpen = state;
   }
 }

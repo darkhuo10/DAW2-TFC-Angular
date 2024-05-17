@@ -1,3 +1,6 @@
+$backgorund-color: #0C2446;
+$foreground-color: #fff;
+$accent-color: #1993F7;
 :host {
   display: flex;
   flex-direction: column;
@@ -12,6 +15,13 @@
 }
 
 .menu-toggle {
+  text-align: center;
+  align-content: center;
+  height: 30px;
+  width: 30px;
+  margin: 5px;
+  margin-left: 0;
+  font-size: 2em;
   background-color: #3498db;
   color: white;
   padding: 10px;
@@ -30,6 +40,7 @@
   left: 0;
   width: 0;
   z-index: 9;
+  height: 100%;
 }
 
 .menu-content ul {
@@ -46,13 +57,17 @@
   text-decoration: none;
   color: black;
   display: block;
+  padding: 10px;
 
   &:hover {
-    background-color: #e2e2e2;
+    color: $accent-color;
+    transform: scale(1.05);
   }
 }
 
 .menu-content.open, .menu-toggle.open {
   width: 100%;
-  padding: 10px;
+  padding: 10px 100px;
+  padding-left: 10px;
+  text-align: left;
 }
