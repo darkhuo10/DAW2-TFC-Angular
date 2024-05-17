@@ -19,21 +19,22 @@ $accent-color: #1993F7;
   align-content: center;
   height: 30px;
   width: 30px;
-  margin: 5px;
-  margin-left: 0;
   font-size: 2em;
-  background-color: #3498db;
-  color: white;
+  background-color: $accent-color;
+  color: $foreground-color;
   padding: 10px;
   cursor: pointer;
   z-index: 10;
+  transition: width 0.3s;
+
 }
 
 .menu-content {
   flex-grow: 1;
-  background-color: #f8f9fa;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
   overflow: hidden;
-  //transition: width 0.3s;
+  transition: width 0.3s;
   position: absolute;
   padding: 0;
   top: 38px;
@@ -55,7 +56,8 @@ $accent-color: #1993F7;
 
 .menu-content a {
   text-decoration: none;
-  color: black;
+  font-weight: bolder;
+  color: $backgorund-color;
   display: block;
   padding: 10px;
 
