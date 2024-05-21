@@ -10,8 +10,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
     .identity{
+        padding-left: 50px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -27,13 +27,12 @@ header {
         font-size: 2.5rem;
         font-weight: bold;
     }
-
-
     .search-bar {
+        margin-left: auto;
         padding: 5px;
         border-radius: 5px;
         border: 1px solid $accent-color;
-        margin-right: 10px; /* Add spacing between the button and input field */
+        margin-right: 10px;
     }
 
     .search-button {
@@ -44,10 +43,10 @@ header {
         border-radius: 5px;
         cursor: pointer;
 
-        &:hover { /* Add hover effect */
-            background-color: darken($accent-color, 50%); /* Darken the background color slightly */
-            color: $foreground-color /* Lighten the text color slightly */
+        &:hover {
+            background-color: darken($accent-color, 50%);
+            color: $foreground-color
         }
     }
-    
+
 }
