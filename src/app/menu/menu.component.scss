@@ -30,12 +30,12 @@ $accent-color: #1993F7;
   cursor: pointer;
   z-index: 10;
   transition: width 0.3s;
-
 }
 
 .menu-content {
   flex-grow: 1;
-  background-color: $backgorund-color;
+  background-color: transparentize($color: $accent-color, $amount: 0.05);
+  backdrop-filter: blur(5px);
   overflow: hidden;
   transition: width 0.3s;
   padding: 0;
@@ -44,35 +44,30 @@ $accent-color: #1993F7;
   width: 0;
   z-index: 9;
   height: 100%;
-  
-}
-
-.menu-content ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-content li {
-  padding: 5px 0;
-}
-
-.menu-content a {
-  text-decoration: none;
-  font-weight: bolder;
-  color: $foreground-color;
-  display: block;
-  padding: 10px;
-
-  &:hover {
-    color: $accent-color;
-    transform: scale(1.05);
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 5px 0;
+      a {
+        text-decoration: none;
+        font-weight: bolder;
+        color: $foreground-color;
+        display: block;
+        padding: 10px;
+      
+        &:hover {
+          color: $backgorund-color;
+          transform: scale(1.05);
+        }
+      }
+    }
   }
 }
 
 .menu-content.open, .menu-toggle.open {
   width: 100%;
-  padding: 10px 100px;
-  padding-left: 10px;
+  padding: 10px;
   text-align: left;
 }
