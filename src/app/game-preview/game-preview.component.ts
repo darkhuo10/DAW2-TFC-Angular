@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class GamePreviewComponent {
   @Input() game!: { 
+    id: string,
     name: string, 
     description: string, 
     imageUrl: string, 

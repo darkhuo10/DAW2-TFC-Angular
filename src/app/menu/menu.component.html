@@ -1,7 +1,7 @@
 <div class="menu-container"
-     (mouseenter)="toggleMenu(true)"
+     
      (mouseleave)="toggleMenu(false)">
-  <div class="menu-toggle" [class.open]="isMenuOpen">
+  <div class="menu-toggle" (mouseenter)="toggleMenu(true)" [class.open]="isMenuOpen">
     &equiv;
   </div>
   <div class="menu-content" [class.open]="isMenuOpen">
