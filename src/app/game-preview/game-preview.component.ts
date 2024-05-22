@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-preview',
@@ -14,5 +15,10 @@ export class GamePreviewComponent {
     price: number, 
     rating: number 
   };
+
+  constructor(private router: Router){}
+  redirectToDetails(){
+    this.router.navigate(['/game', this.game.id]);
+  }
 
 }
