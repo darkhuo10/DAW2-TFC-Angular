@@ -2,65 +2,83 @@ $background-color: #0C2446;
 $foreground-color: #fff;
 $accent-color: #1993F7;
 
-div {
+h2 { 
+    font-size: 2.5em;
+    margin: 20px;
+}
+
+input, button, p, h2 {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px;
+}
+
+input, button {
+    width: 100%;
+    text-align: center;
+    border: 2px solid $background-color;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    background-color: $foreground-color;
+
+    &:hover {
+        color: $foreground-color;
+        background-color: $background-color;
+    }
+}
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-    .identity, .password-container {
+    padding: 20px;
+
+    .user-data {
+        display: flex;
         flex-direction: row;
-        justify-content: center;
-        .user {flex-direction: column;}
-    }
-
-    img {
-        width: 300px;
-        height: 300px;
-        border: 2px solid $accent-color;
-        border-radius: 50%;
-        margin: 20px;
-        position: relative;
-
-        &:hover {
-            cursor: pointer;
-            filter: invert(35%);
-        }
-    }
-
-    h2 { 
-        font-size: 2.5em; 
-        padding: 10px;
-        margin: 10px;
-    }
-    p {
-        color: $accent-color;
-    }
-    
-    input, button, p {
-        width: 100%;
-        text-align: center;
-        font-size: 2em;
-        font-weight: bold;
-        padding: 10px;
-        margin: 10px;
-    }
-
-    input, button {
         border: 2px solid $background-color;
+        padding: 20PX 100px; 
+        margin-bottom: 50px;
         border-radius: 4px;
-        box-sizing: border-box;
-    }
-    button {
-        cursor: pointer;
-        background-color: $foreground-color;
-
-        &:hover {
-            color: $foreground-color;
-            background-color: $background-color;
+        gap: 75px;
+        .user-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            #role {
+                color: $accent-color;
+            }
+        }
+    
+        .user-image {
+            width: 300px;
+            height: 300px;
+            border: 2px solid $accent-color;
+            border-radius: 50%;
+            margin: 20px;
+            position: relative;
+    
+            &:hover {
+                cursor: pointer;
+                filter: invert(35%);
+            }
         }
     }
-    #save { 
-        width: fit-content;
+
+    .personal-data {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .personal-password, .personal-info {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        } 
     }
 }

@@ -14,11 +14,14 @@ export class UserProfileComponent {
     id: '1',
     imageUrl: './assets/img/vgamestore_logo_blue.svg',
     username: 'darkhuo10',
+    email: 'darkhuoyt@gmail.com',
     firstName: 'Marina',
     lastName: 'Pintado',
+    role: 'ADMIN',
     birthday: '12/12/2003',
     password: '123456'
   };
+  
   selectImage(): void {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     fileInput.click();

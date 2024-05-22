@@ -1,24 +1,25 @@
-<div class="profile">
-    <div class="identity">
-        <img [src]="user.imageUrl" alt="profile-picture" (click)="selectImage()">
+<div class="container">
+    <div class="user-data">
+        <img class="user-image"  [src]="user.imageUrl" alt="profile-picture" (click)="selectImage()">
         <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
-        <div class="user">
+        <div class="user-text">
             <input type="text" [value]="user.username" placeholder="Username"/>
-            <p>ADMIN</p>
+            <p id="role">{{user.role}}</p>
         </div>
     </div>
-    <div class="password-container">
-        <input type="{{ hidePassword ? 'password' : 'text' }}" id="password" name="password" [value]="user.password" placeholder="Password"/>
-        <input type="{{ hidePassword ? 'password' : 'text' }}" id="password" name="password" [value]="user.password" placeholder="Confirm Password"/>
-        <button (click)="togglePassword()">{{ hidePassword ? 'Show' : 'Hide' }}</button>
+    <h2>Personal Data</h2>
+    <div class="personal-data">
+        <input type="email" name="email" id="email" [value]="user.email"/>
+        <div class="personal-password">
+            <input type="{{ hidePassword ? 'password' : 'text' }}" id="password" name="password" [value]="user.password" placeholder="Password"/>
+            <button id="toggle-password" (click)="togglePassword()">{{ hidePassword ? 'Show' : 'Hide' }}</button>
+        </div>
+        
+        <div class="personal-info">
+            <input type="text" [value]="user.firstName" placeholder="First Name"/>
+            <input type="text" [value]="user.lastName" placeholder="Last Name"/>  
+            <input type="text" [value]="user.birthday" placeholder="Bithday"/>
+        </div>
+        <button id="save">Save</button>
     </div>
 </div>
-
-<div class="personal">
-    <h2>Personal info</h2>
-    <input type="text" [value]="user.firstName" placeholder="First Name"/>
-    <input type="text" [value]="user.lastName" placeholder="Last Name"/>  
-    <input type="text" [value]="user.birthday" placeholder="Bithday"/>
-    <button id="save">Save</button>
-</div>
-
