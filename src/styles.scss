@@ -7,4 +7,18 @@ $accent-color: #1993F7;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: $backgorund-color;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    scrollbar-width: thin;
+    scrollbar-color: $backgorund-color transparent;
+}
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: $backgorund-color;
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track {
+    background-color: transparent;
 }
