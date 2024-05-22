@@ -15,7 +15,7 @@ export class MainComponent {
     rating: number 
   }[] = [
     { 
-      id:'asd',
+      id:'1',
       name: 'Game 1', 
       description: 'Description for Game 1', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -23,7 +23,7 @@ export class MainComponent {
       rating: 4.5 
     },
     { 
-      id:'asd',
+      id:'2',
       name: 'Game 2', 
       description: 'Description for Game 2', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -31,7 +31,7 @@ export class MainComponent {
       rating: 4.8 
     },
     { 
-      id:'asd',
+      id:'3',
       name: 'Game 3', 
       description: 'Description for Game 3', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -39,7 +39,7 @@ export class MainComponent {
       rating: 2.3 
     },
     { 
-      id:'asd',
+      id:'4',
       name: 'Game 4', 
       description: 'Description for Game 4', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -47,7 +47,7 @@ export class MainComponent {
       rating: 3.8 
     },
     { 
-      id:'asd',
+      id:'5',
       name: 'Game 5', 
       description: 'Description for Game 5', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -55,7 +55,7 @@ export class MainComponent {
       rating: 4.5 
     },
     { 
-      id:'asd',
+      id:'6',
       name: 'Game 6', 
       description: 'Description for Game 6', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -63,7 +63,7 @@ export class MainComponent {
       rating: 4.8 
     },
     { 
-      id:'asd',
+      id:'7',
       name: 'Game 7', 
       description: 'Description for Game 7', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -71,14 +71,14 @@ export class MainComponent {
       rating: 2.3 
     },
     { 
-      id:'asd',
+      id:'8',
       name: 'Game 8', 
       description: 'Description for Game 8', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
       price: 0.99, 
       rating: 3.8 
     },{ 
-      id:'asd',
+      id:'9',
       name: 'Game 9', 
       description: 'Description for Game 9', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -86,7 +86,7 @@ export class MainComponent {
       rating: 4.5 
     },
     { 
-      id:'asd',
+      id:'10',
       name: 'Game 10', 
       description: 'Description for Game 10', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -94,7 +94,7 @@ export class MainComponent {
       rating: 4.8 
     },
     { 
-      id:'asd',
+      id:'11',
       name: 'Game 12', 
       description: 'Description for Game 12', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -102,7 +102,7 @@ export class MainComponent {
       rating: 2.3 
     },
     { 
-      id:'asd',
+      id:'12',
       name: 'Game 13', 
       description: 'Description for Game 13', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -110,7 +110,7 @@ export class MainComponent {
       rating: 3.8 
     },
     { 
-      id:'asd',
+      id:'13',
       name: 'Game 14', 
       description: 'Description for Game 14', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -118,7 +118,7 @@ export class MainComponent {
       rating: 4.5 
     },
     { 
-      id:'asd',
+      id:'14',
       name: 'Game 15', 
       description: 'Description for Game 15', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -126,7 +126,7 @@ export class MainComponent {
       rating: 4.8 
     },
     { 
-      id:'asd',
+      id:'15',
       name: 'Game 16', 
       description: 'Description for Game 16', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -134,7 +134,7 @@ export class MainComponent {
       rating: 2.3 
     },
     { 
-      id:'asd',
+      id:'16',
       name: 'Game 17', 
       description: 'Description for Game 17', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -142,7 +142,7 @@ export class MainComponent {
       rating: 3.8 
     },
     { 
-      id:'asd',
+      id:'17',
       name: 'Game 18', 
       description: 'Description for Game 18', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -150,7 +150,7 @@ export class MainComponent {
       rating: 4.8 
     },
     { 
-      id:'asd',
+      id:'18',
       name: 'Game 19', 
       description: 'Description for Game 19', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
@@ -158,7 +158,7 @@ export class MainComponent {
       rating: 2.3 
     },
     { 
-      id:'asd',
+      id:'19',
       name: 'Game 20', 
       description: 'Description for Game 20', 
       imageUrl: './assets/img/vgamestore_logo_blue.svg', 
