@@ -18,7 +18,7 @@ export class UserProfileComponent {
     firstName: 'Marina',
     lastName: 'Pintado',
     role: 'ADMIN',
-    birthday: '12/12/2003',
+    birthday: '2003-12-10',
     password: '123456'
   };
   
