@@ -1,1 +1,37 @@
-<p>game-details works!</p>
+<div class="game">
+    <div class="game-basic">
+        <img [src]="game.imageUrl" alt="Product Image" class="game-basic-img">
+        <div class="game-basic-text">
+            <h2>{{game.name}}, {{gameId}}</h2>
+            <div class="game-basic-line">
+                <p>{{game.price}}€</p>
+                <p class="game-standout">{{game.languages}}</p>
+            </div>
+            <p class="description">{{game.description}}</p>
+            <div class="game-basic-line">
+                <p class="game-standout">{{game.genres}}</p>
+                <div class="game-basic-rating">
+                    <p>{{game.rating}}</p>
+                    <app-rating [rating]="game.rating" [disabled]="true"></app-rating>
+                </div>
+            </div>
+            <div class="game-basic-line left">
+                <p>Developer: {{game.developer}}</p>
+                <p>Publisher: {{game.publisher}}</p>
+            </div>
+            <div class="game-basic-line left">
+                <p>Release Date: {{game.releaseDate}}</p>
+                <p>Sold: {{game.sellNumber}}</p>
+            </div>
+            <button>{{ isBought() ? 'Play' : 'Buy' }}</button>
+
+        </div>
+    </div>
+    
+</div>    
+        
+
+<div class="reviews">
+    <h2>Reviews</h2>
+    <!--Reviews will appear here-->
+</div>

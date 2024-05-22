@@ -1,7 +1,10 @@
+$background-color: #0C2446;
+$foreground-color: #fff;
+$accent-color: #1993F7;
 .card {
     display: flex;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid $background-color;
+    border-radius: 4px;
     overflow: hidden;
   }
   
