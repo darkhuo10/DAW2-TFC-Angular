@@ -1,6 +1,8 @@
-<div class="star-rating" [attr.data-stars]="rating">
-  <label *ngFor="let star of stars" 
-         [class.filled]="star <= rating">
-    &#9733;
-  </label>
+<div class="star-rating">
+  <ng-container *ngFor="let star of stars; let i = index">
+    <label [ngClass]="getStarType(i)">
+      &#9733; <!-- Star symbol -->
+    </label>
+  </ng-container>
+  <span class="number">{{rating}}</span>
 </div>
