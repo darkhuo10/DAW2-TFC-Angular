@@ -1,4 +1,14 @@
-<p>{{review.user}}</p>
-<p>{{review.review}}</p>
+<div class="container">
+    <img [src]="review.userImageUrl" alt="user-profile-image">
+    <div class="group">
+        <div class="line">
+            <h2>{{review.user}}</h2>
+            <app-rating [rating]="review.rating"></app-rating>
+        </div>
+        <div class="line">
+            <p class="description">{{review.review}}</p>
+            <p class="date">2024/05/23</p>
+        </div>
+    </div>    
+</div>
 
-<app-rating [rating]="review.rating"></app-rating>

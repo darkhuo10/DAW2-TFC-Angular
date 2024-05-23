@@ -10,5 +10,6 @@ export class ReviewComponent {
     user: string, 
     review: string, 
     rating: number 
+    userImageUrl: string
   };
 }
