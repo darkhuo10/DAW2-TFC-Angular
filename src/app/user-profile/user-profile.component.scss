@@ -5,12 +5,13 @@ $accent-color: #1993F7;
 h2 { 
     font-size: 2.5em;
     margin: 20px;
+    font-weight: bold;
 }
 
-input, button, p, h2 {
+input, button, p, label{
     font-size: 2em;
     font-weight: bold;
-    padding: 10px;
+    padding: 10px 0;
 }
 
 input, button {
@@ -101,10 +102,10 @@ button {
             border-color: $accent-color;
             color: $accent-color;
 
-        &:hover {
-            color: $foreground-color;
-            background-color: $accent-color;
-    }
+            &:hover {
+                color: $foreground-color;
+                background-color: $accent-color;
+            }
         }
     }
 }
