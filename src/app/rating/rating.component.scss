@@ -1,26 +1,26 @@
-$backgorund-color: #0C2446;
+$background-color: #0C2446;
 $foreground-color: #fff;
 $accent-color: #1993F7;
 
 .star-rating {
-    display: inline-block;
-    font-size: 30px;
-    vertical-align: middle; /* Align the star rating vertically */
-  }
+  display: inline-block;
+  font-size: 30px;
+  vertical-align: middle;
   
-  .star-rating label {
-    color: darken($foreground-color, 25%);
-    cursor: default;
-  }
   
-  .star-rating label.filled {
-    color: $accent-color;
-  }
-  
-  .number {
-    font-size: 16px;
-    display: inline-block;
-    vertical-align: middle; /* Align the paragraph with the star rating */
-    margin-left: 10px;
-  }
-  
+}
+
+.star-rating label {
+  color: darken($foreground-color, 25%);
+}
+
+.star-rating label.filled {
+  color: $accent-color;
+}
+
+.number {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
