@@ -13,7 +13,7 @@ $accent-color: #1993F7;
     flex-direction: row;
     justify-content: center;
     align-items: start;
-    gap: 50px;
+    gap: 20px;
     width: fit-content;
     border: 2px solid $foreground-color;
     border-radius: 4px;
@@ -33,7 +33,7 @@ $accent-color: #1993F7;
         justify-content: space-between;
         align-items: end;
         h2, app-rating, p {
-            text-align: ri;
+            text-align: right;
             padding-bottom: 10px;
         }
         .description {

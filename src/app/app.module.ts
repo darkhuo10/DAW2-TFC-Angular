@@ -17,6 +17,7 @@ import { RatingComponent } from './rating/rating.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ReviewsComponent } from './reviews/reviews.component';
+import { MyReviewComponent } from './my-review/my-review.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReviewsComponent } from './reviews/reviews.component';
     RatingComponent,
     LoginComponent,
     NotFoundComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    MyReviewComponent
   ],
   imports: [
     BrowserModule,
