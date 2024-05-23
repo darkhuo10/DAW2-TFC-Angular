@@ -16,6 +16,7 @@ import { MainComponent } from './main/main.component';
 import { RatingComponent } from './rating/rating.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MainComponent,
     RatingComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
