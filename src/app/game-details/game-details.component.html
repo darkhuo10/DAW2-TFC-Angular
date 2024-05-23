@@ -10,10 +10,7 @@
             <p class="description">{{game.description}}</p>
             <div class="game-basic-line">
                 <p class="game-standout">{{game.genres}}</p>
-                <div class="game-basic-rating">
-                    <p>{{game.rating}}</p>
-                    <app-rating [rating]="game.rating"></app-rating>
-                </div>
+                <app-rating [rating]="game.rating"></app-rating>
             </div>
             <div class="game-basic-line left">
                 <p>Developer: {{game.developer}}</p>
