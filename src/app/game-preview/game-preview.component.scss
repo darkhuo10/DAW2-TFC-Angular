@@ -1,9 +1,8 @@
-$background-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 .card {
     display: flex;
-    border: 1px solid $background-color;
+    border: 1px solid $dark-blue;
     border-radius: 4px;
     overflow: hidden;
   }

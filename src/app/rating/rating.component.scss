@@ -1,6 +1,5 @@
-$background-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 .star-rating {
   display: flex;
   flex-direction: row;
@@ -11,14 +10,14 @@ $accent-color: #1993F7;
     overflow: hidden;
     text-align: center;
     align-items: center;
-    color: darken($foreground-color, 15%);
-    &.filled{ color: $accent-color; }
+    color: darken($white, 15%);
+    &.filled{ color: $light-blue; }
     &.half {
       position: relative;
-      color: darken($foreground-color, 15%);
+      color: darken($white, 15%);
       &::before {
         content: '\2605';
-        color: $accent-color;
+        color: $light-blue;
         position: absolute;
         left: 0;
         width: 50%;
@@ -27,7 +26,7 @@ $accent-color: #1993F7;
     }
   }
   .number {
-    color: $accent-color;
+    color: $light-blue;
     font-size: 1.5em;
     margin-left: 10px;
   }

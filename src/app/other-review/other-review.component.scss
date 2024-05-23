@@ -1,8 +1,7 @@
-$background-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 *{
-    color: $foreground-color;
+    color: $white;
 }
 .container{
     display: flex;
@@ -11,7 +10,7 @@ $accent-color: #1993F7;
     align-items: start;
     gap: 20px;
     width: fit-content;
-    border: 2px solid $foreground-color;
+    border: 2px solid $white;
     border-radius: 4px;
     margin: 20px 0;
     padding: 10px;
@@ -19,7 +18,7 @@ $accent-color: #1993F7;
         margin: 10px;
         width: 80px;
         height: 80px;
-        border: 2px solid $foreground-color;
+        border: 2px solid $white;
         border-radius: 50%;
     }
     .line {

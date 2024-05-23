@@ -1,11 +1,9 @@
-/* SCSS for styling */
-$backgorund-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 
 
 header {
-    background-color: $backgorund-color;
+    background-color: $dark-blue;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -24,7 +22,7 @@ header {
         height: auto;
     }
     .name {
-        color: $foreground-color;
+        color: $white;
         font-size: 3rem;
         font-weight: bold;
     }
@@ -32,22 +30,22 @@ header {
         margin-left: auto;
         padding: 10px;
         border-radius: 4px;
-        border: 2px solid $accent-color;
+        border: 2px solid $light-blue;
         margin-right: 10px;
     }
 
     .search-button {
         margin-right: 10px;
         padding: 12px;
-        background-color: $accent-color;
-        color: $foreground-color;
+        background-color: $light-blue;
+        color: $white;
         border: none;
         border-radius: 4px;
         cursor: pointer;
 
         &:hover {
-            background-color: darken($accent-color, 50%);
-            color: $foreground-color
+            background-color: darken($light-blue, 50%);
+            color: $white
         }
     }
 

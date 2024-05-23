@@ -1,20 +1,17 @@
-/* SCSS for styling */
-$backgorund-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
 
 footer {
-    background-color: $backgorund-color;
+    background-color: $dark-blue;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 50px;
-    color: $foreground-color;
+    color: $white;
     a {
-        color: darken($foreground-color, 25%);
+        color: darken($white, 25%);
         &:hover {
-            color: $accent-color;
+            color: $light-blue;
         }
     }
 }

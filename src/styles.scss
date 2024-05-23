@@ -1,22 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
-$backgorund-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: $backgorund-color;
+    color: $dark-blue;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: $backgorund-color transparent;
+    scrollbar-color: $dark-blue transparent;
 }
 *::-webkit-scrollbar {
     width: 10px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: $backgorund-color;
+    background-color: $dark-blue;
     border-radius: 4px;
 }
 

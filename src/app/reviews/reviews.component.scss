@@ -1,8 +1,7 @@
-$background-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "_colors.scss";
+
 h2 {
     font-size: 2.5em;
     margin: 20px 0;
-    color: $foreground-color;
+    color: $white;
 }
