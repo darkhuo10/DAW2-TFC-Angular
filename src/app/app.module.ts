@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { GamePreviewComponent } from './game-preview/game-preview.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
-import { ReviewComponent } from './review/review.component';
+import { OtherReviewComponent } from './other-review/review.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LibraryComponent } from './library/library.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -26,7 +26,7 @@ import { ReviewsComponent } from './reviews/reviews.component';
     MenuComponent,
     GamePreviewComponent,
     GameDetailsComponent,
-    ReviewComponent,
+    OtherReviewComponent,
     UserProfileComponent,
     LibraryComponent,
     WishlistComponent,
