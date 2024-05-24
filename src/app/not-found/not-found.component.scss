@@ -1,7 +1,5 @@
-/* SCSS for styling */
-$backgorund-color: #0C2446;
-$foreground-color: #fff;
-$accent-color: #1993F7;
+@import "colors";
+
 .error-container {
     text-align: center;
     padding: 50px;
@@ -14,9 +12,9 @@ $accent-color: #1993F7;
         line-height: 1.6;
         margin-bottom: 15px;
         a {
-            color: $accent-color;
+            color: $light-blue;
             &:hover {
-                color: $backgorund-color;
+                color: $dark-blue;
             }
         }
     }

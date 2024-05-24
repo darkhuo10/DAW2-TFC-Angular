@@ -1,4 +1,4 @@
-@import "_colors.scss";
+@import "colors";
 
 :host {
   display: flex;
@@ -33,7 +33,7 @@
 
 .menu-content {
   flex-grow: 1;
-  background-color: transparentize($accent-color, 0.05);
+  background-color: transparentize($light-blue, 0.05);
   backdrop-filter: blur(5px);
   overflow: hidden;
   transition: width 0.3s;
@@ -52,12 +52,12 @@
       a {
         text-decoration: none;
         font-weight: bolder;
-        color: $foreground-color;
+        color: $white;
         display: block;
         padding: 10px;
       
         &:hover {
-          color: $backgorund-color;
+          color: $dark-blue;
           transform: scale(1.05);
         }
       }
