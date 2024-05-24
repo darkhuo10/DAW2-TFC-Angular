@@ -6,14 +6,33 @@
   height: 100%;
 }
 
+header {
+  width: 100%;
+  background-color: $dark-blue;
+  color: $white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
 .menu-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 300px;
+  width: fit-content;
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s;
+
+  @media screen and (max-width: 767px) {
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $light-blue;
+  }
 }
 
 .menu-toggle {
@@ -27,6 +46,11 @@
   padding: 10px;
   cursor: pointer;
   transition: width 0.3s;
+
+  @media screen and (max-width: 767px) {
+    width: auto;
+    padding: 10px 20px;
+  }
 }
 
 .menu-content {
@@ -36,24 +60,45 @@
   overflow: hidden;
   transition: width 0.3s;
   width: 0;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: row;
+    width: 100%;
+    display: none;
+  }
+
+  &.open {
+    width: 300px;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      background-color: $light-blue;
+    }
+  }
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+
     li {
       padding: 5px 0;
+
       a {
         text-decoration: none;
         font-weight: bolder;
         color: $white;
         display: block;
         padding: 10px;
-      
+
         &:hover {
           color: $dark-blue;
           transform: scale(1.05);
         }
       }
+
       .search-bar {
         align-self: end;
         padding: 10px;
@@ -62,6 +107,7 @@
         margin-right: 10px;
         color: $light-blue;
       }
+
       .search-button {
         text-align: center;
         border: 2px solid $white;
@@ -70,17 +116,24 @@
         background-color: transparent;
         color: $white;
         cursor: pointer;
-          &:hover {
-              background-color: $white;
-              color: $light-blue
-          }
+
+        &:hover {
+          background-color: $white;
+          color: $light-blue;
+        }
       }
     }
   }
 }
 
 .menu-content.open, .menu-toggle.open {
-  width: 100%;
+  width: 300px;
   padding: 10px;
   text-align: left;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }

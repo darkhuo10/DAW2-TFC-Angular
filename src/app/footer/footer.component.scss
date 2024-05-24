@@ -1,17 +1,26 @@
 @import "colors";
 
+* {
+    color: $white;
+}
+
 footer {
     background-color: $dark-blue;
     display: flex;
-    flex-direction: row;
+    flex-direction: column; /* Change direction to column for responsiveness */
     justify-content: center;
     align-items: center;
     padding: 50px;
-    color: $white;
+
     a {
         color: darken($white, 25%);
         &:hover {
             color: $light-blue;
         }
+    }
+
+    @media screen and (min-width: 768px) {
+        /* Adjustments for larger screens */
+        flex-direction: row; /* Change direction back to row */
     }
 }

@@ -1,12 +1,12 @@
 @import "colors";
 
-h2 { 
+h2 {
     font-size: 2.5em;
     margin: 20px;
     font-weight: bold;
 }
 
-input, button, p, label{
+input, button, p, label {
     font-size: 2em;
     font-weight: bold;
     padding: 10px 0;
@@ -18,9 +18,11 @@ input, button {
     border: 2px solid $dark-blue;
     border-radius: 4px;
 }
-input:focus{
+
+input:focus {
     border-color: $light-blue;
 }
+
 button {
     cursor: pointer;
     background-color: $white;
@@ -30,6 +32,7 @@ button {
         background-color: $dark-blue;
     }
 }
+
 .container {
     display: flex;
     flex-direction: column;
@@ -39,34 +42,44 @@ button {
 
     .user-data {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         border: 2px solid $dark-blue;
         background-color: $dark-blue;
         color: $white;
-        padding: 20PX 100px; 
+        padding: 20px;
         margin-bottom: 50px;
         border-radius: 4px;
-        gap: 75px;
+        gap: 20px;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            padding: 20px 100px;
+            gap: 75px;
+        }
+
         .user-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
             input {
                 font-size: 3rem;
                 border-color: $white;
                 background-color: $dark-blue;
                 color: $white;
-                &:focus{
+
+                &:focus {
                     background-color: $white;
                     color: $light-blue;
                 }
             }
+
             #role {
                 color: $light-blue;
             }
         }
-    
+
         .user-image {
             width: 300px;
             height: 300px;
@@ -75,7 +88,7 @@ button {
             border-radius: 50%;
             margin: 20px;
             position: relative;
-    
+
             &:hover {
                 cursor: pointer;
                 filter: invert(35%);
@@ -87,16 +100,24 @@ button {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        .personal-password, .personal-info {
+
+        .personal-password,
+        .personal-info {
             display: flex;
             flex-direction: row;
             gap: 10px;
-        } 
+        }
     }
+
     .buttons {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 20px;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+        }
+
         #logout {
             border-color: $light-blue;
             color: $light-blue;
@@ -105,6 +126,34 @@ button {
                 color: $white;
                 background-color: $light-blue;
             }
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        /* Adjust layout for smaller screens */
+        *{
+            font-size: 1.5rem;
+        }
+        .user-data {
+            padding: 20px;
+            align-items: center;
+            text-align: center;
+        }
+        .personal-data {
+            flex-direction: column;    
+            .personal-password,
+            .personal-info {
+                flex-direction: column;
+                align-items: center;
+                text-align: left;
+                input {
+                    width: 100%;
+                }
+            }
+        }
+        .buttons {
+            align-items: center;
+            text-align: center;
         }
     }
 }

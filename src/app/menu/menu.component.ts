@@ -11,4 +11,5 @@ export class MenuComponent {
   toggleMenu(state: boolean) {
     this.isMenuOpen = state;
   }
+  
 }
