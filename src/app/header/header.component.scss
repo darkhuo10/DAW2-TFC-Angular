@@ -29,9 +29,8 @@ header {
         color: $white;
         font-size: 3em;
         font-weight: bold;
-
         @media screen and (max-width: 767px) {
-            display: none;
+            font-size: 2em;
         }
     }
 }
