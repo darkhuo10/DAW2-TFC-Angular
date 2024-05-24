@@ -1,11 +1,13 @@
 @import "colors";
 
 header {
+    display: flex;
     background-color: $dark-blue;
     padding: 20px;
     font-weight: bolder;
-
+    justify-content: center;
     .identity {
+        width: fit-content;
         padding-left: 50px;
         display: flex;
         flex-direction: row;
