@@ -5,3 +5,15 @@ h2 {
     margin: 20px 0;
     color: $white;
 }
+.other-reviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.add-review {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
