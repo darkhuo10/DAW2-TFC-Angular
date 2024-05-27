@@ -15,7 +15,7 @@ header {
         align-items: center;
         gap: 10px;
 
-        @media screen and (max-width: 767px) {
+        @media (max-width: 768px) {
             padding-left: 0;
         }
     }
@@ -29,7 +29,7 @@ header {
         color: $white;
         font-size: 3em;
         font-weight: bold;
-        @media screen and (max-width: 767px) {
+        @media (max-width: 768px) {
             font-size: 2em;
         }
     }
