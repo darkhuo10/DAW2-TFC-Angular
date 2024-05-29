@@ -1,26 +1,28 @@
 <h1 align="center">🔹🔷 VgameStore 🔷🔹</h1>
 
-<p align="justify">This is the final project for the Web Application Development course at IES Laguna de Joatzel, Getafe, Madrid.</p>
+<p align="center">This is the final project for the Web Application Development course at IES Laguna de Joatzel, Getafe, Madrid.</p>
 
 ---
+<div align="justify">
+  The project consists of a fictional game store, where users can log in, search for games, add them to their wishlists, "buy" them, add them to their libraries and (possibly) download files. It's available in English (and maybe Spanish).
 
-The project consists of a fictional game store, where users can log in, search for games, add them to their wishlists, "buy" them, add them to their libraries and (possibly) download files. It's available in English (and maybe Spanish).
+  There are other users (administrators) that can create games; adding their title, description, developer, publisher, release date, images to showcase and a file that will be the one that users download after "buying" the game.
 
-There are other users (administrators) that can create games; adding their title, description, developer, publisher, release date, images to showcase and a file that will be the one that users download after "buying" the game.
+  > This is just the front-end of the application. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
+</div>
 
-> This is the repository for the front-end of the application. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
 
 <h2 align="justify">🔹 Technologies: 🔹</h2>
 <div align="center">
-  <a href="https://www.typescriptlang.org/"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
-  <a href="https://angular.dev/"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
+  <a href="https://www.typescriptlang.org/" target="_blank"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
+  <a href="https://angular.dev/" target="_blank"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
 </div>
 <h2 align="justify">🔹 About the project: 🔹</h2>
 <div align="justify">
 
   ## Home Page
  <img src="https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)"></img>
-  The home page has all the games. It also has a menu which can be found in the upper left corner. This menu contains the different pages that you'll be able to access plus a search bar in order to look for games.
+  The home page has all the games. It also has a menu which can be found in the upper left corner. This menu contains the pages and a search bar to look for games.
 </div>
 <h2 align="justify">🔹 Angular: 🔹</h2>
 <div align="justify">
