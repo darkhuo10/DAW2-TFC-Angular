@@ -16,7 +16,9 @@ There are other users (administrators) that can create games; adding their title
   <a href="https://angular.dev/"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
 </div>
 <h2 align="justify">🔹 About the project: 🔹</h2>
-<div align="center">
+<div align="justify">
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)
+
  ...
 </div>
 <h2 align="justify">🔹 Angular: 🔹</h2>
