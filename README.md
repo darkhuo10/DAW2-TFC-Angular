@@ -1,22 +1,25 @@
 <h1 align="center">🔹🔷 VgameStore 🔷🔹</h1>
 
-<p align="center">This is the final project for the Web Application Development course at IES Laguna de Joatzel, Getafe, Madrid.</p>
+<p align="justify">This is the final project for the Web Application Development course at IES Laguna de Joatzel, Getafe, Madrid.</p>
 
 ---
 
-The project consists of a fictitious game store, where users can log in, search for games, add them to their wishlists, "buy" them, add them to their libraries and (possibly) download files. It may be available in English and Spanish.
+The project consists of a fictional game store, where users can log in, search for games, add them to their wishlists, "buy" them, add them to their libraries and (possibly) download files. It's available in English (and maybe Spanish).
 
 There are other users (administrators) that can create games; adding their title, description, developer, publisher, release date, images to showcase and a file that will be the one that users download after "buying" the game.
 
 > This is the repository for the front-end of the application. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
 
-<h2 align="center">🔹 Technologies: 🔹</h2>
+<h2 align="justify">🔹 Technologies: 🔹</h2>
 <div align="center">
   <a href="https://www.typescriptlang.org/"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
   <a href="https://angular.dev/"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
 </div>
-
-<h2 align="center">🔹 Angular basics: 🔹</h2>
+<h2 align="justify">🔹 About the project: 🔹</h2>
+<div align="center">
+ ...
+</div>
+<h2 align="justify">🔹 Angular: 🔹</h2>
 <div align="justify">
   
   ## Project generation
