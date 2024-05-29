@@ -17,9 +17,10 @@ There are other users (administrators) that can create games; adding their title
 </div>
 <h2 align="justify">🔹 About the project: 🔹</h2>
 <div align="justify">
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)
 
- ...
+  ## Home Page
+ <img src="https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)"></img>
+  The home page has all the games. It also has a menu which can be found in the upper left corner. This menu contains the different pages that you'll be able to access plus a search bar in order to look for games.
 </div>
 <h2 align="justify">🔹 Angular: 🔹</h2>
 <div align="justify">
