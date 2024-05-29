@@ -1,27 +1,49 @@
-# Front
+<h1 align="center">🔹🔷 VgameStore 🔷🔹</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+<p align="center">This is the final project for the Web Application Development course at IES Laguna de Joatzel, Getafe, Madrid.</p>
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The project consists of a fictitious game store, where users can log in, search for games, add them to their wishlists, "buy" them, add them to their libraries and (possibly) download files. It may be available in English and Spanish.
 
-## Code scaffolding
+There are other users (administrators) that can create games; adding their title, description, developer, publisher, release date, images to showcase and a file that will be the one that users download after "buying" the game.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> This is the repository for the front-end of the application. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
 
-## Build
+<h2 align="center">🔹 Technologies: 🔹</h2>
+<div align="center">
+  <a href="https://www.typescriptlang.org/"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
+  <a href="https://angular.dev/"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
+</div>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<h2 align="center">🔹 Angular basics: 🔹</h2>
+<div align="justify">
+  
+  ## Project generation
+  This project was generated with [Angular CLI] (https://github.com/angular/angular-cli) version 17.1.1.
+  
+  ## Development server
+  Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+  
+  ## Code scaffolding
+  Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  
+  ## Build
+  Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  
+  ## Running unit tests
+  Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  
+  ## Running end-to-end tests
+  Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  
+  ## Further help
+  To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+</div>
 
-## Running unit tests
+<h2 align="center">🔹 Developed by: 🔹</h2>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<div align="center">
+  <a href="https://github.com/darkhuo10"><img name="Marina Pintado" src="https://avatars.githubusercontent.com/u/105634828?v=4" height="150" ></a>
+  <a href="https://github.com/Idliketobealoli"><img name="Daniel Rodriguez" src="https://avatars.githubusercontent.com/u/80858419?v=4" height="150"></a>
+</div>
