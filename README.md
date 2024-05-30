@@ -8,21 +8,35 @@
 
   There are other users (administrators) that can create games; adding their title, description, developer, publisher, release date, images to showcase and a file that will be the one that users download after "buying" the game.
 
-  > This is just the front-end of the application. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
+  > This is just the front-end. For the back-end, visit [this repository](https://github.com/Idliketobealoli/TFG-DAW-Backend-fastapi).
 </div>
 
 
 <h2 align="justify">🔹 Technologies: 🔹</h2>
 <div align="center">
-  <a href="https://www.typescriptlang.org/" target="_blank"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
-  <a href="https://angular.dev/" target="_blank"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
+  <a href="https://www.typescriptlang.org/"><img name="python" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" height="100"></img></a>
+  <a href="https://angular.dev/"><img name="fastapi" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Angular_full_color_logo.svg" height="100"></img></a>
 </div>
 <h2 align="justify">🔹 About the project: 🔹</h2>
 <div align="justify">
 
   ## Home Page
- <img src="https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)"></img>
+    
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)
   The home page has all the games. It also has a menu which can be found in the upper left corner. This menu contains the pages and a search bar to look for games.
+  
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/df4c1500-51a6-41e2-8b65-320b2f12ae59)
+  Each game has an image (or more than  one) plus basic info about itself. In addition, games can have reviews that will also be shown on the game's page.
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/6d63baf0-dd22-476b-acb9-2a2c4ce834f0)
+
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/541e10fa-a642-4dc6-9723-ebc6e8a6ecd3)
+  It also has a not found page with a link that redirects to the home page.
+
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/4c07aa80-b20b-4eb4-918c-2e881c16b30b)
+  The user profile shows the basic user data which are updateable.
+
+  Finally, all the other pages linked though the menu are a filtered games list.
+
 </div>
 <h2 align="justify">🔹 Angular: 🔹</h2>
 <div align="justify">
