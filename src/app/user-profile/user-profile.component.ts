@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,16 +11,17 @@ export class UserProfileComponent {
   togglePassword(): void {
       this.hidePassword = !this.hidePassword;
   }
-  user = {
+  user: User = {
     id: '1',
-    imageUrl: './assets/img/vgamestore_logo_blue.svg',
+    profilePicture: './assets/img/vgamestore_logo_blue.svg',
     username: 'darkhuo10',
     email: 'darkhuoyt@gmail.com',
-    firstName: 'Marina',
-    lastName: 'Pintado',
+    name: 'Marina',
+    surname: 'Pintado',
     role: 'ADMIN',
     birthday: '2003-12-10',
-    password: '123456'
+    password: '123456',
+    active: true
   };
   
   selectImage(): void {
@@ -34,23 +36,10 @@ export class UserProfileComponent {
       const reader = new FileReader();
 
       reader.onload = (e: any) => {
-        this.user.imageUrl = e.target.result;
+        this.user.profilePicture = e.target.result;
       };
 
       reader.readAsDataURL(file);
     }
   }
-  /*formatDate(date: string): string {
-    const d = new Date(date);
-    const day = d.getDate().toString().padStart(2, '0');
-    const month = (d.getMonth() + 1).toString().padStart(2, '0');
-    const year = d.getFullYear();
-    return `${day}/${month}/${year}`;
-  }
-
-  parseDate(dateString: string): Date {
-    const [day, month, year] = dateString.split('/').map(Number);
-    return new Date(year, month - 1, day);
-  }*/
-
 }
