@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Game } from '../models/game.model';
+import { Game } from '../../models/game.model';
 
 @Component({
   selector: 'app-game-preview',
