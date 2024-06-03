@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Game } from '../models/game.model';
 
 @Component({
   selector: 'app-game-preview',
@@ -7,14 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './game-preview.component.scss'
 })
 export class GamePreviewComponent {
-  @Input() game!: { 
-    id: string,
-    name: string, 
-    description: string, 
-    imageUrl: string, 
-    price: number, 
-    rating: number 
-  };
+  @Input() game!: Game;
 
   constructor(private router: Router){}
   redirectToDetails(){
