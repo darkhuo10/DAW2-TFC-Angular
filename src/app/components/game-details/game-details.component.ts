@@ -1,6 +1,7 @@
-// game-details.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { GameService } from '../../services/game.services';
+import { Game } from '../../models/game.model';
 
 @Component({
   selector: 'app-game-details',
@@ -9,32 +10,60 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GameDetailsComponent implements OnInit {
   gameId!: string;
-  bought: boolean = false;
-  constructor(private route: ActivatedRoute) {}
+  game!: Game;
+  
+  constructor(private route: ActivatedRoute, private gameService: GameService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.gameId = params.get('id')!;
+      this.getGame();
     });
   }
-  
-  isBought(): boolean {
-    return this.bought;
+
+  toggleWishlist(): void {
+    if (this.isInWishlist()) {
+      // Remove from wishlist
+      this.removeFromWishlist();
+    } else {
+      // Add to wishlist
+      this.addToWishlist();
+    }
   }
 
-  game = {
-    id: this.gameId,
-    name: 'Game 1', 
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem alias ab iusto nemo, optio harum facilis rem esse ullam consequatur nobis, odit, similique a repudiandae labore. Iusto illo blanditiis praesentium!', 
-    imageUrl: './assets/img/vgamestore_logo_blue.svg',
-    genres:['aaa', 'bbb'], 
-    price: 19.99, 
-    rating: 4.5, 
-    developer: 'asdas',
-    publisher: 'djfhasdjk',
-    releaseDate: '2020-10-21',
-    sellNumber: 5234590,
-    languages: ['ES', 'EN']
+  isInWishlist(): boolean {
+    // Logic to check if game is in wishlist (you need to implement this)
+    // For example, you can check if the game's id is in an array of wishlist game ids
+    return false; // Placeholder, replace with your logic
   }
-  
+
+  addToWishlist(): void {
+    // Logic to add the game to the wishlist (you need to implement this)
+    // For example, you can push the game's id into an array of wishlist game ids
+  }
+
+  removeFromWishlist(): void {
+    // Logic to remove the game from the wishlist (you need to implement this)
+    // For example, you can remove the game's id from an array of wishlist game ids
+  }
+
+  getGame(): void {
+    this.gameService.getGameById(this.gameId).subscribe((game: Game) => {
+      this.game = game;
+      this.gameService.getMainImage(game.id).subscribe((response) => {
+        // Assuming response contains the URL of the main image
+        if (typeof response === 'string') {
+          this.game.mainImage = response;
+        } else {
+          // Handle the case where response is a Blob (image data), convert it to a URL or base64 string
+          const reader = new FileReader();
+          reader.onload = () => {
+            // Assuming reader.result contains the data URL or base64 string
+            this.game.mainImage = reader.result as string;
+          };
+          reader.readAsDataURL(response);
+        }
+      });
+    });
+  } 
 }

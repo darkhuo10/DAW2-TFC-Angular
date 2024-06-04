@@ -29,7 +29,7 @@
   }
 
   .card-img {
-    width: 25%; // Set image to 25% of the card's width
+    width: 30%; // Set image to 25% of the card's width
     height: auto;
 
     @media (max-width: 768px) {
@@ -38,7 +38,7 @@
   }
 
   .card-content {
-    width: 75%; // Set content to 75% of the card's width
+    width: 70%; // Set content to 75% of the card's width
     flex-grow: 1; // Allow content to grow and fill the available space
     display: flex;
     flex-direction: column;

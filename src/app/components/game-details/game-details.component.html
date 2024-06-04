@@ -1,8 +1,8 @@
 <div class="game">
     <div class="game-basic">
-        <img [src]="game.imageUrl" alt="Product Image" class="game-basic-img">
+        <img [src]="game.mainImage" alt="Product Image" class="game-basic-img">
         <div class="game-basic-text">
-            <h2>{{game.name}}, {{gameId}}</h2> <!--Getting id just to check-->
+            <h2>{{game.name}}</h2> <!--Getting id just to check-->
             <div class="game-basic-line">
                 <p>{{game.price}}€</p>
                 <p class="game-standout">{{game.languages}}</p>
@@ -17,16 +17,17 @@
                 <p>Publisher: {{game.publisher}}</p>
             </div>
             <div class="game-basic-line left">
-                <p>Release Date: {{game.releaseDate}}</p>
+                <p>Release Date: {{game.date}}</p>
                 <p>Sold: {{game.sellNumber}}</p>
             </div>
-            <button>{{ isBought() ? 'Play' : 'Buy' }}</button>
-
+            <div class="game-basic-line">
+                <button>Download</button>
+                <button (click)="toggleWishlist()">{{ isInWishlist() ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
+            </div>
+            
         </div>
     </div>
-    
 </div>    
-        
 
 <div class="reviews">
     <app-reviews></app-reviews>
