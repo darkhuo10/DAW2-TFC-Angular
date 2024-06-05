@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.services';
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -10,9 +9,7 @@ import { GameService } from '../../services/game.services';
 export class MainComponent implements OnInit {
   games: Game[] = [];
   gameIndexes: number[] = [];
-
   constructor(private gameService: GameService) {}
-
   ngOnInit(): void {
     this.getGames();
   }

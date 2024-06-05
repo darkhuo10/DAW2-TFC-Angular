@@ -1,12 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.services';
 import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'app-game-preview',
   templateUrl: './game-preview.component.html',
-  styleUrl: './game-preview.component.scss',
+  styleUrl: './game-preview.component.scss'
 })
 export class GamePreviewComponent {
   loading = false;
@@ -35,6 +36,7 @@ export class GamePreviewComponent {
   redirectToDetails(){
     this.router.navigate(['/game', this.game.id]);
   }
+
 
   deleteGame(){
     this.loading = true;
