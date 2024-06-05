@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   }
 
   getGames(): void {
-    this.gameService.getAllGames().subscribe((data) => {
+    this.gameService.getAllGames({visible: true}).subscribe((data) => {
       this.games = data;
       this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
       this.games.forEach((game, index) => {
