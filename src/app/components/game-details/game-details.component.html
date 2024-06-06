@@ -18,10 +18,12 @@
             </div>
             <div class="game-basic-line left">
                 <p>Release Date: {{game.date}}</p>
-                <p>Sold: {{game.sellNumber}}</p>
+                <p>Sells: {{game.sellNumber}}</p>
             </div>
             <div class="game-basic-line">
-                <button>Download</button>
+                <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden="true">
+                <button *ngIf="isAdmin()" (click)="openFileDialog()">Upload</button>
+                <button (click)="download()">Download</button>
                 <button (click)="toggleWishlist()">{{ isInWishlist() ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
             </div>
             

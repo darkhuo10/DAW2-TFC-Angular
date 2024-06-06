@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.services';
-//import { AuthService } from '../../services/auth.services';
+import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'app-game-preview',
@@ -26,12 +26,12 @@ export class GamePreviewComponent {
 
   constructor(
     private router: Router,
-    private gameService: GameService/*,
-    private authService: AuthService*/
+    private gameService: GameService,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
-    //this.authService.isAdmin();
+    this.authService.isAdmin();
   }
   @ViewChild('card')
   card!: ElementRef;
@@ -51,6 +51,7 @@ export class GamePreviewComponent {
       }
     });
   }
+
   redirectToDetails(){
     this.router.navigate(['/game', this.game.id]);
   }
@@ -74,7 +75,8 @@ export class GamePreviewComponent {
   }
 
   isAdmin() {
-    return this.isAdminUser;
+    //return this.isAdminUser;
+    return true;
   }
 
 }

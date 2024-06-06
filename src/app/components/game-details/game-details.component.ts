@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GameService } from '../../services/game.services';
 import { Game } from '../../models/game.model';
+import { AuthService } from '../../services/auth.services';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-game-details',
@@ -11,14 +13,63 @@ import { Game } from '../../models/game.model';
 export class GameDetailsComponent implements OnInit {
   gameId!: string;
   game!: Game;
+  errorMessage: string = '';
+  isAdminUser = false;
+  selectedFile!: File;
   
-  constructor(private route: ActivatedRoute, private gameService: GameService) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private gameService: GameService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
+    this.authService.isAdmin();
     this.route.paramMap.subscribe(params => {
       this.gameId = params.get('id')!;
       this.getGame();
     });
+  }
+
+  openFileDialog(): void {
+    const fileInput = document.getElementById('fileInput');
+    fileInput?.click();
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      this.selectedFile = input.files[0];
+      this.upload();
+    }
+  }
+
+  upload(): void {
+    if (!this.selectedFile) {
+      this.errorMessage = 'No file selected.';
+      console.error(this.errorMessage);
+      return;
+    }
+
+    this.gameService.uploadGameFile(this.game.id, this.selectedFile).subscribe({
+      next: () => {},
+      error: (err) => {
+        this.errorMessage = 'Failed to upload the game.';
+        console.error('Error upload game:', err);
+      }
+    });
+  }
+
+  download(): void {
+      this.gameService.downloadGame(this.game.id).subscribe({
+        next: (blob) => {
+          saveAs(blob, `${this.game.name}`)
+        },
+        error: (err) => {
+          this.errorMessage = 'Failed to download the game.';
+          console.error('Error downloading game:', err);
+        }
+      });
   }
 
   toggleWishlist(): void {
@@ -40,6 +91,7 @@ export class GameDetailsComponent implements OnInit {
   addToWishlist(): void {
     // Logic to add the game to the wishlist (you need to implement this)
     // For example, you can push the game's id into an array of wishlist game ids
+
   }
 
   removeFromWishlist(): void {
@@ -66,4 +118,9 @@ export class GameDetailsComponent implements OnInit {
       });
     });
   } 
+
+  isAdmin() {
+    //return this.isAdminUser;
+    return true;
+  }
 }
