@@ -6,9 +6,19 @@ import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
   })
-  export class GameService {
+  export class UserService {
     private apiUrl = 'http://localhost:80/users';
   
     constructor(private http: HttpClient) {}
+
+    getUserById(userId: string): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}/${userId}`);
+    }
+
+    getUserPfp(userId: string): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}/pfp/${userId}`);
+    }
+
+    //Añadir mas conforme vaya necesitando.
   }
   

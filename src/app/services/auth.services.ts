@@ -16,9 +16,14 @@ export class AuthService {
     if (token) {
       const decodedToken: any = jwtDecode(token);
       this.currentUser = {
-        role: decodedToken.role
+        role: decodedToken.role,
+        id: decodedToken.id
       };
     }
+  }
+
+  getCurrentUser(): string {
+    return this.currentUser.id.toString();
   }
 
   isAdmin(): boolean {

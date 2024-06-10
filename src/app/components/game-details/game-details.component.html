@@ -24,7 +24,7 @@
                 <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden="true">
                 <button *ngIf="isAdmin()" (click)="openFileDialog()">Upload</button>
                 <button (click)="download()">Download</button>
-                <button (click)="toggleWishlist()">{{ isInWishlist() ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
+                <button id="buttonWishlist" (click)="toggleWishlist()">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
             </div>
             
         </div>

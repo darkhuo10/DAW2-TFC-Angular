@@ -1,16 +1,17 @@
 <div class="line">
     <div class="group">
         <label for="comment">Opinion</label>
-        <textarea [rows]="4" [cols]="200" placeholder="Write your review" id="comment"></textarea>
+        <textarea [rows]="4" [cols]="200" placeholder="Write your review" maxlength="4000" id="comment"></textarea>
     </div>
 
     <div class="group">
         <label for="rating">Rating</label>
         <div class="line">
-            <input type="range" id="satisfaction" name="satisfaction" min="1.0" max="5.0" step="0.1" [value]="rating" (input)="onRatingChange($event)"/>
+            <input type="range" id="satisfaction" name="satisfaction" min="1.0" 
+            max="5.0" step="0.1" [value]="2" (input)="onRatingChange($event)"/>
             <output>{{ rating }}</output>
         </div>
-        <button id="send">Send</button>
+        <button id="send" (click)="saveData()">Send</button>
     </div>
 </div>
 

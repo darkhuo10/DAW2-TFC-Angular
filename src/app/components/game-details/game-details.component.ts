@@ -4,6 +4,7 @@ import { GameService } from '../../services/game.services';
 import { Game } from '../../models/game.model';
 import { AuthService } from '../../services/auth.services';
 import { saveAs } from 'file-saver';
+import { WishlistService } from '../../services/wishlist.service';
 
 @Component({
   selector: 'app-game-details',
@@ -16,24 +17,32 @@ export class GameDetailsComponent implements OnInit {
   errorMessage: string = '';
   isAdminUser = false;
   selectedFile!: File;
+  isInWishlist = false;
+  buttonWishlist = document.getElementById('buttonWishlist');
+  fileInput = document.getElementById('fileInput');
   
   constructor(
     private route: ActivatedRoute, 
     private gameService: GameService,
-    private authService: AuthService
+    private authService: AuthService,
+    private wishlistService: WishlistService
   ) {}
 
   ngOnInit(): void {
-    this.authService.isAdmin();
+    this.isAdminUser = this.authService.isAdmin();
     this.route.paramMap.subscribe(params => {
       this.gameId = params.get('id')!;
       this.getGame();
     });
+    this.wishlistService.isInWishlist(this.authService.getCurrentUser(), this.gameId).subscribe({
+      next: (response) => {
+        this.isInWishlist = response.exists
+      }
+    });
   }
 
   openFileDialog(): void {
-    const fileInput = document.getElementById('fileInput');
-    fileInput?.click();
+    this.fileInput?.click();
   }
 
   onFileSelected(event: Event): void {
@@ -51,7 +60,7 @@ export class GameDetailsComponent implements OnInit {
       return;
     }
 
-    this.gameService.uploadGameFile(this.game.id, this.selectedFile).subscribe({
+    this.gameService.uploadGameFile(this.gameId, this.selectedFile).subscribe({
       next: () => {},
       error: (err) => {
         this.errorMessage = 'Failed to upload the game.';
@@ -61,42 +70,61 @@ export class GameDetailsComponent implements OnInit {
   }
 
   download(): void {
-      this.gameService.downloadGame(this.game.id).subscribe({
-        next: (blob) => {
-          saveAs(blob, `${this.game.name}`)
-        },
-        error: (err) => {
-          this.errorMessage = 'Failed to download the game.';
-          console.error('Error downloading game:', err);
-        }
-      });
+    this.gameService.downloadGame(this.gameId).subscribe({
+      next: (blob) => {
+        saveAs(blob, `${this.game.name}`)
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to download the game.';
+        console.error('Error downloading game:', err);
+      }
+    });
   }
 
   toggleWishlist(): void {
-    if (this.isInWishlist()) {
-      // Remove from wishlist
-      this.removeFromWishlist();
-    } else {
-      // Add to wishlist
-      this.addToWishlist();
-    }
-  }
-
-  isInWishlist(): boolean {
-    // Logic to check if game is in wishlist (you need to implement this)
-    // For example, you can check if the game's id is in an array of wishlist game ids
-    return false; // Placeholder, replace with your logic
+    this.wishlistService.isInWishlist(this.authService.getCurrentUser(), this.gameId).subscribe({
+      next: (response) => {
+        // si "exists" es igual a true, lo quita de la wishlist. Si no, lo añade.
+        response.exists ? 
+        this.removeFromWishlist() : 
+        this.addToWishlist();
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to determine if the game is in the wishlist. '+
+        'Either the user or the game do not exist.';
+        console.error('Error determining if the game is in the wishlist:', err);
+      }
+    });
   }
 
   addToWishlist(): void {
-    // Logic to add the game to the wishlist (you need to implement this)
-    // For example, you can push the game's id into an array of wishlist game ids
-
+    this.wishlistService.addToWishlist(this.authService.getCurrentUser(), this.gameId).subscribe({
+      next: (response) => {
+        if (this.buttonWishlist) {
+          this.buttonWishlist.innerText = 'Remove from Wishlist'
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to determine if the game is in the wishlist. '+
+        'Either the user or the game do not exist.';
+        console.error('Error determining if the game is in the wishlist:', err);
+      }
+    });
   }
 
   removeFromWishlist(): void {
-    // Logic to remove the game from the wishlist (you need to implement this)
-    // For example, you can remove the game's id from an array of wishlist game ids
+    this.wishlistService.removeFromWishlist(this.authService.getCurrentUser(), this.gameId).subscribe({
+      next: (response) => {
+        if (this.buttonWishlist) {
+          this.buttonWishlist.innerText = 'Add to Wishlist'
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to determine if the game is in the wishlist. '+
+        'Either the user or the game do not exist.';
+        console.error('Error determining if the game is in the wishlist:', err);
+      }
+    });
   }
 
   getGame(): void {

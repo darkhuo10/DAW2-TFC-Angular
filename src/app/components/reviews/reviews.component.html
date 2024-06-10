@@ -1,6 +1,6 @@
-<h2>Reviews</h2>
-<div class="other-reviews" *ngFor="let index of reviewIndexes">
-    <app-other-review [review]="reviews[index]"></app-other-review>
+<h2 *ngIf="reviews.length > 0">Reviews</h2>
+<div class="other-reviews" *ngFor="let review of reviews">
+    <app-other-review class="reviews" [review]="review"></app-other-review>
 </div>
 
 <h2>Add review</h2>
