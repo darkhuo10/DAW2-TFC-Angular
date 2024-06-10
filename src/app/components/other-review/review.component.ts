@@ -35,4 +35,9 @@ export class OtherReviewComponent implements OnInit {
       }
     });
   }
+
+  formatDate(dateStr: string) {
+    let date = new Date(dateStr);
+    return `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+  }
 }
