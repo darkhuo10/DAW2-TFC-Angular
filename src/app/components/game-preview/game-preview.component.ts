@@ -74,6 +74,11 @@ export class GamePreviewComponent {
     }
   }
 
+  formattedDescription() {
+    let description = this.game.description
+    return description.trim().length > 180 ? description.trim().substring(0, 180).trimEnd() + "..." : description;
+  }
+
   isAdmin() {
     //return this.isAdminUser;
     return true;

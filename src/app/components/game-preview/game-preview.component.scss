@@ -20,13 +20,13 @@
   flex-direction: row;
   
   .card-img {
-    width: 150px;
+    width: 130px;
     height: 200px;
   }
   .scroll-indicator {
     display: none;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1001px) {
     flex-direction: column;
     height: 500px;
     overflow-y: auto;
