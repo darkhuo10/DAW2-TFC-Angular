@@ -65,8 +65,8 @@ import { Game } from '../models/game.model'; // Adjust the import path according
       return this.http.get(`${this.apiUrl}/showcase_image/${name}`, { responseType: 'blob' });
     }
   
-    downloadGame(gameId: string): Observable<Blob> {
-      return this.http.get(`${this.apiUrl}/download/${gameId}`, {
+    downloadGame(gameId: string, userId: string): Observable<Blob> {
+      return this.http.get(`${this.apiUrl}/download/${gameId}?user_id=${userId}`, {
         responseType: 'blob',
         headers: {
           'Content-Disposition': 'attachment'

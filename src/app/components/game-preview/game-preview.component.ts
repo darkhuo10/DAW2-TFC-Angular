@@ -1,6 +1,6 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild, Inject } from '@angular/core';
+//import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
-import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.services';
 import { AuthService } from '../../services/auth.services';
 
@@ -27,11 +27,12 @@ export class GamePreviewComponent {
   constructor(
     private router: Router,
     private gameService: GameService,
-    private authService: AuthService
+    private authService: AuthService//,
+    //@Inject(DOCUMENT) private document: Document
   ){}
 
   ngOnInit(): void {
-    this.authService.isAdmin();
+    this.isAdminUser = this.authService.isAdmin();
   }
   @ViewChild('card')
   card!: ElementRef;
@@ -64,6 +65,8 @@ export class GamePreviewComponent {
       this.gameService.deleteGame(this.game.id).subscribe({
         next: () => {
           this.loading = false;
+          document.defaultView?.location.reload();
+          //this.document.defaultView?.location.reload();
         },
         error: (err) => {
           this.loading = false;

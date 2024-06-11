@@ -77,6 +77,8 @@
         &.date {
           flex:none;
           width: 10rem;
+          text-align: end;
+          padding-right: 5px;
         }
 
         &.description {

@@ -1,8 +1,7 @@
 @import "colors";
 
 h2 {
-    font-size: 2.5em;
-    margin: 20px 0;
+    font-size: 3rem;
 }
 
 p {
@@ -41,6 +40,11 @@ button {
     padding: 20px;
     border-radius: 8px;
 
+    background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: 70% auto;
+
     .game-basic {
         display: flex;
         flex-direction: row;
@@ -78,16 +82,17 @@ button {
             .game-basic-line {
                 display: flex;
                 flex-direction: row;
-                justify-content: end;
+                justify-content: space-between;
                 align-items: center;
                 gap: 50px;
-                padding: 5px;
+                padding: 0 5px;
                 p {
-                    font-size: 1.5em;
+                    font-size: 1.1rem;
                 }
 
                 .game-standout {
                     color: $light-blue;
+                    text-align: end;
                 }
 
                 .game-basic-rating {
@@ -97,7 +102,7 @@ button {
 
                     p {
                         margin: 0;
-                        font-size: 1.2em;
+                        font-size: 1.1em;
                     }
 
                     @media (max-width: 768px) {
@@ -112,8 +117,29 @@ button {
                 }
             }
 
+            .right {
+                justify-content: end;
+            }
+
+            .game-basic-line-title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 50px;
+                padding: 5px;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+
             .description {
-                margin-bottom: 20px;
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                text-align: justify;
             }
         }
     }

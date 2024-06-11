@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.services';
+import { formatShortDateTime } from '../utils/utils';
 
 @Component({
   selector: 'app-other-review',
@@ -23,6 +24,7 @@ export class OtherReviewComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUserPfp(this.review.userId).subscribe({
       next: (response) => {
+        console.log(response);
         if (typeof response === 'string') {
           this.reviewUserImageUrl = response;
         } else {
@@ -36,8 +38,7 @@ export class OtherReviewComponent implements OnInit {
     });
   }
 
-  formatDate(dateStr: string) {
-    let date = new Date(dateStr);
-    return `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+  formatDate(date: string) {
+    return formatShortDateTime(date);
   }
 }

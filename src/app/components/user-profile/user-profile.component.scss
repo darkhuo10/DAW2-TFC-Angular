@@ -106,6 +106,14 @@ button {
             display: flex;
             flex-direction: row;
             gap: 10px;
+
+            .password-field {
+                flex: 4;
+            }
+            
+            .toggle-password {
+                flex: 1;
+            }
         }
     }
 

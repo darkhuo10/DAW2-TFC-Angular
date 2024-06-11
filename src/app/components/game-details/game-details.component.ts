@@ -5,6 +5,7 @@ import { Game } from '../../models/game.model';
 import { AuthService } from '../../services/auth.services';
 import { saveAs } from 'file-saver';
 import { WishlistService } from '../../services/wishlist.service';
+import { formatLongDate } from '../utils/utils';
 
 @Component({
   selector: 'app-game-details',
@@ -18,8 +19,8 @@ export class GameDetailsComponent implements OnInit {
   isAdminUser = false;
   selectedFile!: File;
   isInWishlist = false;
-  buttonWishlist = document.getElementById('buttonWishlist');
-  fileInput = document.getElementById('fileInput');
+  buttonWishlist: HTMLElement | null = null;
+  fileInput: HTMLElement | null = null
   
   constructor(
     private route: ActivatedRoute, 
@@ -29,6 +30,8 @@ export class GameDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.buttonWishlist = document.getElementById('buttonWishlist');
+    this.fileInput = document.getElementById('fileInput');
     this.isAdminUser = this.authService.isAdmin();
     this.route.paramMap.subscribe(params => {
       this.gameId = params.get('id')!;
@@ -70,7 +73,7 @@ export class GameDetailsComponent implements OnInit {
   }
 
   download(): void {
-    this.gameService.downloadGame(this.gameId).subscribe({
+    this.gameService.downloadGame(this.gameId, this.authService.getCurrentUser()).subscribe({
       next: (blob) => {
         saveAs(blob, `${this.game.name}`)
       },
@@ -145,7 +148,31 @@ export class GameDetailsComponent implements OnInit {
         }
       });
     });
-  } 
+  }
+  
+  formatDate(date: string) {
+    return formatLongDate(date);
+  }
+
+  formatSells(sells: number) {
+    // Si es mayor a un millon de ventas, lo expresa como X.XM (ej: 1.2M o 3M)
+    if (sells >= 1_000_000) {
+      let millions = sells / 1_000_000
+      let formatted = millions.toFixed(1)
+      if (formatted.endsWith('.0')) { return `${Math.floor(millions)}M` }
+      return `${formatted}M`
+    }
+    // Si llega hasta aquí es que es menor a 1M, por lo que lo expresará como
+    // X.Xk (ej: 25.8k o 300k)
+    if (sells >= 1_000) {
+      let thousands = sells / 1_000
+      let formatted = thousands.toFixed(1)
+      if (formatted.endsWith('.0')) { return `${Math.floor(thousands)}k`}
+      return `${formatted}k`
+    }
+    // Por último, si llega hasta aquí es que es menos de 1k, por lo que lo devuelve tal cual.
+    return sells
+  }
 
   isAdmin() {
     //return this.isAdminUser;

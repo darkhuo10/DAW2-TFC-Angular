@@ -44,7 +44,9 @@ export class MyReviewComponent implements OnInit {
       );
 
       this.reviewService.createReview(review).subscribe({
-        next: () => {},
+        next: () => {
+          document.defaultView?.location.reload();
+        },
         error: (err) => {
           this.errorMessage = 'Failed to upload the game.';
           console.error('Error upload game:', err);

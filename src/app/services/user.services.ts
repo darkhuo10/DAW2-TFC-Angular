@@ -15,8 +15,8 @@ import { Observable } from 'rxjs';
       return this.http.get<any>(`${this.apiUrl}/${userId}`);
     }
 
-    getUserPfp(userId: string): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}/pfp/${userId}`);
+    getUserPfp(userId: string): Observable<Blob> {
+      return this.http.get(`${this.apiUrl}/pfp/${userId}`, { responseType: 'blob' });
     }
 
     //Añadir mas conforme vaya necesitando.

@@ -20,6 +20,10 @@ export class AuthService {
         id: decodedToken.id
       };
     }
+    else this.currentUser = {
+      role: "USER",
+      id: ""
+    }
   }
 
   getCurrentUser(): string {

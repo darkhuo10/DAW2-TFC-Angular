@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Review } from '../../models/review.model';
 import { ReviewService } from '../../services/review.service';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'app-reviews',
@@ -14,7 +15,8 @@ export class ReviewsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private reviewService: ReviewService
+    private reviewService: ReviewService,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
@@ -23,7 +25,12 @@ export class ReviewsComponent implements OnInit {
     });
     this.reviewService.getAllFromGame(this.gameId).subscribe({
       next: (response) => {
-        this.reviews = response
+        const currentUser = this.authService.getCurrentUser();
+        this.reviews = response.sort((a, b) => {
+          if (a.userId === currentUser) return -1;
+          else if (b.userId === currentUser) return 1;
+          else return 0;
+        });
       },
       error: (err) => {
         console.error('Error fetching reviews', err);
