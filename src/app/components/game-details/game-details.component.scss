@@ -11,9 +11,10 @@ p {
 
 button {
     align-self: end;
-    width: fit-content;
-    font-size: 1.5em;
-    padding: 10px 40px;
+    flex: 1;
+    height: 100%;
+    font-size: 1.2em;
+    padding: 10px 20px;
     font-weight: bold;
     text-align: center;
     border: none;
@@ -26,6 +27,7 @@ button {
     &:hover {
         background-color: $dark-blue;
         color: $white;
+        transition: 0.2s;
     }
     @media (max-width: 768px) {
         width: 100%;
@@ -63,7 +65,7 @@ button {
             border-radius: 4px;
 
             @media (max-width: 768px) {
-                width: 80vw;
+                width: 60vw;
                 height: 80vw;
             }
         }
@@ -71,6 +73,7 @@ button {
         .game-basic-text {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             gap: 20px;
 
             @media (max-width: 768px) {
@@ -86,6 +89,7 @@ button {
                 align-items: center;
                 gap: 50px;
                 padding: 0 5px;
+                
                 p {
                     font-size: 1.1rem;
                 }
@@ -179,5 +183,13 @@ button {
 
     @media (max-width: 768px) {
         text-align: justify;
+    }
+}
+
+.separator {
+    margin: 20px;
+
+    &.darkblue {
+        border: solid 1px darkblue;
     }
 }

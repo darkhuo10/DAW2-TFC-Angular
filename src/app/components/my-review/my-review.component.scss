@@ -1,14 +1,20 @@
 @import "colors";
 
-label, output, textarea {
+output, textarea {
   color: $white;
+}
+
+label {
+  color: $white;
+  font-weight: bold;
 }
 
 .group {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: start;
+  height: 100%;
 
   @media (max-width: 768px) {
     align-items: center;
@@ -16,7 +22,6 @@ label, output, textarea {
 }
 
 .line {
-  margin: 0 20px;
   display: flex;
   flex-direction: row;
   align-items: start;
@@ -30,28 +35,33 @@ label, output, textarea {
   }
 }
 
+.margin {
+  margin: 0 20px;
+}
+
 #comment {
   width: 100%;
   resize: none;
   font-weight: normal;
   background-color: $dark-blue;
+  font-size: 1rem;
 
   &:focus {
-    background-color: $white;
-    color: $light-blue;
+    background-color: rgba(255,255,255,0.05);
+    color: $white;
   }
 
   @media (max-width: 768px) {
-    font-size: 1.5em;
+    font-size: 0.75em;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.2em;
+    font-size: 0.6em;
   }
 }
 
-textarea, button, p, label {
-  font-size: 2em;
+textarea, button, p {
+  font-size: 1.5em;
   padding: 10px;
   font-weight: bold;
 
@@ -71,6 +81,10 @@ textarea, button {
   border-radius: 4px;
 }
 
+button {
+  width: 75%;
+}
+
 #send {
   align-self: center;
   margin-top: 50px;
@@ -81,6 +95,7 @@ textarea, button {
   &:hover {
     color: $white;
     background-color: $dark-blue;
+    transition: ease-in 0.1s;
   }
 
   @media (max-width: 768px) {

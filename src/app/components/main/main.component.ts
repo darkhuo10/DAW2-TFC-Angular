@@ -16,13 +16,14 @@ export class MainComponent implements OnInit {
   constructor(private gameService: GameService, private authService: AuthService) {}
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('token'))
     this.authService.checkToken();
     this.isAdminUser = this.authService.isAdmin();
     this.getGames();
   }
 
   getGames(): void {
-    this.gameService.getAllGames(true).subscribe((data) => {
+    this.gameService.getAllGames({"visible": true}).subscribe((data) => {
       this.games = data;
       this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
       this.games.forEach((game, index) => {

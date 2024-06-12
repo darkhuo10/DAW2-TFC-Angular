@@ -1,6 +1,6 @@
 import { Review, ReviewDtoCreate } from '../models/review.model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ import { map } from 'rxjs/operators';
     }
 
     createReview(review: ReviewDtoCreate): Observable<any> {
-        return this.http.post<any>(this.apiUrl, review, 
+        return this.http.post<any>(`${this.apiUrl}/`, review, 
             { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
         );
       }

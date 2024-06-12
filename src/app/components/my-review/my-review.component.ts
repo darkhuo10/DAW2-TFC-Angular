@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ReviewDtoCreate } from '../../models/review.model';
 import { AuthService } from '../../services/auth.services';
@@ -10,8 +10,8 @@ import { ReviewService } from '../../services/review.service';
   styleUrls: ['./my-review.component.scss']
 })
 export class MyReviewComponent implements OnInit {
-  ratingElement = document.getElementById("satisfaction");
-  commentElement = document.getElementById("comment");
+  @ViewChild('satisfaction') ratingElement!: ElementRef<HTMLInputElement>;
+  @ViewChild('comment') commentElement!: ElementRef<HTMLTextAreaElement>;
   gameId!: string
   errorMessage: string = '';
   rating = "2.0";
@@ -35,12 +35,12 @@ export class MyReviewComponent implements OnInit {
   }
 
   saveData() {
-    if (this.ratingElement?.nodeValue && this.commentElement?.nodeValue) {
+    if (this.ratingElement.nativeElement.value && this.commentElement.nativeElement.value) {
       const review = new ReviewDtoCreate(
         this.gameId, 
         this.authService.getCurrentUser(),
-        parseInt(this.ratingElement.nodeValue),
-        this.commentElement.nodeValue
+        parseInt(this.ratingElement.nativeElement.value),
+        this.commentElement.nativeElement.value
       );
 
       this.reviewService.createReview(review).subscribe({
@@ -48,6 +48,8 @@ export class MyReviewComponent implements OnInit {
           document.defaultView?.location.reload();
         },
         error: (err) => {
+          this.commentElement.nativeElement.value = '';
+          this.commentElement.nativeElement.placeholder = 'You cannot leave a review of a game you have not downloaded.'
           this.errorMessage = 'Failed to upload the game.';
           console.error('Error upload game:', err);
         }

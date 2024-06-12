@@ -48,11 +48,10 @@ export class RegisterComponent implements OnInit {
       birthdate: this.registerForm.get('bdate')!.value
     };
 
-    // IMPORTANTE: SI QUIERES EL TOKEN, AVISAME Y HAGO QUE ESTE ENDPOINT DEVUELVA EL USERDTO Y EL TOKEN
-    this.http.post('http://localhost:80/users/', UserDtoCreate).subscribe(
+    this.http.post('http://localhost:80/register', UserDtoCreate).subscribe(
       (response: any) => {
         this.loading = false;
-        // Guardamos el token (de momento no devuelve token alguno el endpoint, esto está por si lo quieres)
+        // Guardamos el token
         localStorage.setItem('token', response.token);
 
         this.router.navigate(['/home']);

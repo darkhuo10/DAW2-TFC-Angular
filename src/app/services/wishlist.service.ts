@@ -17,13 +17,13 @@ import { Observable } from 'rxjs';
     }
 
     addToWishlist(userId: string, game_id_str: string): Observable<any> {
-        return this.http.put<any>(`${this.apiUrl}/add_game/${userId}`, game_id_str, 
+        return this.http.put<any>(`${this.apiUrl}/add_game/${userId}?game_id_str=${game_id_str}`, null, 
             { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
         )
     }
 
     removeFromWishlist(userId: string, game_id_str: string): Observable<any> {
-        return this.http.put<any>(`${this.apiUrl}/remove_game/${userId}`, game_id_str, 
+        return this.http.put<any>(`${this.apiUrl}/remove_game/${userId}?game_id_str=${game_id_str}`, null, 
             { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
         )
     }
