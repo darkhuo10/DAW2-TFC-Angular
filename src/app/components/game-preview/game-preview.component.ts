@@ -32,6 +32,7 @@ export class GamePreviewComponent {
   ){}
 
   ngOnInit(): void {
+    this.authService.checkToken();
     this.isAdminUser = this.authService.isAdmin();
   }
   @ViewChild('card')
@@ -83,8 +84,7 @@ export class GamePreviewComponent {
   }
 
   isAdmin() {
-    //return this.isAdminUser;
-    return true;
+    return this.isAdminUser;
   }
 
 }

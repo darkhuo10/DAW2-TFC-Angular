@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Game } from '../models/game.model'; // Adjust the import path according to your project structure
+import { AuthService } from './auth.services';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +10,7 @@ import { Game } from '../models/game.model'; // Adjust the import path according
   export class GameService {
     private apiUrl = 'http://localhost:80/games'; // Adjust the API base URL as needed
   
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private authService: AuthService) {}
   
     getAllGames(params?: any): Observable<any> {
       let httpParams = new HttpParams();
@@ -20,25 +21,32 @@ import { Game } from '../models/game.model'; // Adjust the import path according
           }
         }
       }
-      return this.http.get<any>(this.apiUrl, { params: httpParams });
+      return this.http.get<any>(this.apiUrl, 
+        { params: httpParams, headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     getGameById(gameId: string): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}/${gameId}`);
+      return this.http.get<any>(`${this.apiUrl}/${gameId}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
     }
   
     createGame(game: Game): Observable<any> {
-      return this.http.post<any>(this.apiUrl, game);
+      return this.http.post<any>(this.apiUrl, game, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     updateGame(gameId: string, game: Game): Observable<any> {
-      return this.http.put<any>(`${this.apiUrl}/${gameId}`, game);
+      return this.http.put<any>(`${this.apiUrl}/${gameId}`, game, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     uploadMainImage(gameId: string, file: File): Observable<any> {
       const formData = new FormData();
       formData.append('file', file);
-      return this.http.put<any>(`${this.apiUrl}/upload_main_img/${gameId}`, formData);
+      return this.http.put<any>(`${this.apiUrl}/upload_main_img/${gameId}`, formData, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
     }
   
     uploadShowcaseImages(gameId: string, files: File[]): Observable<any> {
@@ -46,29 +54,36 @@ import { Game } from '../models/game.model'; // Adjust the import path according
       files.forEach((file, index) => {
         formData.append(`files`, file, file.name);
       });
-      return this.http.put<any>(`${this.apiUrl}/upload_showcase_imgs/${gameId}`, formData);
+      return this.http.put<any>(`${this.apiUrl}/upload_showcase_imgs/${gameId}`, formData, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
     }
   
     clearShowcaseImages(gameId: string): Observable<any> {
-      return this.http.put<any>(`${this.apiUrl}/clear_showcase_imgs/${gameId}`, {});
+      return this.http.put<any>(`${this.apiUrl}/clear_showcase_imgs/${gameId}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     deleteGame(gameId: string): Observable<any> {
-      return this.http.delete<any>(`${this.apiUrl}/${gameId}`);
+      return this.http.delete<any>(`${this.apiUrl}/${gameId}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     getMainImage(gameId: string): Observable<Blob> {
-      return this.http.get(`${this.apiUrl}/main_image/${gameId}`, { responseType: 'blob' });
+      return this.http.get(`${this.apiUrl}/main_image/${gameId}`, 
+        { responseType: 'blob', headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     getShowcaseImage(name: string): Observable<Blob> {
-      return this.http.get(`${this.apiUrl}/showcase_image/${name}`, { responseType: 'blob' });
+      return this.http.get(`${this.apiUrl}/showcase_image/${name}`, 
+        { responseType: 'blob', headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
     downloadGame(gameId: string, userId: string): Observable<Blob> {
       return this.http.get(`${this.apiUrl}/download/${gameId}?user_id=${userId}`, {
         responseType: 'blob',
         headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Disposition': 'attachment'
         }
       });
@@ -77,7 +92,8 @@ import { Game } from '../models/game.model'; // Adjust the import path according
     uploadGameFile(gameId: string, file: File): Observable<any> {
       const formData = new FormData();
       formData.append('file', file);
-      return this.http.put<any>(`${this.apiUrl}/upload/${gameId}`, formData);
+      return this.http.put<any>(`${this.apiUrl}/upload/${gameId}`, formData, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   }
   

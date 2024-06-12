@@ -23,16 +23,22 @@ import { map } from 'rxjs/operators';
     }
 
     getAllFromGame(gameId: string): Observable<Review[]> {
-        return this.http.get<any>(`${this.apiUrl}/game/${gameId}`).pipe(
+        return this.http.get<any>(`${this.apiUrl}/game/${gameId}`, 
+            { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+        ).pipe(
             map((response: any[]) => response.map(dto => this.transformToReview(dto))));
     }
 
     getAllFromUser(userId: string): Observable<any> {
-        return this.http.get<any>(`${this.apiUrl}/user/${userId}`);
+        return this.http.get<any>(`${this.apiUrl}/user/${userId}`, 
+            { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+        );
     }
 
     createReview(review: ReviewDtoCreate): Observable<any> {
-        return this.http.post<any>(this.apiUrl, review);
+        return this.http.post<any>(this.apiUrl, review, 
+            { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+        );
       }
   }
   

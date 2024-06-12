@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { jwtDecode } from 'jwt-decode';
 })
 export class AuthService {
   private currentUser: any;
+  private router: Router = new Router();
 
   constructor() {
     this.loadCurrentUser();
@@ -20,9 +22,14 @@ export class AuthService {
         id: decodedToken.id
       };
     }
-    else this.currentUser = {
-      role: "USER",
-      id: ""
+    else {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  checkToken(): void {
+    if (!localStorage.getItem('token')) {
+      this.router.navigate(['/login']);
     }
   }
 

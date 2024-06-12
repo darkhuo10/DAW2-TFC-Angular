@@ -1,6 +1,5 @@
-import { User } from '../models/user.model';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,11 +11,14 @@ import { Observable } from 'rxjs';
     constructor(private http: HttpClient) {}
 
     getUserById(userId: string): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}/${userId}`);
+      return this.http.get<any>(`${this.apiUrl}/${userId}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
     }
 
     getUserPfp(userId: string): Observable<Blob> {
-      return this.http.get(`${this.apiUrl}/pfp/${userId}`, { responseType: 'blob' });
+      return this.http.get(`${this.apiUrl}/pfp/${userId}`, 
+        { responseType: 'blob' , headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
 
     //Añadir mas conforme vaya necesitando.

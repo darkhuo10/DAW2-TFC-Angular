@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     };
 
     // TODO: MARINA, HE PUESTO ESTE ENDPOINT POR PONER ALGUNO, SI NO TE FUNCIONA, CAMBIALO POR LO QUE ESTÉS USANDO COMO RUTA.
-    this.http.post('http://localhost:80/prueba2', UserDtoLogin).subscribe(
+    this.http.post('http://localhost:80/login', UserDtoLogin).subscribe(
       (response: any) => {
         this.loading = false;
         // Guardamos el token

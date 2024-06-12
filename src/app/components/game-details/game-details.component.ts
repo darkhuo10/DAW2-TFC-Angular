@@ -30,6 +30,7 @@ export class GameDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.authService.checkToken();
     this.buttonWishlist = document.getElementById('buttonWishlist');
     this.fileInput = document.getElementById('fileInput');
     this.isAdminUser = this.authService.isAdmin();
@@ -175,7 +176,6 @@ export class GameDetailsComponent implements OnInit {
   }
 
   isAdmin() {
-    //return this.isAdminUser;
-    return true;
+    return this.isAdminUser;
   }
 }

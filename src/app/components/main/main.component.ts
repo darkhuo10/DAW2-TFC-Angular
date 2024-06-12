@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Game } from '../../models/game.model';
 import { GameService } from '../../services/game.services';
+import { AuthService } from '../../services/auth.services';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -9,13 +11,18 @@ import { GameService } from '../../services/game.services';
 export class MainComponent implements OnInit {
   games: Game[] = [];
   gameIndexes: number[] = [];
-  constructor(private gameService: GameService) {}
+  isAdminUser = false;
+
+  constructor(private gameService: GameService, private authService: AuthService) {}
+
   ngOnInit(): void {
+    this.authService.checkToken();
+    this.isAdminUser = this.authService.isAdmin();
     this.getGames();
   }
 
   getGames(): void {
-    this.gameService.getAllGames({visible: true}).subscribe((data) => {
+    this.gameService.getAllGames(true).subscribe((data) => {
       this.games = data;
       this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
       this.games.forEach((game, index) => {
