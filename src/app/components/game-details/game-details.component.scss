@@ -14,10 +14,9 @@ button {
     flex: 1;
     height: 100%;
     font-size: 1.2em;
-    padding: 10px 20px;
+    padding: 5px;
     font-weight: bold;
     text-align: center;
-    border: none;
     border-radius: 4px;
     cursor: pointer;
     border: 2px solid $dark-blue;
@@ -37,7 +36,7 @@ button {
 .game {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
     margin: 40px;
     padding: 20px;
     border-radius: 8px;
@@ -51,6 +50,7 @@ button {
         display: flex;
         flex-direction: row;
         gap: 30px;
+        justify-content: space-between;
 
         @media (max-width: 768px) {
             flex-direction: column;
@@ -62,7 +62,16 @@ button {
             height: 40vw;
             object-fit: fill;
             border: 2px solid $dark-blue;
-            border-radius: 4px;
+            border-radius: 5px;
+
+            &.hoverable {
+                transition: filter 0.2s;
+
+                &:hover {
+                    cursor: pointer;
+                    filter: blur(2px);
+                }
+            }
 
             @media (max-width: 768px) {
                 width: 60vw;
@@ -74,7 +83,7 @@ button {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 20px;
+            gap: 50px;
 
             @media (max-width: 768px) {
                 align-items: center;
@@ -87,7 +96,7 @@ button {
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center;
-                gap: 50px;
+                gap: 10px;
                 padding: 0 5px;
                 
                 p {
@@ -192,4 +201,59 @@ button {
     &.darkblue {
         border: solid 1px darkblue;
     }
+}
+
+.h2-input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid $dark-blue;
+    background-color: rgb(245, 245, 245);
+    color: $dark-blue;
+    font-weight: bold;
+    font-size: 2em;
+
+    &:focus {
+        background-color: rgb(235, 235, 235)
+    }
+}
+
+.description-input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid $dark-blue;
+    background-color: rgb(245, 245, 245);
+    color: $dark-blue;
+    font-size: 1em;
+    width: 100%;
+
+    &:focus {
+        background-color: rgb(235, 235, 235)
+    }
+}
+
+.container-input {
+    display: flex;
+
+    .p-label, .section-select {
+        flex: 1;
+        margin: 5px 5px 5px 0;
+    }
+    
+    .p-input {
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid $dark-blue;
+        background-color: rgb(245, 245, 245);
+        color: $dark-blue;
+        font-size: 1em;
+        flex:2;
+    
+        &:focus {
+            background-color: rgb(235, 235, 235)
+        }
+    }
+}
+
+.invalid {
+    border: solid 1px red;
 }

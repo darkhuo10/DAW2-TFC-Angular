@@ -67,7 +67,6 @@ export class GamePreviewComponent {
         next: () => {
           this.loading = false;
           document.defaultView?.location.reload();
-          //this.document.defaultView?.location.reload();
         },
         error: (err) => {
           this.loading = false;

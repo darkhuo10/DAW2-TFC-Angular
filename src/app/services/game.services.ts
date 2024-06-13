@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Game } from '../models/game.model'; // Adjust the import path according to your project structure
+import { Game, GameDtoUpdate } from '../models/game.model'; // Adjust the import path according to your project structure
 import { AuthService } from './auth.services';
 
 @Injectable({
@@ -36,7 +36,7 @@ import { AuthService } from './auth.services';
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   
-    updateGame(gameId: string, game: Game): Observable<any> {
+    updateGame(gameId: string, game: GameDtoUpdate): Observable<any> {
       return this.http.put<any>(`${this.apiUrl}/${gameId}`, game, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
@@ -94,6 +94,18 @@ import { AuthService } from './auth.services';
       formData.append('file', file);
       return this.http.put<any>(`${this.apiUrl}/upload/${gameId}`, formData, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
+    }
+
+    getGenres(): Observable<any> {
+      return this.http.get<any>('http://localhost:80/genres', 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
+
+    getLanguages(): Observable<any> {
+      return this.http.get<any>('http://localhost:80/languages', 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
     }
   }
   

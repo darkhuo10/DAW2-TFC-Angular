@@ -28,16 +28,20 @@ export class MainComponent implements OnInit {
       this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
       this.games.forEach((game, index) => {
         this.gameService.getMainImage(game.id).subscribe((response) => {
-          // Assuming response contains the URL of the main image
+          // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
+          // por si en un futuro el back puede devolver imágenes de internet en vez de las que están subidas).
           if (typeof response === 'string') {
+            console.log("entra en main.component if")
             this.games[index].mainImage = response;
           } else {
-            // Handle the case where response is a Blob (image data), convert it to a URL or base64 string
+            console.log("entra en main.component else")
+            // Entra aquí si la imagen ha sido enviada como blob
             const reader = new FileReader();
             reader.onload = () => {
-              // Assuming reader.result contains the data URL or base64 string
+              // setea la mainImage a la url de la imagen (o su representación en base64)
               this.games[index].mainImage = reader.result as string;
             };
+            // leemos la response.
             reader.readAsDataURL(response);
           }
         });
