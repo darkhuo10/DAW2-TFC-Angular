@@ -28,7 +28,15 @@ export class AuthService {
   }
 
   checkToken(): void {
-    if (!localStorage.getItem('token')) {
+    const token = localStorage.getItem('token')
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      const nowInTimestamp = Math.floor(Date.now() / 1000)
+      if (parseInt(decodedToken.exp) <= nowInTimestamp) {
+        this.router.navigate(['/login']);
+      }
+    }
+    else {
       this.router.navigate(['/login']);
     }
   }

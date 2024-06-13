@@ -1,5 +1,6 @@
 export class Review {
     constructor (
+        public id: string,
         public username: string,
         public userId: string,
         public publish_date: string,

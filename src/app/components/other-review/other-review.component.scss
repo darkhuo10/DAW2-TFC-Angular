@@ -15,6 +15,7 @@
   border-radius: 4px;
   margin: 20px 0;
   padding: 10px;
+  position: relative;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -86,5 +87,14 @@
         }
       }
     }
+  }
+
+  .delete-button {
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    width: 20px; 
+    height: 20px; 
+    z-index: 2;
   }
 }

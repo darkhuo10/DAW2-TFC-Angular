@@ -14,6 +14,7 @@ import { map } from 'rxjs/operators';
 
     private transformToReview(dto: any): Review {
         return new Review(
+            dto.id,
             dto.user.username,
             dto.user.id,
             dto.publish_date,
@@ -39,6 +40,11 @@ import { map } from 'rxjs/operators';
         return this.http.post<any>(`${this.apiUrl}/`, review, 
             { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
         );
-      }
+    }
+
+    deleteReview(reviewId: string): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/${reviewId}`, 
+            { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} })
+    }
   }
   

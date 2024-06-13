@@ -16,7 +16,6 @@ export class MainComponent implements OnInit {
   constructor(private gameService: GameService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('token'))
     this.authService.checkToken();
     this.isAdminUser = this.authService.isAdmin();
     this.getGames();
@@ -31,10 +30,8 @@ export class MainComponent implements OnInit {
           // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
           // por si en un futuro el back puede devolver imágenes de internet en vez de las que están subidas).
           if (typeof response === 'string') {
-            console.log("entra en main.component if")
             this.games[index].mainImage = response;
           } else {
-            console.log("entra en main.component else")
             // Entra aquí si la imagen ha sido enviada como blob
             const reader = new FileReader();
             reader.onload = () => {

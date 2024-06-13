@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.services';
 import { formatShortDateTime } from '../utils/utils';
+import { AuthService } from '../../services/auth.services';
+import { ReviewService } from '../../services/review.service';
 
 @Component({
   selector: 'app-other-review',
@@ -8,7 +10,10 @@ import { formatShortDateTime } from '../utils/utils';
   styleUrl: './other-review.component.scss'
 })
 export class OtherReviewComponent implements OnInit {
+  isAdminUser = false;
+
   @Input() review!: { 
+    id: string,
     username: string,
     userId: string,
     publish_date: string,
@@ -18,10 +23,13 @@ export class OtherReviewComponent implements OnInit {
   reviewUserImageUrl: string = ''
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private reviewService: ReviewService,
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
+    this.isAdminUser = this.authService.isAdmin();
     this.userService.getUserPfp(this.review.userId).subscribe({
       next: (response) => {
         console.log(response);
@@ -40,5 +48,22 @@ export class OtherReviewComponent implements OnInit {
 
   formatDate(date: string) {
     return formatShortDateTime(date);
+  }
+
+  deleteReview() {
+    if (this.isAdminOrReviewCreator()) {
+      this.reviewService.deleteReview(this.review.id).subscribe({
+        next: () => {
+          document.defaultView?.location.reload();
+        },
+        error: (err) => {
+          console.error('Error deleting game:', err);
+        }
+      });
+    }
+  }
+
+  isAdminOrReviewCreator() {
+    return this.isAdminUser || this.review.userId == this.authService.getCurrentUser();
   }
 }

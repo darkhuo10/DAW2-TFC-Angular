@@ -1,4 +1,5 @@
 <div class="container">
+    <img *ngIf="isAdminOrReviewCreator()" src="../../../assets/img/close-circle-outline.svg" alt="Delete" class="delete-button" (click)="deleteReview()">
     <img [src]="reviewUserImageUrl" alt="user-profile-image">
     <div class="group">
         <div class="line">
