@@ -62,4 +62,9 @@ export class RegisterComponent implements OnInit {
       }
     );
   }
+
+  goToLogin(): void {
+    localStorage.setItem('token', '');
+    this.router.navigate(['/login']);
+  }
 }

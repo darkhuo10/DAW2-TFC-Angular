@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GameService } from '../../services/game.services';
 import { Game, GameDtoUpdate } from '../../models/game.model';
 import { AuthService } from '../../services/auth.services';
-import { saveAs } from 'file-saver';
 import { WishlistService } from '../../services/wishlist.service';
 import { formatLongDate } from '../utils/utils';
+import saveAs from 'file-saver';
 
 @Component({
   selector: 'app-game-details',
@@ -48,6 +48,7 @@ export class GameDetailsComponent implements OnInit {
   
   constructor(
     private cdr: ChangeDetectorRef,
+    private router: Router,
     private route: ActivatedRoute, 
     private gameService: GameService,
     private authService: AuthService,
@@ -155,17 +156,7 @@ export class GameDetailsComponent implements OnInit {
   }
 
   download(): void {
-    this.gameService.downloadGame(this.gameId, this.authService.getCurrentUser()).subscribe({
-      next: (blob) => {
-        saveAs(blob, `${this.game.name}`);
-        this.game.sell_number++;
-        this.cdr.detectChanges();
-      },
-      error: (err) => {
-        this.errorMessage = 'Failed to download the game.';
-        console.error('Error downloading game:', err);
-      }
-    });
+    this.router.navigate(['/download', this.game.id]);
   }
 
   toggleWishlist(): void {

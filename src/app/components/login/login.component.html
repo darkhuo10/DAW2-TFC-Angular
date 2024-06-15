@@ -11,6 +11,7 @@
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
+      <button type="button" (click)="goToRegister()">Go to register</button>
       <button type="submit" [disabled]="loading">Login</button>
     </form>
   </div>

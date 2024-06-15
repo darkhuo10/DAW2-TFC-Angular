@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,6 +20,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MyReviewComponent } from './components/my-review/my-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DownloadFormComponent } from './components/download-form/download-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     NotFoundComponent,
     ReviewsComponent,
-    MyReviewComponent
+    MyReviewComponent,
+    DownloadFormComponent
   ],
   imports: [
     BrowserModule,

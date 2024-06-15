@@ -1,1 +1,17 @@
-<p>wishlist works!</p>
+<div class="card-container">
+    <img src="../../../assets/img/close-circle-outline.svg" alt="Delete" class="delete-button" (click)="removeFromWishlist()">
+    <div class="card" (click)="redirectToDetails()" #card>
+        <div class="scroll-indicator"  #scrollIndicator>
+            Scroll for more info
+          </div>
+        <img [src]="game.mainImage" alt="Product Image" class="card-img">
+        <div class="card-content">
+            <h2 class="card-title">{{game.name}}</h2>
+            <p class="card-description">{{formattedDescription()}}</p>
+            <div class="card-additional">
+                <p class="card-price">{{game.price}}€</p>
+                <app-rating [rating]="game.rating"></app-rating>
+            </div>        
+        </div>
+    </div>
+</div>
