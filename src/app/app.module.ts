@@ -20,11 +20,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MyReviewComponent } from './components/my-review/my-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-import { ImagesComponent } from './components/images/images.component';
-=======
 import { DownloadFormComponent } from './components/download-form/download-form.component';
->>>>>>> a6d30fee4b06bd97edff3e5cdb7b99583cef4608
+import { ImagesComponent } from './components/images/images.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +42,8 @@ import { DownloadFormComponent } from './components/download-form/download-form.
     NotFoundComponent,
     ReviewsComponent,
     MyReviewComponent,
-<<<<<<< HEAD
+    DownloadFormComponent,
     ImagesComponent
-=======
-    DownloadFormComponent
->>>>>>> a6d30fee4b06bd97edff3e5cdb7b99583cef4608
   ],
   imports: [
     BrowserModule,
