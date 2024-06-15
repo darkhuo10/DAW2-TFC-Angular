@@ -1,0 +1,59 @@
+.carousel {
+    position: relative; /* Permite la posición absoluta de los botones y el número de imagen */
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%; /* Hace que el carrusel ocupe todo el ancho disponible */
+  
+    img {
+      max-width: 100%;
+      display: block; /* Asegura que la imagen se ajuste correctamente dentro del carrusel */
+      margin: 0 auto; /* Centra la imagen horizontalmente dentro del carrusel */
+      margin-bottom: 5px; /* Reducir espacio entre la imagen y el pie de página */
+    }
+  
+    .control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 20px; /* Tamaño de fuente de las flechas */
+      margin-top: -20px; /* Reducir espacio entre las flechas y la imagen */
+      
+      &.prev {
+        left: 10px;
+      }
+  
+      &.next {
+        right: 10px;
+      }
+    }
+  
+    .image-number {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-bottom: 5px; /* Reducir espacio entre el pie de página y la imagen */
+    }
+  }
+  
+  .controls {
+    text-align: center;
+    width: 100%; /* Hace que los controles ocupen todo el ancho disponible */
+    margin-top: 10px; /* Añade un espacio arriba de los controles */
+  
+    button {
+      margin: 0 3px; /* Reducir espacio entre los botones de control */
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  }
+  

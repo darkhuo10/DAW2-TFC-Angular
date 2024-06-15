@@ -78,7 +78,7 @@ import { AuthService } from './auth.services';
       return this.http.get(`${this.apiUrl}/showcase_image/${name}`, 
         { responseType: 'blob', headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
-  
+
     downloadGame(gameId: string, userId: string): Observable<Blob> {
       return this.http.get(`${this.apiUrl}/download/${gameId}?user_id=${userId}`, {
         responseType: 'blob',

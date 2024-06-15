@@ -21,6 +21,7 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MyReviewComponent } from './components/my-review/my-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ImagesComponent } from './components/images/images.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     NotFoundComponent,
     ReviewsComponent,
-    MyReviewComponent
+    MyReviewComponent,
+    ImagesComponent
   ],
   imports: [
     BrowserModule,
