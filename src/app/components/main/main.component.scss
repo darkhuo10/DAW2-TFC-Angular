@@ -2,11 +2,12 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px 30px;
+    height: 100%;
 
     background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
     background-repeat: no-repeat;
+    background-size: 50% auto;
     background-position: center;
-    background-size: 70% auto;
 
     @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);

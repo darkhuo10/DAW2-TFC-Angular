@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -32,5 +32,11 @@ import { Observable } from 'rxjs';
         return this.http.get<any>(`${this.apiUrl}/${userId}`, 
             { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
         );
+    }
+
+    getAllGames(userId: string): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}/${userId}`, 
+            { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+        ).pipe(map(response => response.games)); // Solo nos quedamos con la lista de juegos.
     }
 }

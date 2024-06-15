@@ -31,6 +31,7 @@
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
+      <button type="button" (click)="goToLogin()">Go to login</button>
       <button type="submit" [disabled]="loading">Register</button>
     </form>
   </div>

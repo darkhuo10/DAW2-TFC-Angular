@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.get('password')!.value
     };
 
-    // TODO: MARINA, HE PUESTO ESTE ENDPOINT POR PONER ALGUNO, SI NO TE FUNCIONA, CAMBIALO POR LO QUE ESTÉS USANDO COMO RUTA.
     this.http.post('http://localhost:80/login', UserDtoLogin).subscribe(
       (response: any) => {
         this.loading = false;
@@ -52,5 +51,10 @@ export class LoginComponent implements OnInit {
         this.errorMessage = 'Login failed.';
       }
     );
+  }
+
+  goToRegister(): void {
+    localStorage.setItem('token', '');
+    this.router.navigate(['/register']);
   }
 }

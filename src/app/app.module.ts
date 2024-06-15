@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,7 +20,11 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MyReviewComponent } from './components/my-review/my-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
 import { ImagesComponent } from './components/images/images.component';
+=======
+import { DownloadFormComponent } from './components/download-form/download-form.component';
+>>>>>>> a6d30fee4b06bd97edff3e5cdb7b99583cef4608
 
 @NgModule({
   declarations: [
@@ -42,7 +45,11 @@ import { ImagesComponent } from './components/images/images.component';
     NotFoundComponent,
     ReviewsComponent,
     MyReviewComponent,
+<<<<<<< HEAD
     ImagesComponent
+=======
+    DownloadFormComponent
+>>>>>>> a6d30fee4b06bd97edff3e5cdb7b99583cef4608
   ],
   imports: [
     BrowserModule,
