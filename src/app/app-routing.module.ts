@@ -7,6 +7,7 @@ import { GameDetailsComponent } from './components/game-details/game-details.com
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DownloadFormComponent } from './components/download-form/download-form.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'user', component: UserProfileComponent },
   { path: 'game/:id', component: GameDetailsComponent },
   { path: 'download/:id', component: DownloadFormComponent },
+  { path: 'new-game', component: NewGameComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto

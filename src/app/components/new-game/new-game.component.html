@@ -1,0 +1,107 @@
+<div class="container">
+    <form class="formulario" [formGroup]="form" (ngSubmit)="createGame()">
+        <div class="line">
+            <label class="label">Name: </label>
+            <input #name class="input" type="text" placeholder="Name" 
+            formControlName="name"/>
+        </div>
+        <div *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+            <small *ngIf="form.get('name')?.errors?.['required']">Name is required.</small>
+            <small *ngIf="form.get('name')?.errors?.['minlength']">Name must be at least 2 characters long.</small>
+            <small *ngIf="form.get('name')?.errors?.['maxlength']">Name must be at most 200 characters long.</small>
+        </div>
+
+        <div class="line">
+            <label class="label">Developer: </label>
+            <input #developer class="input" type="text" placeholder="Developer" 
+            formControlName="developer"/>
+        </div>
+        <div *ngIf="form.get('developer')?.invalid && form.get('developer')?.touched">
+            <small *ngIf="form.get('developer')?.errors?.['required']">Developer is required.</small>
+            <small *ngIf="form.get('developer')?.errors?.['minlength']">Developer must be at least 5 characters long.</small>
+            <small *ngIf="form.get('developer')?.errors?.['maxlength']">Developer must be at most 200 characters long.</small>
+        </div>
+
+        <div class="line">
+            <label class="label">Publisher: </label>
+            <input #publisher class="input" type="text" placeholder="Publisher" 
+            formControlName="publisher"/>
+        </div>
+        <div *ngIf="form.get('publisher')?.invalid && form.get('publisher')?.touched">
+            <small *ngIf="form.get('publisher')?.errors?.['required']">Publisher is required.</small>
+            <small *ngIf="form.get('publisher')?.errors?.['minlength']">Publisher must be at least 5 characters long.</small>
+            <small *ngIf="form.get('publisher')?.errors?.['maxlength']">Publisher must be at most 200 characters long.</small>
+        </div>
+
+        <div class="line">
+            <label class="label">Price: </label>
+            <input #price class="input" type="number" placeholder="10.55" 
+            formControlName="price"/>
+        </div>
+        <div *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+            <small *ngIf="form.get('price')?.errors?.['required']">Price is required.</small>
+            <small *ngIf="form.get('price')?.errors?.['min'] || form.get('price')?.errors?.['pattern']">
+                Price must be a number higher than 0 with at most 2 decimal places.
+            </small>
+        </div>
+
+        <div class="line">
+            <label class="label">Description: </label>
+            <textarea #description rows="10" class="description" type="text" 
+            placeholder="Game description" maxlength="4000" 
+            formControlName="description"></textarea>
+        </div>
+        <div *ngIf="form.get('description')?.invalid && form.get('description')?.touched">
+            <small *ngIf="form.get('description')?.errors?.['required']">Description is required.</small>
+            <small *ngIf="form.get('description')?.errors?.['minlength']">Description must be at least 10 characters long.</small>
+            <small *ngIf="form.get('description')?.errors?.['maxlength']">Description must be at most 4000 characters long.</small>
+        </div>
+
+        <div class="line">
+            <label class="label">Release date: </label>
+            <input #release type="date" [max]="maxDate" formControlName="release">
+        </div>
+        <div *ngIf="form.get('release')?.invalid && form.get('release')?.touched">
+            <small *ngIf="form.get('release')?.errors?.['required']">Release date is required.</small>
+        </div>
+
+        <div class="line">
+            <div class="line">
+                <label class="label">Languages: </label>
+                <select #languages class="select" 
+                multiple formControlName="languages">
+                    <option value="Spanish">Spanish</option>
+                </select>
+            </div>
+    
+            <div class="line">
+                <label class="label">Genres: </label>
+                <select #genres class="select" 
+                multiple formControlName="genres">
+                    <option value="ARPG">ARPG</option>
+                </select>
+            </div>
+        </div>
+        <div *ngIf="form.get('languages')?.invalid && form.get('languages')?.touched">
+            <small *ngIf="form.get('languages')?.errors?.['required']">At least one language is required.</small>
+        </div>
+        <div *ngIf="form.get('genres')?.invalid && form.get('genres')?.touched">
+            <small *ngIf="form.get('genres')?.errors?.['required']">At least one genre is required.</small>
+        </div>
+
+        <div class="line">
+            <button (click)="openImageDialog()">Upload image</button>
+            <input type="file" #imgInput (change)="onImageSelected($event)" hidden="true" />
+        </div>
+
+        <div class="line">
+            <button type="button" (click)="cancel()">Go back</button>
+            <button type="submit">Create</button>
+        </div>
+
+        <div class="line" *ngIf="errorMessage != ''">
+            <small>{{errorMessage}}</small>
+        </div>
+    </form>
+    <img class="img-preview" src="../../../assets/img/base.png" alt="Game image" />
+</div>

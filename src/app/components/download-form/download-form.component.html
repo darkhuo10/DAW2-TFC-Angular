@@ -40,7 +40,7 @@
 
         <div id="expire-div">
             <label for="expire">Expiration date: </label>
-            <input id="expire" formControlName="expire" type="date" [max]="maxDate">
+            <input id="expire" formControlName="expire" type="date" [min]="minDate">
             <div *ngIf="form.get('expire')?.invalid && form.get('expire')?.touched">
                 <small *ngIf="form.get('expire')?.errors?.['required']">Expiration date is required.</small>
             </div>

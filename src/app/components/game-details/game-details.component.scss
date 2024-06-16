@@ -84,6 +84,7 @@ button {
             flex-direction: column;
             justify-content: space-between;
             gap: 50px;
+            flex: 1;
 
             @media (max-width: 768px) {
                 align-items: center;

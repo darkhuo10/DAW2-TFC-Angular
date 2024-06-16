@@ -17,7 +17,7 @@ export class DownloadFormComponent implements OnInit {
   game!: Game;
   errorMessage: string = '';
   form: FormGroup;
-  maxDate = new Date().toISOString().split('T')[0];
+  minDate = new Date().toISOString().split('T')[0];
 
   constructor(
     private router: Router,

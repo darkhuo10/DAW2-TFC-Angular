@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Game, GameDtoUpdate } from '../models/game.model'; // Adjust the import path according to your project structure
+import { Game, GameDtoCreate, GameDtoUpdate } from '../models/game.model'; // Adjust the import path according to your project structure
 import { AuthService } from './auth.services';
 
 @Injectable({
@@ -31,8 +31,8 @@ import { AuthService } from './auth.services';
       );
     }
   
-    createGame(game: Game): Observable<any> {
-      return this.http.post<any>(this.apiUrl, game, 
+    createGame(game: GameDtoCreate): Observable<any> {
+      return this.http.post<any>(`${this.apiUrl}/`, game, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   

@@ -29,3 +29,16 @@ export class GameDtoUpdate {
         public languages: Array<string> | null
     ) {}
 }
+
+export class GameDtoCreate {
+    constructor (
+        public name: string,
+        public developer: string,
+        public publisher: string,
+        public description: string,
+        public price: number,
+        public genres: Array<string>,
+        public languages: Array<string>,
+        public release_date: Date
+    ) {}
+}

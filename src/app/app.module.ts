@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DownloadFormComponent } from './components/download-form/download-form.component';
 import { ImagesComponent } from './components/images/images.component';
+import { NewGameComponent } from './components/new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ImagesComponent } from './components/images/images.component';
     ReviewsComponent,
     MyReviewComponent,
     DownloadFormComponent,
-    ImagesComponent
+    ImagesComponent,
+    NewGameComponent
   ],
   imports: [
     BrowserModule,
