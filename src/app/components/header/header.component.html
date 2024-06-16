@@ -6,7 +6,7 @@
         <h1 class="name">Vgame Store</h1>
     </a>
     <form *ngIf="checkUrl()" action="#" method="get">
-        <input type="text" name="search" class="search-bar" placeholder="Search...">
-        <button type="submit" class="search-button">Search</button>
+        <input #filterText type="text" name="search" class="search-bar" placeholder="Search...">
+        <button type="button" class="search-button" (click)="filterGames()">Search</button>
     </form>
 </header>
