@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { WishlistService } from '../../services/wishlist.service';
 import { LibraryService } from '../../services/library.service';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-main',
@@ -24,7 +25,8 @@ export class MainComponent implements OnInit {
     private wishlistService: WishlistService,
     private libraryService: LibraryService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,29 @@ export class MainComponent implements OnInit {
     this.isAdminUser = this.authService.isAdmin();
     this.currentUrl = this.router.url;
     this.getGames();
+
+    this.sharedService.games$.subscribe((games: Game[]) => {
+      this.games = games;
+      this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
+      this.games.forEach((game, index) => {
+        this.gameService.getMainImage(game.id).subscribe((response) => {
+          // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
+          // por si en un futuro el back puede devolver imágenes de internet en vez de las que están subidas).
+          if (typeof response === 'string') {
+            this.games[index].mainImage = response;
+          } else {
+            // Entra aquí si la imagen ha sido enviada como blob
+            const reader = new FileReader();
+            reader.onload = () => {
+              // setea la mainImage a la url de la imagen (o su representación en base64)
+              this.games[index].mainImage = reader.result as string;
+            };
+            // leemos la response.
+            reader.readAsDataURL(response);
+          }
+        });
+      });
+    });
   }
 
   getGames(): void {
@@ -52,26 +77,8 @@ export class MainComponent implements OnInit {
       }
     }
     call.subscribe((data) => {
-      this.games = data;
-      this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
-      this.games.forEach((game, index) => {
-        this.gameService.getMainImage(game.id).subscribe((response) => {
-          // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
-          // por si en un futuro el back puede devolver imágenes de internet en vez de las que están subidas).
-          if (typeof response === 'string') {
-            this.games[index].mainImage = response;
-          } else {
-            // Entra aquí si la imagen ha sido enviada como blob
-            const reader = new FileReader();
-            reader.onload = () => {
-              // setea la mainImage a la url de la imagen (o su representación en base64)
-              this.games[index].mainImage = reader.result as string;
-            };
-            // leemos la response.
-            reader.readAsDataURL(response);
-          }
-        });
-      });
+      this.sharedService.setGames(data);
+      //this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
     });
   }
 }
