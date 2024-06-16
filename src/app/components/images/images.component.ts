@@ -7,21 +7,23 @@ import { GameService } from '../../services/game.services';
   styleUrl: './images.component.scss'
 })
 export class ImagesComponent implements OnInit{
+  @Input() gameId! :string;
   images: string[] = [];
   currentIndex = 0;
 
   constructor(private gameService: GameService) { }
 
   ngOnInit() {
-    const name = 'example'; // Replace with actual name or identifier
+    const name = `${this.gameId}-showcase1.jpg`; // Replace with actual name or identifier
     this.getImages(name);
   }
 
   getImages(name: string) {
-    //this.images.push("./assets/img/vgamestore_logo_blue.svg", "./assets/img/vgamestore_logo_white.svg");
+    this.images.push("./assets/img/vgamestore_logo_blue.svg", "./assets/img/vgamestore_logo_white.svg");
     this.gameService.getShowcaseImage(name).subscribe(
       (blob: Blob) => {
         const imageUrl = URL.createObjectURL(blob);
+        console.log(imageUrl);
         this.images.push(imageUrl);
       },
       (error) => {

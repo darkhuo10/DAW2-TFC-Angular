@@ -1,0 +1,100 @@
+@import "colors";
+
+.container {
+  width: 80vw;
+  margin: 0 auto;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+    label {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      font-size: 2em;
+      font-weight: bold;
+      padding: 10px;
+      border: 2px solid $dark-blue;
+      border-radius: 4px;
+      &:focus {
+        border-color: $light-blue;
+      }
+    }
+
+    small {
+      color: red;
+      font-size: 1.5rem;
+    }
+
+    #buttons-div {
+      display: flex;
+      gap: 20px;
+
+      button {
+        flex: 1;
+        font-size: 2em;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        border: 2px solid $dark-blue;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: $white;
+
+        &:hover {
+          color: $white;
+          background-color: $dark-blue;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+    }
+
+    #errorMessage {
+      color: red;
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      * {
+        font-size: 1.5rem;
+      }
+
+      input {
+        width: 100%;
+      }
+
+      #buttons-div {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  #username-div,
+  #password-div,
+  #credit-div,
+  #cvv-div,
+  #expire-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
