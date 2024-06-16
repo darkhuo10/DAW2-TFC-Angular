@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GameService } from '../../services/game.services';
@@ -10,10 +10,12 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
   templateUrl: './new-game.component.html',
   styleUrl: './new-game.component.scss'
 })
-export class NewGameComponent implements OnInit {
+export class NewGameComponent {
   form: FormGroup;
   errorMessage: string = '';
   maxDate = new Date().toISOString().split('T')[0];
+  @ViewChild('genres') selectGenres!: ElementRef;
+  @ViewChild('languages') selectLanguages!: ElementRef;
 
   constructor(
     private router: Router,
@@ -32,8 +34,36 @@ export class NewGameComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngAfterViewInit(): void {
+    this.gameService.getGenres().subscribe({
+      next: (response: string[]) => {
+        response.forEach(genre => {
+          let option = document.createElement('option');
+          option.value = genre;
+          option.textContent = genre;
+          this.selectGenres.nativeElement.appendChild(option);
+        })
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to get genres.';
+        console.error('Error get genres:', err);
+      }
+    });
+
+    this.gameService.getLanguages().subscribe({
+      next: (response: string[]) => {
+        response.forEach(language => {
+          let option = document.createElement('option');
+          option.value = language;
+          option.textContent = language;
+          this.selectLanguages.nativeElement.appendChild(option);
+        })
+      },
+      error: (err) => {
+        this.errorMessage = 'Failed to get languages.';
+        console.error('Error get languages:', err);
+      }
+    });
   }
 
   createGame(): void {

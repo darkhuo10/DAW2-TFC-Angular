@@ -5,7 +5,6 @@ import { Game, GameDtoUpdate } from '../../models/game.model';
 import { AuthService } from '../../services/auth.services';
 import { WishlistService } from '../../services/wishlist.service';
 import { formatLongDate } from '../utils/utils';
-import saveAs from 'file-saver';
 
 @Component({
   selector: 'app-game-details',
