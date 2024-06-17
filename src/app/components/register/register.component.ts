@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   loading = false;
   errorMessage = '';
+  maxDate!: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +32,10 @@ export class RegisterComponent implements OnInit {
       rpassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(99)]],
       bdate: ['', Validators.required]
     });
+    
+    let now = new Date();
+    now.setFullYear(now.getFullYear() - 18);
+    this.maxDate = now.toISOString().split('T')[0];
 
     localStorage.setItem('token', '');
   }

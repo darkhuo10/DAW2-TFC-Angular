@@ -26,7 +26,7 @@
       </div>
       <div>
         <label for="bdate">Birthdate</label>
-        <input id="bdate" formControlName="bdate" type="date">
+        <input id="bdate" formControlName="bdate" type="date" [max]="maxDate">
       </div>
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
