@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DownloadFormComponent } from './components/download-form/download-form.component';
 import { ImagesComponent } from './components/images/images.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { NewGameComponent } from './components/new-game/new-game.component';
     MyReviewComponent,
     DownloadFormComponent,
     ImagesComponent,
-    NewGameComponent
+    NewGameComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,

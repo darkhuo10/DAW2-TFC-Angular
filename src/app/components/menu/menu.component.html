@@ -5,17 +5,12 @@
   </div>
   <div class="menu-content" [class.open]="isMenuOpen">
     <ul>
-      <!-- <li> 
-        <form action="#" method="get">
-          <input type="text" name="search" class="search-bar" placeholder="Search...">
-          <button type="submit" class="search-button">Search</button>
-        </form>
-      </li> -->
       <li><a routerLink="/home" (click)="toggleMenu(false)">Home</a></li>
       <li *ngIf="isAdmin()"><a routerLink="/new-game" (click)="toggleMenu(false)">Create game</a></li>
+      <li *ngIf="isAdmin()"><a routerLink="/users" (click)="toggleMenu(false)">All users</a></li>
       <li><a routerLink="/library" (click)="toggleMenu(false)">Library</a></li>
       <li><a routerLink="/wishlist" (click)="toggleMenu(false)">Wishlist</a></li>
-      <li><a routerLink="/user" (click)="toggleMenu(false)">User profile</a></li>
+      <li><a routerLink="/me" (click)="toggleMenu(false)">My profile</a></li>
       <li><a routerLink="/login" (click)="cerrarSesion()">Logout</a></li>
     </ul>
   </div>

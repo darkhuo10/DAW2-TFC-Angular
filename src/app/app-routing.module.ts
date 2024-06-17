@@ -8,12 +8,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DownloadFormComponent } from './components/download-form/download-form.component';
 import { NewGameComponent } from './components/new-game/new-game.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 const routes: Routes = [
   { path: 'home', component: MainComponent },
   { path: 'library', component: MainComponent },
   { path: 'wishlist', component: MainComponent },
-  { path: 'user', component: UserProfileComponent },
+  { path: 'me', component: UserProfileComponent },
+  { path: 'users', component: UsersListComponent },
   { path: 'game/:id', component: GameDetailsComponent },
   { path: 'download/:id', component: DownloadFormComponent },
   { path: 'new-game', component: NewGameComponent },
