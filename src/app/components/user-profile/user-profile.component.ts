@@ -37,13 +37,31 @@ export class UserProfileComponent implements OnInit {
     this.userService.getCurrentUser().subscribe(
       (userData: User) => {
         this.user = userData;
-        console.log(this.user);
         this.user.birthdate = this.formatDate(this.user.birthdate);
+        this.userService.getUserPfp(this.user.id).subscribe(response => {
+          // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
+          // por si en un futuro el back puede devolver imágenes de internet en vez de las que están subidas).
+          if (typeof response === 'string') {
+            this.user.profilePicture = response;
+          } else {
+            // Entra aquí si la imagen ha sido enviada como blob
+            const reader = new FileReader();
+            reader.onload = () => {
+              // setea la mainImage a la url de la imagen (o su representación en base64)
+              this.user.profilePicture = reader.result as string;
+            };
+            // leemos la response.
+            reader.readAsDataURL(response);
+          }
+        });
+        console.log(this.user);
+
       },
       (error) => {
         console.error('Error fetching user data:', error);
       }
     );
+    
   }
 
   selectImage(): void {
