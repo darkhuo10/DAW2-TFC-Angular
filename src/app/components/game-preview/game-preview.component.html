@@ -1,5 +1,7 @@
 <div class="card-container">
-    <img *ngIf="isAdmin()" src="../../../assets/img/close-circle-outline.svg" alt="Delete" class="delete-button" (click)="deleteGame()">
+    <img *ngIf="isAdmin()" src="../../../assets/img/close-circle-outline.svg" 
+        alt="Delete" class="delete-button" (click)="deleteGame()">
+        
     <div class="card" (click)="redirectToDetails()" #card>
         <div class="scroll-indicator"  #scrollIndicator>
             Scroll for more info

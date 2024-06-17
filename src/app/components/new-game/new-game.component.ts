@@ -14,8 +14,11 @@ export class NewGameComponent {
   form: FormGroup;
   errorMessage: string = '';
   maxDate = new Date().toISOString().split('T')[0];
+  selectedImage: File | null = null;
   @ViewChild('genres') selectGenres!: ElementRef;
   @ViewChild('languages') selectLanguages!: ElementRef;
+  @ViewChild('imgInput') imgInput!: ElementRef;
+  @ViewChild('imgPreview', { static: false }) imgPreview!: ElementRef<HTMLImageElement>;
 
   constructor(
     private router: Router,
@@ -68,7 +71,6 @@ export class NewGameComponent {
 
   createGame(): void {
     if (this.form.valid) {
-      console.log(this.form.get('release')?.value);
       const gameDtoCreate: GameDtoCreate = {
         name: this.form.get('name')?.value,
         developer: this.form.get('developer')?.value,
@@ -83,13 +85,19 @@ export class NewGameComponent {
       console.dir(gameDtoCreate)
       this.gameService.createGame(gameDtoCreate).subscribe(
         (response: any) => {
-          console.log(response)
-          console.dir(response)
+          if (this.selectedImage != null) {
+            this.gameService.uploadMainImage(response.id, this.selectedImage).subscribe(
+              (response: any) => {},
+              (error: HttpErrorResponse) => {
+                this.errorMessage = `[${error.status}] - ${error.message}`;
+              }
+            )
+          }
         },
         (error: HttpErrorResponse) => {
           this.errorMessage = `[${error.status}] - ${error.message}`;
         }
-      )
+      );
     }
     else {
       this.errorMessage = "Invalid form."
@@ -97,11 +105,29 @@ export class NewGameComponent {
   }
 
   openImageDialog(): void {
-
+    this.imgInput.nativeElement.click();
   }
 
   onImageSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files?.length) {
+      // Si hay un archivo seleccionado, nos aseguramos que su extensión sea la de una imagen.
+      const file = input.files[0];
+      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      const validImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
 
+      if (fileExtension && validImageExtensions.includes(fileExtension)) {
+        // Si todo está correcto, añadimos la imagen a nuestra selectedImage
+        this.selectedImage = file;
+
+        // Y actualizamos la preview de la imagen
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.imgPreview.nativeElement.src = reader.result as string;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
   }
 
   cancel(): void {

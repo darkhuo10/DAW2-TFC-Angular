@@ -88,7 +88,7 @@
         </div>
 
         <div class="line">
-            <button (click)="openImageDialog()">Upload image</button>
+            <button type="button" (click)="openImageDialog()">Upload image</button>
             <input type="file" #imgInput (change)="onImageSelected($event)" hidden="true" />
         </div>
 
@@ -101,5 +101,5 @@
             <small>{{errorMessage}}</small>
         </div>
     </form>
-    <img class="img-preview" src="../../../assets/img/base.png" alt="Game image" />
+    <img #imgPreview class="img-preview" src="../../../assets/img/base.png" alt="Game image" />
 </div>

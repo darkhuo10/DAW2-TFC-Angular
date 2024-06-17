@@ -78,7 +78,6 @@ export class MainComponent implements OnInit {
     }
     call.subscribe((data) => {
       this.sharedService.setGames(data);
-      //this.gameIndexes = Array.from({ length: this.games.length }, (_, i) => i);
     });
   }
 }
