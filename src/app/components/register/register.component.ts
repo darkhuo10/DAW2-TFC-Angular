@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.services';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +31,8 @@ export class RegisterComponent implements OnInit {
       rpassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(99)]],
       bdate: ['', Validators.required]
     });
+
+    localStorage.setItem('token', '');
   }
 
   onSubmit(): void {
@@ -54,6 +58,11 @@ export class RegisterComponent implements OnInit {
         // Guardamos el token
         localStorage.setItem('token', response.token);
 
+        // Esto se asegura de que el token se actualice debidamente.
+        // Sin esto, si antes habías iniciado sesión, se te carga con el token anterior la primera vez 
+        // y tienes que refrescar para que te cargue el token nuevo.
+        this.authService.loadCurrentUser();
+
         this.router.navigate(['/home']);
       },
       (error) => {
@@ -64,7 +73,6 @@ export class RegisterComponent implements OnInit {
   }
 
   goToLogin(): void {
-    localStorage.setItem('token', '');
     this.router.navigate(['/login']);
   }
 }

@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { LibraryService } from '../../services/library.service';
 import { WishlistService } from '../../services/wishlist.service';
 import { AuthService } from '../../services/auth.services';
+import { UserService } from '../../services/user.services';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,8 @@ import { AuthService } from '../../services/auth.services';
 // hooks order
 export class HeaderComponent {
   logo = "assets/img/vgamestore_logo_white.svg";
-  @ViewChild('filterText') filter!: ElementRef;
+  usersActive = true;
+  @ViewChild('filterText') filterText!: ElementRef;
 
   constructor(
     private router: Router,
@@ -25,16 +28,25 @@ export class HeaderComponent {
     private sharedService: SharedService,
     private libraryService: LibraryService,
     private wishlistService: WishlistService,
+    private userService: UserService,
     private authService: AuthService
   ) {}
 
   checkUrl(): boolean {
     const url = this.router.url;
-    let x = url == "/home" || url == "/wishlist" || url == "/library";
-    return x;
+    return url == "/home" || url == "/wishlist" || url == "/library";
   }
 
-  filterGames(): void {
+  isUserUrl(): boolean {
+    return this.router.url == "/users";
+  }
+
+  switchUserActivity(): void {
+    this.usersActive = !this.usersActive;
+    this.filter();
+  }
+
+  filter(): void {
     let call: Observable<any>
     switch (this.router.url) {
       case "/library": {
@@ -45,14 +57,30 @@ export class HeaderComponent {
         call = this.wishlistService.getAllGames(this.authService.getCurrentUser());
         break;
       }
+      case "/users": {
+        call = this.userService.getUsers(this.usersActive);
+        break;
+      }
       default: {
         call = this.gameService.getAllGames({"visible": true})
       }
     }
-    call.subscribe((games: Game[]) => {
-      const filteredGames = games.filter(game => 
-        game.name.toLowerCase().includes((this.filter.nativeElement != null) ? this.filter.nativeElement.value.toLowerCase() : ''));
-      this.sharedService.setGames(filteredGames);
-    });
+
+    if (this.router.url != '/users') {
+      call.subscribe((games: Game[]) => {
+        const filteredGames = games.filter(game => 
+          game.name.toLowerCase().includes((this.filterText.nativeElement != null) 
+          ? this.filterText.nativeElement.value.toLowerCase() : ''));
+        this.sharedService.setGames(filteredGames);
+      });
+    }
+    else {
+      call.subscribe((users: User[]) => {
+        const filteredUsers = users.filter(user => 
+          user.username.toLowerCase().includes((this.filterText.nativeElement != null)
+          ? this.filterText.nativeElement.value.toLowerCase() : ''));
+        this.sharedService.setUsers(filteredUsers);
+      });
+    }
   }
 }
