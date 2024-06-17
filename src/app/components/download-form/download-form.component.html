@@ -1,40 +1,44 @@
 <div class="container">
     <form [formGroup]="form" (ngSubmit)="completeDownload()">
-        <div id="username-div">
-            <label for="username">Username: </label>
-            <input id="username" formControlName="username" type="text">
-            <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
-                <small *ngIf="form.get('username')?.errors?.['required']">Username is required.</small>
-                <small *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 4 characters.</small>
-                <small *ngIf="form.get('username')?.errors?.['maxlength']">Username must be at most 99 characters.</small>
+        <div class="flex-row">
+            <div id="username-div">
+                <label for="username">Username: </label>
+                <input id="username" formControlName="username" type="text">
+                <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched">
+                    <small *ngIf="form.get('username')?.errors?.['required']">Username is required.</small>
+                    <small *ngIf="form.get('username')?.errors?.['minlength']">Username must be at least 4 characters.</small>
+                    <small *ngIf="form.get('username')?.errors?.['maxlength']">Username must be at most 99 characters.</small>
+                </div>
+            </div>
+    
+            <div id="password-div">
+                <label for="password">Password: </label>
+                <input id="password" formControlName="password" type="password">
+                <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+                    <small *ngIf="form.get('password')?.errors?.['required']">Password is required.</small>
+                    <small *ngIf="form.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</small>
+                    <small *ngIf="form.get('password')?.errors?.['maxlength']">Password must be at most 99 characters.</small>
+                </div>
             </div>
         </div>
 
-        <div id="password-div">
-            <label for="password">Password: </label>
-            <input id="password" formControlName="password" type="password">
-            <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
-                <small *ngIf="form.get('password')?.errors?.['required']">Password is required.</small>
-                <small *ngIf="form.get('password')?.errors?.['minlength']">Password must be at least 6 characters.</small>
-                <small *ngIf="form.get('password')?.errors?.['maxlength']">Password must be at most 99 characters.</small>
+        <div class="flex-row">
+            <div id="credit-div">
+                <label for="creditCardNumber">Credit Card Number: </label>
+                <input id="creditCardNumber" formControlName="creditCardNumber" type="text">
+                <div *ngIf="form.get('creditCardNumber')?.invalid && form.get('creditCardNumber')?.touched">
+                    <small *ngIf="form.get('creditCardNumber')?.errors?.['required']">Credit Card Number is required.</small>
+                    <small *ngIf="form.get('creditCardNumber')?.errors?.['pattern']">Enter a valid 16-digit credit card number.</small>
+                </div>
             </div>
-        </div>
-
-        <div id="credit-div">
-            <label for="creditCardNumber">Credit Card Number: </label>
-            <input id="creditCardNumber" formControlName="creditCardNumber" type="text">
-            <div *ngIf="form.get('creditCardNumber')?.invalid && form.get('creditCardNumber')?.touched">
-                <small *ngIf="form.get('creditCardNumber')?.errors?.['required']">Credit Card Number is required.</small>
-                <small *ngIf="form.get('creditCardNumber')?.errors?.['pattern']">Enter a valid 16-digit credit card number.</small>
-            </div>
-        </div>
-
-        <div id="cvv-div">
-            <label for="cvv">CVV: </label>
-            <input id="cvv" formControlName="cvv" type="text">
-            <div *ngIf="form.get('cvv')?.invalid && form.get('cvv')?.touched">
-                <small *ngIf="form.get('cvv')?.errors?.['required']">CVV is required.</small>
-                <small *ngIf="form.get('cvv')?.errors?.['pattern']">Enter a valid 3-digit CVV.</small>
+    
+            <div id="cvv-div">
+                <label for="cvv">CVV: </label>
+                <input id="cvv" formControlName="cvv" type="text">
+                <div *ngIf="form.get('cvv')?.invalid && form.get('cvv')?.touched">
+                    <small *ngIf="form.get('cvv')?.errors?.['required']">CVV is required.</small>
+                    <small *ngIf="form.get('cvv')?.errors?.['pattern']">Enter a valid 3-digit CVV.</small>
+                </div>
             </div>
         </div>
 

@@ -32,7 +32,6 @@ export class OtherReviewComponent implements OnInit {
     this.isAdminUser = this.authService.isAdmin();
     this.userService.getUserPfp(this.review.userId).subscribe({
       next: (response) => {
-        console.log(response);
         if (typeof response === 'string') {
           this.reviewUserImageUrl = response;
         } else {

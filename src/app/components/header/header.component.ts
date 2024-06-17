@@ -50,12 +50,9 @@ export class HeaderComponent {
       }
     }
     call.subscribe((games: Game[]) => {
-      console.log("filter: "+this.filter.nativeElement)
-      console.log(this.filter.nativeElement.value)
       const filteredGames = games.filter(game => 
         game.name.toLowerCase().includes((this.filter.nativeElement != null) ? this.filter.nativeElement.value.toLowerCase() : ''));
       this.sharedService.setGames(filteredGames);
-      console.dir(this.sharedService.getGames());
     });
   }
 }

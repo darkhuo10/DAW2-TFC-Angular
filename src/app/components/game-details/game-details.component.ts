@@ -281,9 +281,7 @@ export class GameDetailsComponent implements OnInit {
               } else {
                 const reader = new FileReader();
                 reader.onload = () => {
-                  console.log(this.game.mainImage)
                   this.game.mainImage = reader.result as string;
-                  console.log(this.game.mainImage)
                 };
                 reader.readAsDataURL(imageResponse);
               }

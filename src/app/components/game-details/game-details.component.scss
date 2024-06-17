@@ -43,8 +43,15 @@ button {
 
     background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position-y: -10rem;
+    background-position-x: right;
     background-size: 70% auto;
+
+    @media (max-width: 768px) {
+        background-size: 150% auto;
+        background-position-y: center;
+        background-position-x: center;
+    }
 
     .game-basic {
         display: flex;

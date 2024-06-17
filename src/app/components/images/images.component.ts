@@ -23,7 +23,6 @@ export class ImagesComponent implements OnInit{
     this.gameService.getShowcaseImage(name).subscribe(
       (blob: Blob) => {
         const imageUrl = URL.createObjectURL(blob);
-        console.log(imageUrl);
         this.images.push(imageUrl);
       },
       (error) => {

@@ -47,7 +47,7 @@
 
         <div class="line">
             <label class="label">Description: </label>
-            <textarea #description rows="10" class="description" type="text" 
+            <textarea #description rows="5" class="description" type="text" 
             placeholder="Game description" maxlength="4000" 
             formControlName="description"></textarea>
         </div>
@@ -57,15 +57,7 @@
             <small *ngIf="form.get('description')?.errors?.['maxlength']">Description must be at most 4000 characters long.</small>
         </div>
 
-        <div class="line">
-            <label class="label">Release date: </label>
-            <input #release type="date" [max]="maxDate" formControlName="release">
-        </div>
-        <div *ngIf="form.get('release')?.invalid && form.get('release')?.touched">
-            <small *ngIf="form.get('release')?.errors?.['required']">Release date is required.</small>
-        </div>
-
-        <div class="line">
+        <div class="line selectors">
             <div class="line">
                 <label class="label">Languages: </label>
                 <select #languages class="select" 
@@ -88,13 +80,19 @@
         </div>
 
         <div class="line">
-            <button type="button" (click)="openImageDialog()">Upload image</button>
+            <label class="label">Release date: </label>
+            <input #release type="date" class="input" [max]="maxDate" formControlName="release">
+
+            <button type="button" class="button-upload-img" (click)="openImageDialog()">Upload image</button>
             <input type="file" #imgInput (change)="onImageSelected($event)" hidden="true" />
         </div>
+        <div *ngIf="form.get('release')?.invalid && form.get('release')?.touched">
+            <small *ngIf="form.get('release')?.errors?.['required']">Release date is required.</small>
+        </div>
 
-        <div class="line">
-            <button type="button" (click)="cancel()">Go back</button>
-            <button type="submit">Create</button>
+        <div class="line right">
+            <button class="final-button" type="button" (click)="cancel()">Go back</button>
+            <button class="final-button" type="submit">Create</button>
         </div>
 
         <div class="line" *ngIf="errorMessage != ''">

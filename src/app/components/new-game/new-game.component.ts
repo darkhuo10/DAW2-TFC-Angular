@@ -82,7 +82,6 @@ export class NewGameComponent {
         price: this.form.get('price')?.value,
       }
 
-      console.dir(gameDtoCreate)
       this.gameService.createGame(gameDtoCreate).subscribe(
         (response: any) => {
           if (this.selectedImage != null) {
