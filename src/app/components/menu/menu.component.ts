@@ -27,9 +27,9 @@ export class MenuComponent implements OnInit {
     this.isMenuOpen = state;
   }
 
-  cerrarSesion(): void {
+  logout(): void {
     this.toggleMenu(false);
-    localStorage.setItem('token', '');
+    this.authService.logout();
   }
 
   shouldBeVisible(): boolean {

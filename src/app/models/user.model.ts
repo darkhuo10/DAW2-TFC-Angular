@@ -11,3 +11,14 @@ export class User {
         public profilePicture: string
     )  {}
 }
+
+export class UserDtoUpdate {
+    constructor(
+        public name: string,
+        public surname: string,
+        public username: string,
+        public email: string,
+        public birthdate: string,
+        public profilePicture: string
+    ){}
+}

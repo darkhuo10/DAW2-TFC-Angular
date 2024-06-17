@@ -49,4 +49,9 @@ export class AuthService {
   isAdmin(): boolean {
     return this.currentUser && this.currentUser.role === 'ADMIN';
   }
+
+  logout():void {
+    localStorage.setItem('token', '');
+  }
+
 }
