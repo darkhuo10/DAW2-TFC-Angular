@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserDtoUpdate } from '../models/user.model'; // Adjust the import path according to your project structure
 
 @Injectable({
     providedIn: 'root'
@@ -34,6 +35,19 @@ import { Observable } from 'rxjs';
     }
     getCurrentUser(): Observable<any> {
       return this.http.get<any>('http://localhost:80/me', 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
+
+    updateUser(userId: string, user: UserDtoUpdate): Observable<any> {
+      return this.http.put<any>(`${this.apiUrl}/${userId}`, user, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
+    }
+
+    uploadPfp(userId: string, file: File): Observable<any> {
+      const formData = new FormData();
+      formData.append('file', file);
+      return this.http.put<any>(`${this.apiUrl}/upload_pfp/${userId}`, formData, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
       );
     }

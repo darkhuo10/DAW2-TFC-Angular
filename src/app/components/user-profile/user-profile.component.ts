@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
+import { User, UserDtoUpdate } from '../../models/user.model';
 import { UserService } from '../../services/user.services';
 import { AuthService } from '../../services/auth.services';
 import { DatePipe } from '@angular/common';
@@ -87,6 +87,8 @@ export class UserProfileComponent implements OnInit {
 
   logout(): void {
     this.authService.logout();
-    
+  }
+
+  updateProfile(): void {
   }
 }
