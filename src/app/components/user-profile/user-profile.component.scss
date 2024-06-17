@@ -91,7 +91,7 @@ button {
 
             &:hover {
                 cursor: pointer;
-                filter: invert(35%);
+                filter: blur(2px);
             }
         }
     }
