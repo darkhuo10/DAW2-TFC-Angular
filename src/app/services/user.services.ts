@@ -21,6 +21,10 @@ import { Observable } from 'rxjs';
         { responseType: 'blob' , headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
 
-    //Añadir mas conforme vaya necesitando.
+    getCurrentUser(): Observable<any> {
+      return this.http.get<any>('http://localhost:80/me', 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
   }
   
