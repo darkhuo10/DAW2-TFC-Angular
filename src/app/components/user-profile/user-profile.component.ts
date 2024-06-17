@@ -16,19 +16,10 @@ export class UserProfileComponent implements OnInit {
   }
   user!: User; 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
-  /*= {
-    id: '1',
-    profilePicture: './assets/img/vgamestore_logo_blue.svg',
-    username: 'darkhuo10',
-    email: 'darkhuoyt@gmail.com',
-    name: 'Marina',
-    surname: 'Pintado',
-    role: 'ADMIN',
-    birthdate: '2003-12-10',
-    active: true
-  };*/
+  
   ngOnInit(): void {
     this.getUser();
   }
@@ -94,4 +85,8 @@ export class UserProfileComponent implements OnInit {
     return (num < 10? '0' : '') + num;
   }
 
+  logout(): void {
+    this.authService.logout();
+    
+  }
 }
