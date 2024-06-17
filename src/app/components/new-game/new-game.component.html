@@ -90,14 +90,21 @@
             <small *ngIf="form.get('release')?.errors?.['required']">Release date is required.</small>
         </div>
 
-        <div class="line right">
-            <button class="final-button" type="button" (click)="cancel()">Go back</button>
-            <button class="final-button" type="submit">Create</button>
+        <div class="last-container">
+            <div class="flex-row">
+                <button type="button" class="button-upload-showcases" (click)="openShowcaseDialog()">Showcase images</button>
+                <label class="selected-images-label">Selected images: {{showcaseImages.length}}</label>
+                <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" hidden="true" multiple/>
+            </div>
+            <div class="flex-row">
+                <button class="final-button" type="button" (click)="cancel()">Go back</button>
+                <button class="final-button" type="submit">Create</button>
+            </div>
         </div>
 
         <div class="line" *ngIf="errorMessage != ''">
             <small>{{errorMessage}}</small>
         </div>
     </form>
-    <img #imgPreview class="img-preview" src="../../../assets/img/base.png" alt="Game image" />
+    <img #imgPreview class="img-preview" src="../../../assets/img/base.png" (click)="openImageDialog()" alt="Game image" />
 </div>

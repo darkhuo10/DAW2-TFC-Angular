@@ -132,7 +132,7 @@ export class GameDetailsComponent implements OnInit {
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
+    if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
       this.upload();
     }
@@ -254,7 +254,7 @@ export class GameDetailsComponent implements OnInit {
 
   onImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
+    if (input.files && input.files.length > 0) {
       this.selectedImage = input.files[0];
       this.uploadImage();
     }

@@ -15,9 +15,11 @@ export class NewGameComponent {
   errorMessage: string = '';
   maxDate = new Date().toISOString().split('T')[0];
   selectedImage: File | null = null;
+  showcaseImages: File[] = [];
   @ViewChild('genres') selectGenres!: ElementRef;
   @ViewChild('languages') selectLanguages!: ElementRef;
   @ViewChild('imgInput') imgInput!: ElementRef;
+  @ViewChild('showcaseInput') showcaseInput!: ElementRef;
   @ViewChild('imgPreview', { static: false }) imgPreview!: ElementRef<HTMLImageElement>;
 
   constructor(
@@ -91,6 +93,13 @@ export class NewGameComponent {
                 this.errorMessage = `[${error.status}] - ${error.message}`;
               }
             )
+
+            this.gameService.uploadShowcaseImages(response.id, this.showcaseImages).subscribe(
+              (response: any) => {},
+              (error: HttpErrorResponse) => {
+                this.errorMessage = `[${error.status}] - ${error.message}`;
+              }
+            )
           }
         },
         (error: HttpErrorResponse) => {
@@ -109,7 +118,7 @@ export class NewGameComponent {
 
   onImageSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    if (input.files?.length) {
+    if (input.files && input.files.length > 0) {
       // Si hay un archivo seleccionado, nos aseguramos que su extensión sea la de una imagen.
       const file = input.files[0];
       const fileExtension = file.name.split('.').pop()?.toLowerCase();
@@ -125,6 +134,26 @@ export class NewGameComponent {
           this.imgPreview.nativeElement.src = reader.result as string;
         };
         reader.readAsDataURL(file);
+      }
+    }
+  }
+
+  openShowcaseDialog(): void {
+    this.showcaseInput.nativeElement.click();
+  }
+
+  onShowcaseSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      for (let i = 0; i < input.files.length; i++) {
+        const file = input.files[i];
+        const fileExtension = file.name.split('.').pop()?.toLowerCase();
+        const validImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
+
+        if (fileExtension && validImageExtensions.includes(fileExtension)) {
+          // Si todo está correcto, añadimos la imagen a la lista de showcaseImages.
+          this.showcaseImages.push(file);
+        }
       }
     }
   }
