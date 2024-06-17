@@ -32,5 +32,10 @@ import { Observable } from 'rxjs';
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
       );
     }
+    getCurrentUser(): Observable<any> {
+      return this.http.get<any>('http://localhost:80/me', 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
   }
   
