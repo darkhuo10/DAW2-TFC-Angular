@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.services';
 import { AuthService } from '../../services/auth.services';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-user-profile',
@@ -15,8 +16,7 @@ export class UserProfileComponent implements OnInit {
   }
   user!: User; 
   constructor(
-    private userService: UserService,
-    private authService: AuthService
+    private userService: UserService
   ) {}
   /*= {
     id: '1',
@@ -38,6 +38,7 @@ export class UserProfileComponent implements OnInit {
       (userData: User) => {
         this.user = userData;
         console.log(this.user);
+        this.user.birthdate = this.formatDate(this.user.birthdate);
       },
       (error) => {
         console.error('Error fetching user data:', error);
@@ -63,4 +64,16 @@ export class UserProfileComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+  // Formatea la fecha, getMonth + 1 porque obtiene números de 0 a 11
+   formatDate(date: string): string {
+    const d = new Date(date);
+    return `${d.getFullYear()}-${this.padZero(d.getMonth() + 1)}-${this.padZero(d.getDate())}`;
+  }
+  
+  // Completa con 0 así el mes y el día siempre tienen 2 dígitos
+  padZero(num: number): string {
+    return (num < 10? '0' : '') + num;
+  }
+
 }
