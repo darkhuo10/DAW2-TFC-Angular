@@ -54,7 +54,7 @@ header {
         padding: 2rem 0;
         width: 10rem;
         z-index: 2;
-
+        gap: 10px;
         input {
             font-size: 1rem;
             border: 2px solid $dark-blue;
@@ -69,20 +69,18 @@ header {
 
         button {
             width: fit-content;
-
             font-size: 1.2rem;
             font-weight: bold;
-            padding: 0 10px;
+            padding: 10px;
             text-align: center;
-            border: 2px solid $dark-blue;
+            border: 2px solid $light-blue;
             border-radius: 4px;
             cursor: pointer;
-            background-color: $lighter-blue;
-
+            background-color: $light-blue;
+            color: $white;
             &:hover {
-            color: $lighter-blue;
-            background-color: $dark-blue;
-            border: 2px solid $lighter-blue;
+            color: $light-blue;
+            background-color: $white;
             }
         }
     }
