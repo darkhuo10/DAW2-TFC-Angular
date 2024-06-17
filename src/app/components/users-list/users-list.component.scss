@@ -40,10 +40,14 @@ main {
         z-index: 1;
         height: 200px;
         flex-direction: row;
-        
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
         .card-img {
-            width: 200px;
-            height: 200px;
+            width: 190px;
+            height: 190px;
+            border: 2px solid $light-blue;
+            border-radius: 50%;
         }
         .scroll-indicator {
             display: none;
