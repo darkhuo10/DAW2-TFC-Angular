@@ -3,6 +3,7 @@ import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.services';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.services';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-users-list',
@@ -15,7 +16,8 @@ export class UsersListComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
@@ -27,11 +29,9 @@ export class UsersListComponent implements OnInit {
     }
 
     this.getUsers();
-  }
 
-  getUsers(): void {
-    this.userService.getUsers().subscribe((data: User[]) => {
-      this.users = data;
+    this.sharedService.users$.subscribe((users: User[]) => {
+      this.users = users;
       this.users.forEach((user: User) => {
         this.userService.getUserPfp(user.id).subscribe(response => {
           // Si la respuesta contiene la url (no es el caso, pero está puesto así por escalabilidad,
@@ -50,6 +50,12 @@ export class UsersListComponent implements OnInit {
           }
         })
       })
+    })
+  }
+
+  getUsers(): void {
+    this.userService.getUsers(true).subscribe((data: User[]) => {
+      this.sharedService.setUsers(data);
     })
   }
 

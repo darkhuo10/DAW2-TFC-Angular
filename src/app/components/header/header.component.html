@@ -1,12 +1,16 @@
 <header>
     <!-- ESTE DIV ES NECESARIO PARA QUE EL LOGO SE QUEDE EN EL CENTRO CUANDO SE MUESTRE EL BUSCADOR -->
     <div *ngIf="checkUrl()"></div> 
+    <div class="line" *ngIf="isUserUrl()">
+        <span>Filtering by: {{usersActive ? 'Active' : 'Inactive'}}.</span>
+        <button type="button" class="switch-button" (click)="switchUserActivity()">Switch</button>
+    </div>
     <a class="identity" routerLink="/home">
         <img class="logo" [src]="logo" alt="vgamestore_logo_white">
         <h1 class="name">Vgame Store</h1>
     </a>
-    <form *ngIf="checkUrl()" action="#" method="get">
+    <form *ngIf="checkUrl() || isUserUrl()" action="#" method="get">
         <input #filterText type="text" name="search" class="search-bar" placeholder="Search...">
-        <button type="button" class="search-button" (click)="filterGames()">Search</button>
+        <button type="button" class="search-button" (click)="filter()">Search</button>
     </form>
 </header>

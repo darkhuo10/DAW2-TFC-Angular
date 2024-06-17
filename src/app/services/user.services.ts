@@ -21,8 +21,8 @@ import { Observable } from 'rxjs';
         { responseType: 'blob' , headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
 
-    getUsers(): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}`, 
+    getUsers(active: boolean): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}?active=${active}`, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
       );
     }
