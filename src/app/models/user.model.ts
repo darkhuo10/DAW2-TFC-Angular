@@ -5,10 +5,9 @@ export class User {
         public surname: string,
         public username: string,
         public email: string,
-        public password: string,
-        public birthday: string,
+        public birthdate: string,
         public role: string,
         public active: boolean,
-        public profilePicture: string,
+        public profilePicture: string
     )  {}
 }

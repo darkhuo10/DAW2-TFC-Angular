@@ -26,8 +26,7 @@ export class UserProfileComponent implements OnInit {
     name: 'Marina',
     surname: 'Pintado',
     role: 'ADMIN',
-    birthday: '2003-12-10',
-    password: '123456',
+    birthdate: '2003-12-10',
     active: true
   };*/
   ngOnInit(): void {

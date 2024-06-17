@@ -21,6 +21,17 @@ import { Observable } from 'rxjs';
         { responseType: 'blob' , headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
 
+    getUsers(): Observable<any> {
+      return this.http.get<any>(`${this.apiUrl}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
+
+    switchActive(userId: string): Observable<any> {
+      return this.http.delete<any>(`${this.apiUrl}/${userId}`, 
+        { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
+      );
+    }
     getCurrentUser(): Observable<any> {
       return this.http.get<any>('http://localhost:80/me', 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} }
