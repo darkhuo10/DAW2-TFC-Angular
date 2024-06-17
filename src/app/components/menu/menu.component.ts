@@ -21,6 +21,9 @@ export class MenuComponent implements OnInit {
   }
 
   toggleMenu(state: boolean) {
+    if (state) {
+      this.isAdminUser = this.authService.isAdmin();
+    }
     this.isMenuOpen = state;
   }
 
