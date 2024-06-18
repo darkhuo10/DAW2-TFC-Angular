@@ -9,12 +9,12 @@ h2 {
 input, button, p, label {
     font-size: 2em;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 input, button {
     width: 100%;
-    text-align: center;
+    text-align: justify;
     border: 2px solid $dark-blue;
     border-radius: 4px;
 }
@@ -26,6 +26,7 @@ input:focus {
 button {
     cursor: pointer;
     background-color: $white;
+    text-align: center;
 
     &:hover {
         color: $white;
@@ -39,7 +40,10 @@ button {
     justify-content: center;
     align-items: center;
     padding: 20px;
-
+    background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
+    background-repeat: no-repeat;
+    background-position-y: -10rem;
+    background-size: 100%;
     .user-data {
         display: flex;
         flex-direction: column;
@@ -63,16 +67,10 @@ button {
             justify-content: center;
             align-items: center;
 
-            input {
+            #user {
                 font-size: 3rem;
                 border-color: $white;
-                background-color: $dark-blue;
                 color: $white;
-
-                &:focus {
-                    background-color: $white;
-                    color: $light-blue;
-                }
             }
 
             #role {
@@ -100,12 +98,12 @@ button {
         display: flex;
         flex-direction: column;
         gap: 20px;
-
+        #email, 
         .personal-info {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
             gap: 10px;
-
         }
     }
 
