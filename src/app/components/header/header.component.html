@@ -5,7 +5,7 @@
         <span>Filtering by: {{usersActive ? 'Active' : 'Inactive'}}.</span>
         <button type="button" class="switch-button" (click)="switchUserActivity()">Switch</button>
     </div>
-    <a class="identity" routerLink="/home">
+    <a class="identity" #logoElement routerLink="/home">
         <img class="logo" [src]="logo" alt="vgamestore_logo_white">
         <h1 class="name">Vgame Store</h1>
     </a>

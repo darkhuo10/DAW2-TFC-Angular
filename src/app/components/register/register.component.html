@@ -1,37 +1,47 @@
-<div class="register-container">
+<div class="container">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="name">Name</label>
-        <input id="name" formControlName="name" type="text">
+      <div class="line">
+        <div class="column">
+          <label for="name">Name</label>
+          <input id="name" formControlName="name" type="text">
+        </div>
+        <div class="column">
+          <label for="surname">Surname</label>
+          <input id="surname" formControlName="surname" type="text">
+        </div>
       </div>
-      <div>
-        <label for="surname">Surname</label>
-        <input id="surname" formControlName="surname" type="text">
+      <div class="line">
+        <div class="column">
+          <label for="username">Username</label>
+          <input id="username" formControlName="username" type="text">
+        </div>
+        <div class="column">
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email">
+        </div>
       </div>
-      <div>
-        <label for="username">Username</label>
-        <input id="username" formControlName="username" type="text">
+      <div class="line">
+        <div class="column">
+          <label for="password">Password</label>
+          <input id="password" formControlName="password" type="password">
+        </div>
+        <div class="column">
+          <label for="rpassword">Repeat password</label>
+          <input id="rpassword" formControlName="rpassword" type="password">
+        </div>
       </div>
-      <div>
-        <label for="email">Email</label>
-        <input id="email" formControlName="email" type="email">
+      <div class="line">
+        <div class="column">
+          <label for="bdate">Birthdate</label>
+          <input id="bdate" formControlName="bdate" type="date" [max]="maxDate">
+        </div>
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input id="password" formControlName="password" type="password">
-      </div>
-      <div>
-        <label for="rpassword">Repeat password</label>
-        <input id="rpassword" formControlName="rpassword" type="password">
-      </div>
-      <div>
-        <label for="bdate">Birthdate</label>
-        <input id="bdate" formControlName="bdate" type="date" [max]="maxDate">
+      <div class="line">
+        <button class="go-to" type="button" (click)="goToLogin()">Go to login</button>
+        <button class="submit" type="submit" [disabled]="loading">Register</button>
       </div>
       <div *ngIf="errorMessage" class="error-message">
         {{ errorMessage }}
       </div>
-      <button type="button" (click)="goToLogin()">Go to login</button>
-      <button type="submit" [disabled]="loading">Register</button>
     </form>
   </div>

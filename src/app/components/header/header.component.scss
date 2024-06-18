@@ -28,7 +28,10 @@ header {
         @media (max-width: 768px) {
             margin: 0 2rem 0 0;
             padding: 0;
-            transform: translateY(-2rem);
+            
+            &.move-up {
+                transform: translateY(-2rem);
+            }
         }
     }
 

@@ -8,7 +8,7 @@
             <img *ngIf="!user.active && user.role != 'ADMIN'" src="../../../assets/img/tick-circle.svg" 
                 alt="Reactivate" class="button" (click)="switchActive(user)">
 
-            <div class="card" #card> <!-- (click)="redirectToDetails()" -->
+            <div class="card" #card>
                 <img [src]="user.profilePicture" alt="Profile picture" class="card-img">
                 <div class="card-content">
                     <h2>{{user.username}}</h2>

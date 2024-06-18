@@ -21,6 +21,7 @@ export class HeaderComponent {
   logo = "assets/img/vgamestore_logo_white.svg";
   usersActive = true;
   @ViewChild('filterText') filterText!: ElementRef;
+  @ViewChild('logoElement') logoElement!: ElementRef;
 
   constructor(
     private router: Router,
@@ -38,7 +39,12 @@ export class HeaderComponent {
   }
 
   isUserUrl(): boolean {
-    return this.router.url == "/users";
+    const isUserUrl = this.router.url == "/users";
+    if (this.logoElement) {
+      if (isUserUrl) { this.logoElement.nativeElement.classList.add("move-up"); }
+      else { this.logoElement.nativeElement.classList.remove("move-up"); }
+    }
+    return isUserUrl;
   }
 
   switchUserActivity(): void {

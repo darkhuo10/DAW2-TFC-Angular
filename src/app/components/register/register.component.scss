@@ -1,49 +1,108 @@
-.register-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 1em;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-    form {
+@import "colors";
+
+.container {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  width: 80vw;
+  margin: 0 auto;
+  height: 100%;
+
+  background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
+  background-repeat: no-repeat;
+  background-size: auto 200%;
+  background-position: center;
+
+  @media (max-width: 767px) {
+    background-size: auto 110%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .error-message {
+      color: red;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .line {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-  
-      div {
-        margin-bottom: 1em;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 10px;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: 5px;
       }
-  
-      label {
-        margin-bottom: 0.5em;
-        font-weight: bold;
-      }
-  
-      input {
-        padding: 0.5em;
-        font-size: 1em;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-  
-      .error-message {
-        color: red;
-        margin-bottom: 1em;
+
+      .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 2px;
+
+        label {
+          flex: 1;
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+    
+        input {
+          flex: 1;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding: 10px;
+          border: 2px solid $dark-blue;
+          border-radius: 4px;
+          background-color: rgba(255,255,255,0.5);
+    
+          &:focus {
+            border-color: $light-blue;
+            background-color: rgba(230,230,230,0.5);
+          }
+        } 
       }
   
       button {
-        padding: 0.75em;
-        font-size: 1em;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 4px;
+        flex: 1;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-  
-        &:disabled {
-          background-color: #ccc;
+        border-radius: 4px;
+
+        &.go-to {
+          border: 2px solid $dark-blue;
+          background-color: $white;
+
+          &:hover {
+            color: $white;
+            background-color: $dark-blue;
+            transition: ease-in 0.1s;
+          }
+        }
+        
+        &.submit {
+          border: 2px solid $light-blue;
+          background-color: $white;
+          color: $light-blue;
+        
+          &:hover {
+            color: $white;
+            background-color: $light-blue;
+            transition: ease-in 0.1s;
+          }
         }
       }
     }
   }
+}
