@@ -45,7 +45,6 @@ export class UserProfileComponent implements OnInit {
             reader.readAsDataURL(response);
           }
         });
-        console.log(this.user);
 
       },
       (error) => {

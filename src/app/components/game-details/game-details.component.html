@@ -54,8 +54,14 @@
                     <button id="buttonWishlist" (click)="toggleWishlist()">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
                 </div>
                 <div class="game-basic-line margin-top" *ngIf="isAdmin()">
-                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
                     <button (click)="openFileDialog()">Upload</button>
+                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
+                </div>
+                <div class="showcase-separator" *ngIf="isAdmin()">Showcase images:</div>
+                <div class="game-basic-line margin-top" *ngIf="isAdmin()">
+                    <button (click)="openShowcaseImageSelector()">Add</button>
+                    <button (click)="deleteShowcaseImages()">Delete</button>
+                    <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" hidden="true" multiple/>
                 </div>
             </div>
         </div>

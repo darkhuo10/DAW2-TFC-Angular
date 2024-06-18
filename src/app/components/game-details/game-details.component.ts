@@ -18,11 +18,13 @@ export class GameDetailsComponent implements OnInit {
   isAdminUser = false;
   selectedFile!: File;
   selectedImage!: File;
+  selectedShowcaseImages: File[] = [];
   isInWishlist = false;
   buttonWishlist: HTMLElement | null = null;
   fileInput: HTMLElement | null = null;
   imgInput: HTMLElement | null = null;
   imgElement: HTMLElement | null = null;
+  @ViewChild('showcaseInput') showcaseInput!: ElementRef;
 
   gameGenresPEditElement: HTMLParagraphElement | null = null;
   gameLanguagesPEditElement: HTMLParagraphElement | null = null;
@@ -90,6 +92,8 @@ export class GameDetailsComponent implements OnInit {
     this.gameLanguagesPEditElement = document.getElementById('game-languages-edit-p') as HTMLParagraphElement;
     this.gameGenresSelectElement = document.getElementById('game-genres-edit-select') as HTMLSelectElement;
     this.gameLanguagesSelectElement = document.getElementById('game-languages-edit-select') as HTMLSelectElement;
+
+    this.cdr.detectChanges();
   }
 
   ngAfterViewInit(): void {
@@ -424,7 +428,47 @@ export class GameDetailsComponent implements OnInit {
     return this.isAdminUser;
   }
 
-  // countImages(game: Game): number {
-  //   return game.game_showcase_images.length;
-  // }
+  openShowcaseImageSelector() {
+    this.showcaseInput.nativeElement.click();
+  }
+
+  onShowcaseSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      for (let i = 0; i < input.files.length; i++) {
+        const file = input.files[i];
+        const fileExtension = file.name.split('.').pop()?.toLowerCase();
+        const validImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'avif', 'bmp', 'webp'];
+
+        if (fileExtension && validImageExtensions.includes(fileExtension)) {
+          // Si todo está correcto, añadimos la imagen a la lista de showcaseImages.
+          this.selectedShowcaseImages.push(file);
+        }
+      }
+
+      this.gameService.uploadShowcaseImages(this.game.id, this.selectedShowcaseImages).subscribe(
+        (response) => {
+          this.selectedShowcaseImages = [];
+          this.cdr.detectChanges();
+          document.defaultView?.location.reload();
+        },
+        (error) => {
+          this.selectedShowcaseImages = [];
+        }
+      );
+    }
+  }
+
+  deleteShowcaseImages(): void {
+    this.gameService.clearShowcaseImages(this.game.id).subscribe(
+      (response) => {
+        this.selectedShowcaseImages = [];
+        this.cdr.detectChanges();
+        document.defaultView?.location.reload();
+      },
+      (error) => {
+        this.selectedShowcaseImages = [];
+      }
+    );;
+  }
 }
