@@ -121,10 +121,10 @@ export class NewGameComponent {
     if (input.files && input.files.length > 0) {
       // Si hay un archivo seleccionado, nos aseguramos que su extensión sea la de una imagen.
       const file = input.files[0];
-      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      /*const fileExtension = file.name.split('.').pop()?.toLowerCase();
       const validImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
 
-      if (fileExtension && validImageExtensions.includes(fileExtension)) {
+      if (fileExtension && validImageExtensions.includes(fileExtension)) {*/
         // Si todo está correcto, añadimos la imagen a nuestra selectedImage
         this.selectedImage = file;
 
@@ -134,7 +134,7 @@ export class NewGameComponent {
           this.imgPreview.nativeElement.src = reader.result as string;
         };
         reader.readAsDataURL(file);
-      }
+      //}
     }
   }
 

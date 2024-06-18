@@ -84,7 +84,7 @@
             <input #release type="date" class="input" [max]="maxDate" formControlName="release">
 
             <button type="button" class="button-upload-img" (click)="openImageDialog()">Upload image</button>
-            <input type="file" #imgInput (change)="onImageSelected($event)" hidden="true" />
+            <input type="file" #imgInput (change)="onImageSelected($event)" accept="image/*" hidden="true"/>
         </div>
         <div *ngIf="form.get('release')?.invalid && form.get('release')?.touched">
             <small *ngIf="form.get('release')?.errors?.['required']">Release date is required.</small>
@@ -94,7 +94,7 @@
             <div class="flex-row">
                 <button type="button" class="button-upload-showcases" (click)="openShowcaseDialog()">Showcase images</button>
                 <label class="selected-images-label">Selected images: {{showcaseImages.length}}</label>
-                <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" hidden="true" multiple/>
+                <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" accept="image/*" hidden="true" multiple/>
             </div>
             <div class="flex-row">
                 <button class="final-button" type="button" (click)="cancel()">Go back</button>

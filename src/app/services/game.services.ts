@@ -60,7 +60,7 @@ import { AuthService } from './auth.services';
     }
   
     clearShowcaseImages(gameId: string): Observable<any> {
-      return this.http.put<any>(`${this.apiUrl}/clear_showcase_imgs/${gameId}`, 
+      return this.http.delete<any>(`${this.apiUrl}/clear_showcase_imgs/${gameId}`, 
         { headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`} });
     }
   

@@ -14,7 +14,6 @@ export class AuthService {
   }
 
   loadCurrentUser(): void {
-    console.log("entra")
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken: any = jwtDecode(token);
