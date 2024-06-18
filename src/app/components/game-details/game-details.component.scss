@@ -36,7 +36,8 @@ button {
 .game {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    align-items: center;
+    gap: 30px;
     margin: 40px;
     padding: 20px;
     border-radius: 8px;
@@ -264,4 +265,16 @@ button {
 
 .invalid {
     border: solid 1px red;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.carousel {
+    width: 70%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 }

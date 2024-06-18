@@ -423,4 +423,8 @@ export class GameDetailsComponent implements OnInit {
   isAdmin() {
     return this.isAdminUser;
   }
+
+  // countImages(game: Game): number {
+  //   return game.game_showcase_images.length;
+  // }
 }

@@ -12,7 +12,7 @@ export class Game {
         public rating: number,
         public sell_number: number,
         public mainImage: string,
-        public showcaseImages: Array<string>,
+        public game_showcase_images: Array<string>,
         public file: string,
         public visible: boolean
     )  {}

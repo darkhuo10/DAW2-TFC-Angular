@@ -50,17 +50,18 @@
                 <div class="separator"></div>
                 <div class="game-basic-line">
                     <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden="true">
-                    <button *ngIf="isAdmin()" id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
-                    <button *ngIf="isAdmin()" (click)="openFileDialog()">Upload</button>
                     <button (click)="download()">Download</button>
                     <button id="buttonWishlist" (click)="toggleWishlist()">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
+                </div>
+                <div class="game-basic-line margin-top" *ngIf="isAdmin()">
+                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
+                    <button (click)="openFileDialog()">Upload</button>
                 </div>
             </div>
         </div>
     </div>
-    <div>
-        Carrusel dentro de este Div, esto ya debería ocupar todo el ancho disponible
-        <app-images [gameId]="gameId"></app-images>
+    <div class="carousel" *ngIf="game.game_showcase_images.length > 0">
+        <app-images [game]="game"></app-images>
     </div>
 </div>    
 
