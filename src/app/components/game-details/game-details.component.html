@@ -1,7 +1,7 @@
 <div class="game">
     <div class="game-basic">
         <img id="imgElement" [src]="game.mainImage" (click)="changeImage()" alt="Product Image" class="game-basic-img">
-        <input type="file" id="imgInput" (change)="onImageSelected($event)" hidden="true">
+        <input type="file" id="imgInput" (change)="onImageSelected($event)" accept="image/*" hidden="true">
         <div class="game-basic-text">
             <div>
                 <div class="game-basic-line-title">
@@ -61,7 +61,7 @@
                 <div class="game-basic-line margin-top" *ngIf="isAdmin()">
                     <button (click)="openShowcaseImageSelector()">Add</button>
                     <button (click)="deleteShowcaseImages()">Delete</button>
-                    <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" hidden="true" multiple/>
+                    <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" accept="image/*" hidden="true" multiple/>
                 </div>
             </div>
         </div>

@@ -437,13 +437,14 @@ export class GameDetailsComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       for (let i = 0; i < input.files.length; i++) {
         const file = input.files[i];
-        const fileExtension = file.name.split('.').pop()?.toLowerCase();
+        // Se supone que el input solo acepta archivos que sean imágenes
+        /*const fileExtension = file.name.split('.').pop()?.toLowerCase();
         const validImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'avif', 'bmp', 'webp'];
 
-        if (fileExtension && validImageExtensions.includes(fileExtension)) {
+        if (fileExtension && validImageExtensions.includes(fileExtension)) {*/
           // Si todo está correcto, añadimos la imagen a la lista de showcaseImages.
           this.selectedShowcaseImages.push(file);
-        }
+        //}
       }
 
       this.gameService.uploadShowcaseImages(this.game.id, this.selectedShowcaseImages).subscribe(
