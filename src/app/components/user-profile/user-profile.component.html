@@ -3,7 +3,7 @@
         <img class="user-image"  [src]="user.profilePicture" alt="profile-picture" (click)="selectImage()">
         <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
         <div class="user-text">
-            <input type="text" [value]="user.username" placeholder="Username"/>
+            <p id="user">{{user.username}}</p>
             <p id="role">{{user.role}}</p>
         </div>
     </div>
@@ -11,9 +11,14 @@
     <div class="personal-data">
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" [value]="user.email" placeholder="Email"/>
+            <p id="email">{{user.email}}</p>
         </div>
+            <div>
+                <label for="birthday">Birthdate</label>  
+                <input type="date" [value]=user.birthdate id="birthday" name="birthday"/>
+            </div>
         
+
         <div class="personal-info">
             <div>
                 <label for="firstname">First Name</label>  
@@ -23,10 +28,7 @@
                 <label for="lastname">Last Name</label>  
                 <input type="text" [value]="user.surname" placeholder="Last Name" id="lastname" name="lastname"/>
             </div>
-            <div>
-                <label for="birthday">Birthdate</label>  
-                <input type="date" [value]=user.birthdate id="birthday" name="birthday"/>
-            </div>
+            
         </div>
         <div class="buttons">
             <button id="save" (click)="updateProfile()">Save</button>

@@ -10,11 +10,8 @@ import { DatePipe } from '@angular/common';
   styleUrl: './user-profile.component.scss'
 })
 export class UserProfileComponent implements OnInit {
-  hidePassword: boolean = true;
-  togglePassword(): void {
-      this.hidePassword = !this.hidePassword;
-  }
-  user!: User; 
+  user!: User;
+
   constructor(
     private userService: UserService,
     private authService: AuthService
@@ -89,5 +86,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   updateProfile(): void {
+    /*let dto = new UserDtoUpdate(
+    );*/
   }
 }
