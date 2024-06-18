@@ -1,14 +1,17 @@
+@import "colors";
+
 .carousel {
+    border: solid 2px $dark-blue;
+    border-radius: 5px;
     position: relative; /* Permite la posición absoluta de los botones y el número de imagen */
     text-align: center;
-    margin-bottom: 10px;
     width: 100%; /* Hace que el carrusel ocupe todo el ancho disponible */
   
     img {
-      max-width: 100%;
+      width: 100%;
+      aspect-ratio: 16/9;
       display: block; /* Asegura que la imagen se ajuste correctamente dentro del carrusel */
       margin: 0 auto; /* Centra la imagen horizontalmente dentro del carrusel */
-      margin-bottom: 5px; /* Reducir espacio entre la imagen y el pie de página */
     }
   
     .control {
