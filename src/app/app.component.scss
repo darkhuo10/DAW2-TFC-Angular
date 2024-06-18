@@ -30,3 +30,27 @@ app-menu {
 app-header, app-footer {
   flex-shrink: 0;
 }
+
+/* app.component.scss */
+
+.theme-toggle-button {
+  position: fixed;
+  top: 10px;  // Ajusta según tu preferencia
+  right: 10px;  // Ajusta según tu preferencia
+  z-index: 1000;  // Asegura que esté sobre otros elementos
+  padding: 5px;  // Haz el botón pequeño
+  background-color: #f0f0f0;  // Ajusta según tu preferencia
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #e0e0e0;  // Ajusta según tu preferencia
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
