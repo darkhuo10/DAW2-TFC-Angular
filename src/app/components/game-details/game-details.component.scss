@@ -1,0 +1,288 @@
+@import "colors";
+
+h2 {
+    font-size: 3rem;
+}
+
+p {
+    font-size: 1.5em;
+    margin: 5px 0;
+}
+
+button {
+    align-self: end;
+    flex: 1;
+    height: 100%;
+    font-size: 1.2em;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid $dark-blue;
+    background-color: $white;
+    color: $dark-blue;
+
+    &:hover {
+        background-color: $dark-blue;
+        color: $white;
+        transition: 0.2s;
+    }
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 8px;
+
+    background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
+    background-repeat: no-repeat;
+    background-position-y: -10rem;
+    background-position-x: right;
+    background-size: 70% auto;
+
+    @media (max-width: 768px) {
+        background-size: 150% auto;
+        background-position-y: center;
+        background-position-x: center;
+    }
+
+    .game-basic {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-basic-img {
+            width: 30vw;
+            height: 40vw;
+            object-fit: fill;
+            border: 2px solid $dark-blue;
+            border-radius: 5px;
+
+            &.hoverable {
+                transition: filter 0.2s;
+
+                &:hover {
+                    cursor: pointer;
+                    filter: blur(2px);
+                }
+            }
+
+            @media (max-width: 768px) {
+                width: 60vw;
+                height: 80vw;
+            }
+        }
+
+        .game-basic-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 50px;
+            flex: 1;
+
+            @media (max-width: 768px) {
+                align-items: center;
+                text-align: center;
+                font-size: 1rem;
+            }
+            
+            .game-basic-line {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                padding: 0 5px;
+                
+                p {
+                    font-size: 1.1rem;
+                }
+
+                .game-standout {
+                    color: $light-blue;
+                    text-align: end;
+                }
+
+                .game-basic-rating {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+
+                    p {
+                        margin: 0;
+                        font-size: 1.1em;
+                    }
+
+                    @media (max-width: 768px) {
+                        align-items: center;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+
+            .right {
+                justify-content: end;
+            }
+
+            .game-basic-line-title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 50px;
+                padding: 5px;
+
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 10px;
+                }
+            }
+
+            .description {
+                font-size: 1.2rem;
+                margin-bottom: 10px;
+                text-align: justify;
+            }
+        }
+    }
+
+    .game-additional {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+
+        .game-additional-line {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+            p {
+                font-size: 1.2em;
+                margin: 0;
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+.reviews {
+    border: 2px solid $dark-blue;
+    background-color: $dark-blue;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+
+    @media (max-width: 768px) {
+        text-align: justify;
+    }
+}
+
+.separator {
+    margin: 20px;
+
+    &.darkblue {
+        border: solid 1px darkblue;
+    }
+}
+
+.showcase-separator {
+    margin: 20px 20px 0 20px;
+    border-bottom: solid 2px darkblue;
+    text-align: center;
+    color: darkblue;
+    font-weight: bold;
+}
+
+.h2-input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid $dark-blue;
+    background-color: rgb(245, 245, 245);
+    color: $dark-blue;
+    font-weight: bold;
+    font-size: 2em;
+
+    &:focus {
+        background-color: rgb(235, 235, 235)
+    }
+}
+
+.description-input {
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid $dark-blue;
+    background-color: rgb(245, 245, 245);
+    color: $dark-blue;
+    font-size: 1em;
+    width: 100%;
+
+    &:focus {
+        background-color: rgb(235, 235, 235)
+    }
+}
+
+.container-input {
+    display: flex;
+
+    .p-label, .section-select {
+        flex: 1;
+        margin: 5px 5px 5px 0;
+    }
+    
+    .p-input {
+        border-radius: 5px;
+        padding: 5px;
+        border: 2px solid $dark-blue;
+        background-color: rgb(245, 245, 245);
+        color: $dark-blue;
+        font-size: 1em;
+        flex:2;
+    
+        &:focus {
+            background-color: rgb(235, 235, 235)
+        }
+    }
+}
+
+.invalid {
+    border: solid 1px red;
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.carousel {
+    width: 70%;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}

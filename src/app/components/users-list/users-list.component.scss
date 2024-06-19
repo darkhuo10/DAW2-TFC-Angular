@@ -1,0 +1,107 @@
+@import "colors";
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px 30px;
+    height: 100%;
+
+    background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
+    background-repeat: no-repeat;
+    background-size: 50% auto;
+    background-position: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+
+    .card-container {
+        position: relative; 
+        transition: transform 0.3s ease;
+        background-color: rgba(255,255,255,0.5);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card {
+        display: flex;
+        border: 1px solid $dark-blue;
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative; 
+        z-index: 1;
+        height: 200px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        .card-img {
+            width: 190px;
+            height: 190px;
+            border: 2px solid $light-blue;
+            border-radius: 50%;
+        }
+        .scroll-indicator {
+            display: none;
+        }
+        @media (max-width: 1001px) {
+            flex-direction: column;
+            height: 500px;
+            overflow-y: auto;
+            position: relative;
+            .card-img {
+                width: 100%;
+                aspect-ratio: 1/1;
+            }
+            .scroll-indicator {
+                display: block;
+                border: 1px solid $dark-blue;
+                border-radius: 4px;
+                padding: 10px;
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 0.8rem;
+                color: $white;
+                background-color: transparentize($light-blue, 0.1);
+                backdrop-filter: blur(5px);
+            }
+        }
+      
+        @media (max-width: 480px) {
+            height: fit-content;
+            .scroll-indicator {
+                display: none;
+            }
+        }
+    }
+
+    .card-content {
+        flex-grow: 1;
+        justify-content: space-between;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      
+        @media (max-width: 768px) {
+          padding: 15px;
+        }
+      
+        @media (max-width: 480px) {
+          padding: 10px;
+        }
+    }
+
+    .button {
+        position: absolute; 
+        top: 0; 
+        right: 0; 
+        width: 20px; 
+        height: 20px; 
+        z-index: 2;
+    }
+}

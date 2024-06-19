@@ -1,0 +1,24 @@
+<main>
+    <div *ngIf="users.length == 0">Nothing to show...</div>
+    <div *ngFor="let user of users">
+        <div class="card-container">
+            <img *ngIf="user.active && user.role != 'ADMIN'" src="../../../assets/img/close-circle-outline.svg" 
+                alt="Deactivate" class="button" (click)="switchActive(user)">
+
+            <img *ngIf="!user.active && user.role != 'ADMIN'" src="../../../assets/img/tick-circle.svg" 
+                alt="Reactivate" class="button" (click)="switchActive(user)">
+
+            <div class="card" #card>
+                <img [src]="user.profilePicture" alt="Profile picture" class="card-img">
+                <div class="card-content">
+                    <h2>{{user.username}}</h2>
+                    <p>{{user.name}} {{user.surname}}</p>
+                    <p>Email: {{user.email}}</p>
+                    <p>Birthdate: {{formatDate(user.birthdate)}}</p>
+                    <p>Role: {{user.role}}</p>
+                    <p>Status: {{user.active ? 'Active' : 'Disabled'}}</p>    
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,146 @@
+@import "colors";
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: $dark-blue;
+    padding: 20px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0;
+        padding: 0 20px;
+    }
+
+    .identity {
+        flex: 1;
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        @media (max-width: 768px) {
+            margin: 0 2rem 0 0;
+            padding: 0;
+            
+            &.move-up {
+                transform: translateY(-2rem);
+            }
+        }
+    }
+
+    .logo {
+        width: 100px;
+        height: auto;
+    }
+
+    .name {
+        color: $white;
+        font-size: 3em;
+        font-weight: bold;
+        @media (max-width: 768px) {
+            font-size: 2em;
+        }
+    }
+
+    div {
+        width: 10rem; 
+        margin: 0 0 0 10rem;
+
+        @media (max-width: 768px) {
+            margin: 0;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        margin: 0 10rem 0 0;
+        padding: 2rem 0;
+        width: 10rem;
+        z-index: 2;
+        gap: 10px;
+
+        @media (max-width: 768px) {
+            padding: 0 0 1rem 0;
+        }
+
+        input {
+            font-size: 1rem;
+            border: 2px solid $dark-blue;
+            padding: 5px;
+            border-radius: 4px;
+            flex:1;
+
+            &:focus {
+                background-color: rgb(230, 230, 230);
+            }
+        }
+
+        .search-button {
+            width: fit-content;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid $light-blue;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: $light-blue;
+            color: $white;
+
+            &:hover {
+                color: $light-blue;
+                background-color: $white;
+            }
+        }
+    }
+
+    .line {
+        display: flex;
+        flex-direction: row;
+        width: 20rem; 
+        margin: 0;
+        padding: 2rem 0;
+        z-index: 2;
+        gap: 10px;
+        justify-content: flex-end;
+
+        @media (max-width: 768px) {
+            justify-content: center;
+            padding: 1rem 0 0 0;
+            transform: translateY(5.5rem);
+        }
+
+        span {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: $white;
+            width: fit-content;
+        }
+        
+        .switch-button {
+            width: fit-content;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            border: 2px solid $light-blue;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: $light-blue;
+            color: $white;
+        
+            &:hover {
+                color: $light-blue;
+                background-color: $white;
+            }
+        }
+    }
+}

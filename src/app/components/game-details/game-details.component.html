@@ -1,0 +1,76 @@
+<div class="game">
+    <div class="game-basic">
+        <img id="imgElement" [src]="game.mainImage" (click)="changeImage()" alt="Product Image" class="game-basic-img">
+        <input type="file" id="imgInput" (change)="onImageSelected($event)" accept="image/*" hidden="true">
+        <div class="game-basic-text">
+            <div>
+                <div class="game-basic-line-title">
+                    <h2 id="game-title">{{game.name}}</h2>
+                    <h2 id="game-price">{{game.price}}€</h2>
+                    <input type="text" id="game-title-edit" class="h2-input" hidden="true" [value]="game.name" (input)="validateLength($event, 2, 200)"/>
+                    <input type="text" id="game-price-edit" class="h2-input" hidden="true" [value]="game.price" placeholder="10.55" (input)="validatePrice($event)"/>
+                </div>
+                <div class="separator darkblue"></div>
+                <p id="game-description" class="description">{{game.description}}</p>
+                <textarea rows="10" id="game-description-edit" class="description-input" hidden="true" [value]="game.description" 
+                    placeholder="Game description" minLength="10" maxlength="4000" (input)="validateLengthTextArea($event, 10, 4000)"></textarea>
+            </div>
+            <div>
+                <div class="game-basic-line">
+                    <div>
+                        <p id="game-developer">Developer: {{game.developer}}</p>
+                        <p id="game-publisher">Publisher: {{game.publisher}}</p>
+                        <p id="game-developer-edit" hidden="true">
+                            <label for="game-developer-edit-input" class="p-label">Developer: </label>
+                            <input id="game-developer-edit-input" class="p-input" type="text" [value]="game.developer" (input)="validateLength($event, 5, 200)"/>
+                        </p>
+                        <p id="game-publisher-edit" hidden="true">
+                            <label for="game-publisher-edit-input" class="p-label">Publisher: </label>
+                            <input id="game-publisher-edit-input" class="p-input" type="text" [value]="game.publisher" (input)="validateLength($event, 5, 200)"/>
+                        </p>
+                        <p>Release Date: {{formatDate(game.release_date)}}</p>
+                        <p>Downloads: {{formatSells(game.sell_number)}}</p>
+                    </div>
+                    <div>
+                        <p id="game-languages" class="game-standout">{{game.languages}}</p>
+                        <p id="game-genres" class="game-standout">{{game.genres}}</p>
+                        <div id="game-languages-edit-p" hidden="true">
+                            <section class="section-select">Languages: </section>
+                            <select id="game-languages-edit-select" class="select" multiple></select>
+                        </div>
+                        <div id="game-genres-edit-p" hidden="true">
+                            <section class="section-select">Genres: </section>
+                            <select id="game-genres-edit-select" class="select" multiple></select>
+                        </div>
+                        <div class="game-basic-line right">
+                            <app-rating [rating]="game.rating"></app-rating>
+                        </div>
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <div class="game-basic-line">
+                    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden="true">
+                    <button (click)="download()">Download</button>
+                    <button id="buttonWishlist" (click)="toggleWishlist()">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
+                </div>
+                <div class="game-basic-line margin-top" *ngIf="isAdmin()">
+                    <button (click)="openFileDialog()">Upload</button>
+                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
+                </div>
+                <div class="showcase-separator" *ngIf="isAdmin()">Showcase images:</div>
+                <div class="game-basic-line margin-top" *ngIf="isAdmin()">
+                    <button (click)="openShowcaseImageSelector()">Add</button>
+                    <button (click)="deleteShowcaseImages()">Delete</button>
+                    <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" accept="image/*" hidden="true" multiple/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel" *ngIf="game.game_showcase_images.length > 0">
+        <app-images [game]="game"></app-images>
+    </div>
+</div>    
+
+<div class="reviews">
+    <app-reviews></app-reviews>
+</div>

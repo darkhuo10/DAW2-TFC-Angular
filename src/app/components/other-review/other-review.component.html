@@ -1,0 +1,15 @@
+<div class="container">
+    <img *ngIf="isAdminOrReviewCreator()" src="../../../assets/img/close-circle-outline.svg" alt="Delete" class="delete-button" (click)="deleteReview()">
+    <img [src]="reviewUserImageUrl" alt="user-profile-image">
+    <div class="group">
+        <div class="line">
+            <h2>{{review.username}}</h2>
+            <app-rating [rating]="review.rating"></app-rating>
+        </div>
+        <div class="line">
+            <p class="description">{{review.description}}</p>
+            <p class="date">{{formatDate(review.publish_date)}}</p>
+        </div>
+    </div>
+</div>
+

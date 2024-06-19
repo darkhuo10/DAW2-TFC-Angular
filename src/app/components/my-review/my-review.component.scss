@@ -1,0 +1,110 @@
+@import "colors";
+
+output, textarea {
+  color: $white;
+}
+
+label {
+  color: $white;
+  font-weight: bold;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 100%;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  gap: 10px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+.margin {
+  margin: 0 20px;
+}
+
+#comment {
+  width: 100%;
+  resize: none;
+  font-weight: normal;
+  background-color: $dark-blue;
+  font-size: 1rem;
+
+  &:focus {
+    background-color: rgba(255,255,255,0.05);
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.75em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.6em;
+  }
+}
+
+textarea, button, p {
+  font-size: 1.5em;
+  padding: 10px;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+    padding: 8px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.2em;
+    padding: 6px;
+  }
+}
+
+textarea, button {
+  border: 2px solid $white;
+  border-radius: 4px;
+}
+
+button {
+  width: 75%;
+}
+
+#send {
+  align-self: center;
+  margin-top: 50px;
+  text-align: center;
+  cursor: pointer;
+  background-color: $white;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-blue;
+    transition: ease-in 0.1s;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 30px;
+    font-size: 1.5em;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+}

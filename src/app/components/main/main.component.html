@@ -1,0 +1,9 @@
+<main>
+  <div *ngIf="games.length == 0">Nothing to show...</div>
+  <div *ngFor="let index of gameIndexes">
+    <app-game-preview *ngIf="typeOfPreview === 'home'" [game]="games[index]"></app-game-preview>
+    <app-library *ngIf="typeOfPreview === 'library'" [game]="games[index]"></app-library>
+    <app-wishlist *ngIf="typeOfPreview === 'wishlist'" [game]="games[index]"></app-wishlist>
+  </div>
+</main>
+  
