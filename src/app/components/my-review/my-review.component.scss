@@ -90,13 +90,13 @@ button {
   margin-top: 50px;
   text-align: center;
   cursor: pointer;
-  background-color: $white;
+  //background-color: $white;
 
-  &:hover {
+  /*&:hover {
     color: $white;
     background-color: $dark-blue;
     transition: ease-in 0.1s;
-  }
+  }*/
 
   @media (max-width: 768px) {
     margin-top: 30px;

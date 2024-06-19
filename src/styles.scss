@@ -5,19 +5,86 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: $dark-blue;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: $dark-blue transparent;
+    scrollbar-color: $dark-blue $white;
 }
 *::-webkit-scrollbar {
     width: 10px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: $dark-blue;
+    background-color: $light-blue;
     border-radius: 4px;
 }
 
 *::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: $white;
+}
+
+html {
+    color: $dark-blue;
+    background-color: $white;
+}
+
+html.dark-theme {
+    color: $white;
+    background-color: $dark-blue;
+
+    input, textarea{
+        color: $dark-blue;
+        &::placeholder {
+            color: $dark-blue;
+        }
+    }
+
+    footer, header, #reviews {
+        border: 2px solid $white;
+        border-radius: 4px;
+    }
+    .separator {
+        margin: 20px;
+
+        &.darkblue {
+            border: solid 1px $white;
+        }
+    }
+    .showcase-separator {
+        color: $white;
+        border-bottom: solid 2px $white;
+
+    }
+    .button {  
+        background-color: $white;
+
+        &:hover {
+            color: $white;
+            background-color: $dark-blue;
+            transition: ease-in 0.1s;
+        }
+    }
+    .card-container {
+        border: 2px solid $white;
+        border-radius: 4px;
+    }
+    .card {
+        background-color: $dark-blue;
+    }
+
+    #user-profile {
+        .user-data{
+            border: 2px solid $white;
+        }
+    }
+
+    .form {
+        form {
+            input{
+                color: $white;
+            }
+            button {
+                background-color: $white;
+            }
+        }
+    }
+    
 }

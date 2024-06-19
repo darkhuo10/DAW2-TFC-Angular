@@ -50,17 +50,17 @@
                 <div class="separator"></div>
                 <div class="game-basic-line">
                     <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden="true">
-                    <button (click)="download()">Download</button>
-                    <button id="buttonWishlist" (click)="toggleWishlist()">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
+                    <button (click)="download()" class="button">Download</button>
+                    <button id="buttonWishlist" (click)="toggleWishlist()" class="button">{{ isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist' }}</button>
                 </div>
                 <div class="game-basic-line margin-top" *ngIf="isAdmin()">
-                    <button (click)="openFileDialog()">Upload</button>
-                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()">{{modoEdit ? "Save changes" : "Edit"}}</button>
+                    <button (click)="openFileDialog()" class="button">Upload</button>
+                    <button id="button-edit" (click)="modoEdit ? guardar() : editar()" class="button">{{modoEdit ? "Save changes" : "Edit"}}</button>
                 </div>
                 <div class="showcase-separator" *ngIf="isAdmin()">Showcase images:</div>
                 <div class="game-basic-line margin-top" *ngIf="isAdmin()">
-                    <button (click)="openShowcaseImageSelector()">Add</button>
-                    <button (click)="deleteShowcaseImages()">Delete</button>
+                    <button (click)="openShowcaseImageSelector()" class="button">Add</button>
+                    <button (click)="deleteShowcaseImages()" class="button">Delete</button>
                     <input type="file" #showcaseInput (change)="onShowcaseSelected($event)" accept="image/*" hidden="true" multiple/>
                 </div>
             </div>
@@ -71,6 +71,6 @@
     </div>
 </div>    
 
-<div class="reviews">
+<div class="reviews" id="reviews">
     <app-reviews></app-reviews>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="user-profile">
     <div class="user-data">
         <img class="user-image" #imgPreview [src]="user.profilePicture" alt="profile-picture" (click)="selectImage()">
         <input type="file" #imgInput (change)="onFileSelected($event)" accept="image/*" hidden="true">

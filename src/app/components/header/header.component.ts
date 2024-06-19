@@ -40,10 +40,14 @@ export class HeaderComponent {
   isUserUrl(): boolean {
     const url = this.router.url;
     if (this.logoElement) {
-      if (url == "/home" || url == "/users") { this.logoElement.nativeElement.classList.add("move-up"); }
+      if ((url == "/home" && this.authService.isAdmin()) || url == "/users") { this.logoElement.nativeElement.classList.add("move-up"); }
       else { this.logoElement.nativeElement.classList.remove("move-up"); }
     }
     return url == "/home" || url == "/users";
+  }
+
+  checkAdmin() {
+    return this.authService.isAdmin();
   }
 
   switchActivity(): void {

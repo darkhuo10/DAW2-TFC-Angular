@@ -208,15 +208,15 @@ button {
     margin: 20px;
 
     &.darkblue {
-        border: solid 1px darkblue;
+        border: solid 1px $dark-blue;
     }
 }
 
 .showcase-separator {
     margin: 20px 20px 0 20px;
-    border-bottom: solid 2px darkblue;
+    border-bottom: solid 2px $dark-blue;
     text-align: center;
-    color: darkblue;
+    color: $dark-blue;
     font-weight: bold;
 }
 
@@ -272,7 +272,7 @@ button {
 }
 
 .invalid {
-    border: solid 1px red;
+    border: solid 1px $red;
 }
 
 .margin-top {

@@ -1,9 +1,5 @@
 @import "colors";
 
-* {
-    color: $white;
-}
-
 footer {
     background-color: $dark-blue;
     display: flex;
@@ -18,6 +14,9 @@ footer {
         &:hover {
             color: $light-blue;
         }
+    }
+    p {
+        color: $white;
     }
 
     @media (min-width: 768px) {

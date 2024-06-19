@@ -4,6 +4,9 @@
 <div class="app-body">
   <app-menu></app-menu>
   <div class="main-content">
+<!-- app.component.html -->
+
+<button class="theme-toggle-button" (click)="toggleTheme()">{{ themeButtonText }}</button>
     <router-outlet></router-outlet>
   </div>
 </div>
