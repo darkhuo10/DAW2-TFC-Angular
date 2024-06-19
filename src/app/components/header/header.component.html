@@ -1,6 +1,6 @@
 <header>
     <!-- ESTE DIV ES NECESARIO PARA QUE EL LOGO SE QUEDE EN EL CENTRO CUANDO SE MUESTRE EL BUSCADOR -->
-    <div *ngIf="checkUrl() || !checkAdmin()"></div> 
+    <div *ngIf="checkUrl() || (isUserUrl() && !checkAdmin())"></div> 
     <div class="line" *ngIf="isUserUrl() && checkAdmin()">
         <span>Filtering by: {{active ? 'Active' : 'Inactive'}}.</span>
         <button type="button" class="switch-button" (click)="switchActivity()">Switch</button>
