@@ -16,10 +16,9 @@ import { User } from '../../models/user.model';
   styleUrl: './header.component.scss'
 })
 
-// hooks order
 export class HeaderComponent {
   logo = "assets/img/vgamestore_logo_white.svg";
-  usersActive = true;
+  active = true;
   @ViewChild('filterText') filterText!: ElementRef;
   @ViewChild('logoElement') logoElement!: ElementRef;
 
@@ -35,20 +34,20 @@ export class HeaderComponent {
 
   checkUrl(): boolean {
     const url = this.router.url;
-    return url == "/home" || url == "/wishlist" || url == "/library";
+    return url == "/wishlist" || url == "/library";
   }
 
   isUserUrl(): boolean {
-    const isUserUrl = this.router.url == "/users";
+    const url = this.router.url;
     if (this.logoElement) {
-      if (isUserUrl) { this.logoElement.nativeElement.classList.add("move-up"); }
+      if (url == "/home" || url == "/users") { this.logoElement.nativeElement.classList.add("move-up"); }
       else { this.logoElement.nativeElement.classList.remove("move-up"); }
     }
-    return isUserUrl;
+    return url == "/home" || url == "/users";
   }
 
-  switchUserActivity(): void {
-    this.usersActive = !this.usersActive;
+  switchActivity(): void {
+    this.active = !this.active;
     this.filter();
   }
 
@@ -64,11 +63,11 @@ export class HeaderComponent {
         break;
       }
       case "/users": {
-        call = this.userService.getUsers(this.usersActive);
+        call = this.userService.getUsers(this.active);
         break;
       }
       default: {
-        call = this.gameService.getAllGames({"visible": true})
+        call = this.gameService.getAllGames({"visible": this.active})
       }
     }
 

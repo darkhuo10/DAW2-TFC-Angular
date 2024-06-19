@@ -14,9 +14,9 @@ import { AuthService } from './auth.services';
   
     getAllGames(params?: any): Observable<any> {
       let httpParams = new HttpParams();
-      if (params) {
+      if (params != null) {
         for (const key in params) {
-          if (params[key]) {
+          if (params[key] != null) {
             httpParams = httpParams.set(key, params[key]);
           }
         }
