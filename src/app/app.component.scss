@@ -33,15 +33,13 @@ app-header, app-footer {
   flex-shrink: 0;
 }
 
-/* app.component.scss */
-
 .theme-toggle-button {
   position: fixed;
-  bottom: 10px;  // Ajusta según tu preferencia
-  right: 10px;  // Ajusta según tu preferencia
-  z-index: 1000;  // Asegura que esté sobre otros elementos
-  padding: 5px;  // Haz el botón pequeño
-  background-color: $light-blue;  // Ajusta según tu preferencia
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 5px;
+  background-color: $light-blue;
   color: $white;
 
   border: 1px solid $light-blue;
@@ -49,7 +47,7 @@ app-header, app-footer {
   cursor: pointer;
 
   &:hover {
-    background-color: $white;  // Ajusta según tu preferencia
+    background-color: $white;
     color: $light-blue;
   }
 }

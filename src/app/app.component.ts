@@ -1,5 +1,3 @@
-// app.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from './services/theme.services';
 

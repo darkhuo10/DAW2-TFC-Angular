@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Game, GameDtoCreate, GameDtoUpdate } from '../models/game.model'; // Adjust the import path according to your project structure
+import { GameDtoCreate, GameDtoUpdate } from '../models/game.model';
 import { AuthService } from './auth.services';
 
 @Injectable({
     providedIn: 'root'
   })
   export class GameService {
-    private apiUrl = 'http://localhost:80/games'; // Adjust the API base URL as needed
+    private apiUrl = 'http://localhost:80/games';
   
     constructor(private http: HttpClient, private authService: AuthService) {}
   

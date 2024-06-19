@@ -1,5 +1,3 @@
-import { formatDate } from "@angular/common";
-
 export function formatShortDateTime(dateStr: string) {
     const date = new Date(dateStr);
     return `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} - ${date.getHours()}:${formatMinutes(date.getMinutes())}`;

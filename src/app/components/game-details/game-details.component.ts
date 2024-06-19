@@ -212,14 +212,11 @@ export class GameDetailsComponent implements OnInit {
     this.gameService.getGameById(this.gameId).subscribe((game: Game) => {
       this.game = game;
       this.gameService.getMainImage(game.id).subscribe((response) => {
-        // Assuming response contains the URL of the main image
         if (typeof response === 'string') {
           this.game.mainImage = response;
         } else {
-          // Handle the case where response is a Blob (image data), convert it to a URL or base64 string
           const reader = new FileReader();
           reader.onload = () => {
-            // Assuming reader.result contains the data URL or base64 string
             this.game.mainImage = reader.result as string;
           };
           reader.readAsDataURL(response);

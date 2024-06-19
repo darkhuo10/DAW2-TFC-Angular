@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserDtoUpdate } from '../models/user.model'; // Adjust the import path according to your project structure
+import { UserDtoUpdate } from '../models/user.model';
 
 @Injectable({
     providedIn: 'root'

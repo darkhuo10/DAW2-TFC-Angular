@@ -33,14 +33,10 @@ export class GamePreviewComponent {
   scrollIndicator!: ElementRef;
 
   ngAfterViewInit() {
-    // Add a scroll event listener to the card
     this.card.nativeElement.addEventListener('scroll', () => {
-      // Check if the card is scrolled
       if (this.card.nativeElement.scrollTop > 0) {
-        // If scrolled, hide the scroll indicator
         this.scrollIndicator.nativeElement.style.display = 'none';
       } else {
-        // If not scrolled, show the scroll indicator
         this.scrollIndicator.nativeElement.style.display = 'block';
       }
     });
