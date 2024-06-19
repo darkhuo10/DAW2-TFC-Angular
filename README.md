@@ -14,25 +14,56 @@
 
 <div align="justify">
   
+  ## Register
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/b6b4d7e8-f5a2-4b40-9566-3989ba3718c3)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/0f72de3f-4246-42a0-b394-59f393ae9508)
+
+  ## Login
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/091995c0-4121-46e7-a3e5-009aa1837bc7)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/3bbfb48b-5e92-4473-9a60-8a0990c7ec46)
+
   ## Home Page
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/bbf48d95-d1df-4b4a-bf0d-b5c910099c01)
-  The home page has all the games. It also has a menu which can be found in the upper left corner. This menu contains the pages and a search bar to look for games.
+  
+  ### Active Games
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/35f9ff9c-85f3-41f0-a251-a1e3f70818fa)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/553dc27f-1c1b-46bb-87d4-722b2a091760)
 
-  ## Game Detail
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/df4c1500-51a6-41e2-8b65-320b2f12ae59)
-  Each game has an image (or more than  one) plus basic info about itself. In addition, games can have reviews that will also be shown on the game's page.
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/6d63baf0-dd22-476b-acb9-2a2c4ce834f0)
+  ### Inactive Games
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/11815c7d-6e91-46bb-a696-2333b637515a)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/290f803f-92c3-4046-a051-17083adc78ed)
 
-  ## Not Found
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/541e10fa-a642-4dc6-9723-ebc6e8a6ecd3)
-  It also has a not found page with a link that redirects to the home page.
+  ### Search Result
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/d2f90550-4b63-47a4-9263-284cac7e7767)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/646c63b9-ec9f-4349-b1d8-caf057ed0c96)
 
-  ## User Profile
-  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/4c07aa80-b20b-4eb4-918c-2e881c16b30b)
-  The user profile shows the basic user data which are updateable.
+  ## Menu
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/2b28b3fd-5ac3-42e2-ae62-0612deed3104)
 
-  ## Other Pages
-  Finally, all the other pages linked through the menu are a filtered games list.
+  ## Game Details
+
+  ## Download Form
+
+  ## Game Reviews
+
+  ## Library
+
+  ## Wishlist
+  
+  ## My Profile
+
+  
+  ---
+  ## Game Details
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/38c40cc4-f9a4-43ad-b505-eb70e8f50db6)
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/5b6c0012-2a70-4b73-a4ac-04954fd13d7e)
+  ### Reviews
+  ![image](https://github.com/darkhuo10/DAW2-TFC-Angular/assets/105634828/ff63aeac-bb5e-44cb-b75f-2e84073a570a)
+
+  ## Create game
+  ## All users
+
+
+
 </div>
 
 <h2 align="center">🔹 Technologies 🔹</h2>
