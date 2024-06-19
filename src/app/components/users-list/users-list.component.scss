@@ -53,8 +53,8 @@ main {
             overflow-y: auto;
             position: relative;
             .card-img {
-                width: 100%;
-                aspect-ratio: 1/1;
+                width: 150px;
+                height: 150px;
             }
             .scroll-indicator {
                 display: block;
@@ -97,6 +97,7 @@ main {
     }
 
     .button {
+        background-color: transparent;
         position: absolute; 
         top: 0; 
         right: 0; 
