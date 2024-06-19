@@ -31,9 +31,9 @@ html.dark-theme {
     background-color: $dark-blue;
 
     input, textarea{
-        color: $white;
+        color: $dark-blue;
         &::placeholder {
-            color: $white;
+            color: $dark-blue;
         }
     }
 
