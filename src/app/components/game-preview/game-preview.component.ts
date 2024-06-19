@@ -1,5 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, Inject } from '@angular/core';
-//import { DOCUMENT } from '@angular/common';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../services/game.services';
 import { AuthService } from '../../services/auth.services';
@@ -27,8 +26,7 @@ export class GamePreviewComponent {
   constructor(
     private router: Router,
     private gameService: GameService,
-    private authService: AuthService//,
-    //@Inject(DOCUMENT) private document: Document
+    private authService: AuthService
   ){}
 
   ngOnInit(): void {
