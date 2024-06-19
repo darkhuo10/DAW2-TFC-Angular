@@ -36,7 +36,7 @@
     }
 
     small {
-      color: red;
+      color: $red;
       font-size: 0.8rem;
     }
 
@@ -72,7 +72,7 @@
     }
 
     #errorMessage {
-      color: red;
+      color: $red;
       font-size: 0.8rem;
       margin-top: 10px;
     }

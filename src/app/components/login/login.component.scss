@@ -30,6 +30,7 @@
     }
 
     input {
+      color:$dark-blue;
       width: 100%;
       font-size: 1.2rem;
       font-weight: bold;
@@ -45,7 +46,7 @@
     } 
 
     .error-message {
-      color: red;
+      color: $red;
       font-size: 1rem;
       font-weight: bold;
     }
@@ -67,12 +68,14 @@
         border-radius: 4px;
 
         &.go-to {
-          border: 2px solid $dark-blue;
-          background-color: $white;
+          color: $white;
+          border: 2px solid $white;
+          background-color: $dark-blue;
 
           &:hover {
-            color: $white;
-            background-color: $dark-blue;
+            border-color: $dark-blue;
+            color: $dark-blue;
+            background-color: $white;
             transition: ease-in 0.1s;
           }
         }

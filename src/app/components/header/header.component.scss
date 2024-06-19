@@ -4,7 +4,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    //background-color: $dark-blue;
+    background-color: $dark-blue;
     padding: 20px;
     font-weight: bolder;
     justify-content: center;
@@ -41,7 +41,7 @@ header {
     }
 
     .name {
-        //color: $white;
+        color: $white;
         font-size: 3em;
         font-weight: bold;
         @media (max-width: 768px) {
@@ -120,7 +120,7 @@ header {
         span {
             margin-top: 10px;
             font-size: 1rem;
-            //color: $white;
+            color: $white;
             width: fit-content;
         }
         
