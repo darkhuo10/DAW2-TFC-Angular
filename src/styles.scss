@@ -30,6 +30,13 @@ html.dark-theme {
     color: $white;
     background-color: $dark-blue;
 
+    input, textarea{
+        color: $white;
+        &::placeholder {
+            color: $white;
+        }
+    }
+
     footer, header, #reviews {
         border: 2px solid $white;
         border-radius: 4px;
