@@ -14,11 +14,9 @@ export class User {
 
 export class UserDtoUpdate {
     constructor(
-        public name: string,
-        public surname: string,
-        public username: string,
-        public email: string,
-        public birthdate: string,
-        public profilePicture: string
+        public name?: string,
+        public surname?: string,
+        public password?: string,
+        public birthdate?: string
     ){}
 }

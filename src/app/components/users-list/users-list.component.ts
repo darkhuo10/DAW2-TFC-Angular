@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.services';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ export class UsersListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private cdr: ChangeDetectorRef,
     private router: Router,
     private authService: AuthService,
     private sharedService: SharedService
@@ -47,6 +48,7 @@ export class UsersListComponent implements OnInit {
             };
             // leemos la response.
             reader.readAsDataURL(response);
+            this.cdr.detectChanges();
           }
         })
       })
