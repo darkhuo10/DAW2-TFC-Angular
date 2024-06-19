@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../../services/game.services';
 import { AuthService } from '../../services/auth.services';
+import { Game } from '../../models/game.model';
 
 @Component({
   selector: 'app-game-preview',
@@ -14,14 +15,7 @@ export class GamePreviewComponent {
   errorMessage = '';
   isAdminUser = false;
 
-  @Input() game!: {
-    id: string,
-    name: string, 
-    description: string, 
-    mainImage: string, 
-    price: number, 
-    rating: number 
-  };
+  @Input() game!: Game;
 
   constructor(
     private router: Router,
@@ -84,4 +78,7 @@ export class GamePreviewComponent {
     return this.isAdminUser;
   }
 
+  checkVisible() {
+    return this.game.visible;
+  }
 }
