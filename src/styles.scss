@@ -5,19 +5,87 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: $dark-blue;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     scrollbar-width: thin;
-    scrollbar-color: $dark-blue transparent;
+    scrollbar-color: $dark-blue $white;
 }
 *::-webkit-scrollbar {
     width: 10px;
 }
 *::-webkit-scrollbar-thumb {
-    background-color: $dark-blue;
+    background-color: $light-blue;
     border-radius: 4px;
 }
 
 *::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: $white;
+}
+
+html {
+    color: $dark-blue;
+    background-color: $white;
+
+    // footer
+    footer {
+        color: $white;
+        background-color: $dark-blue;
+        a {
+            color: darken($white, 25%);
+            &:hover {
+                color: $light-blue;
+            }
+        }
+        p {
+            color: $white;
+        }
+    }
+
+    // header
+    header {
+        background-color: $dark-blue;
+
+        .name {
+            color: $white;
+        }
+        .line {
+            span {
+                color: $white;
+            }
+        }
+    }
+    
+}
+
+html.dark-theme {
+    color: $white;
+    background-color: $dark-blue;
+
+    // footer
+    footer {
+        color: $dark-blue;
+        background-color: $white;
+        a {
+            color: darken($white, 25%);
+            &:hover {
+                color: $light-blue;
+            }
+        }
+        p {
+            color: $dark-blue;
+        }
+    }
+
+    // header
+    header {
+        background-color: $white;
+
+        .name {
+            color: $dark-blue;
+        }
+        .line {
+            span {
+                color: $dark-blue;
+            }
+        }
+    }
 }

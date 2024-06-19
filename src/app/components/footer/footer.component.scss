@@ -1,11 +1,7 @@
 @import "colors";
 
-* {
-    color: $white;
-}
-
 footer {
-    background-color: $dark-blue;
+    //background-color: $dark-blue;
     display: flex;
     flex-direction: column; /* Change direction to column for responsiveness */
     justify-content: center;
@@ -13,12 +9,15 @@ footer {
     text-align: center;
     padding: 50px;
 
-    a {
+    /*a {
         color: darken($white, 25%);
         &:hover {
             color: $light-blue;
         }
     }
+    p {
+        color: $white;
+    }*/
 
     @media (min-width: 768px) {
         /* Adjustments for larger screens */
