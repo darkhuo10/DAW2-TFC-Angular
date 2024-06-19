@@ -1,40 +1,54 @@
 <div class="container">
     <div class="user-data">
-        <img class="user-image"  [src]="user.profilePicture" alt="profile-picture" (click)="selectImage()">
-        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+        <img class="user-image" #imgPreview [src]="user.profilePicture" alt="profile-picture" (click)="selectImage()">
+        <input type="file" #imgInput (change)="onFileSelected($event)" accept="image/*" hidden="true">
         <div class="user-text">
             <p id="user">{{user.username}}</p>
             <p id="role">{{user.role}}</p>
         </div>
     </div>
     <h2>Personal Data</h2>
-    <div class="personal-data">
+    <form class="personal-data" [formGroup]="form" (ngSubmit)="updateProfile()">
         <div>
-            <label for="email">Email</label>
+            <label for="email">Email: </label>
             <p id="email">{{user.email}}</p>
         </div>
-            <div>
-                <label for="birthday">Birthdate</label>  
-                <input type="date" [value]=user.birthdate id="birthday" name="birthday"/>
-            </div>
-        
 
         <div class="personal-info">
             <div>
-                <label for="firstname">First Name</label>  
-                <input type="text" [value]="user.name" placeholder="First Name" id="firstname" name="firstname"/>
+                <label for="birthday">Birthdate: </label>  
+                <input type="date" [value]="user.birthdate" [max]="maxDate"
+                    id="birthday" name="birthday" formControlName="birthdate"/>
             </div>
             <div>
-                <label for="lastname">Last Name</label>  
-                <input type="text" [value]="user.surname" placeholder="Last Name" id="lastname" name="lastname"/>
+                <label for="password">Password: </label>  
+                <input type="password" id="password" placeholder="Change password"
+                name="password" formControlName="password"/>
+                <small *ngIf="form.get('password')?.errors?.['minlength']">Password must have at least 6 characters.</small>
+                <small *ngIf="form.get('password')?.errors?.['maxlength']">Password must have at most 99 characters.</small>
+            </div>
+        </div>
+
+        <div class="personal-info">
+            <div>
+                <label for="firstname">First Name: </label>  
+                <input type="text" [value]="user.name" formControlName="name" 
+                    placeholder="First Name" id="firstname" name="firstname"/>
+                <small *ngIf="form.get('name')?.errors?.['minlength']">First name must have at least 2 characters.</small>
+                <small *ngIf="form.get('name')?.errors?.['maxlength']">First name must hace at most 99 characters.</small>
+            </div>
+            <div>
+                <label for="lastname">Last Name: </label>  
+                <input type="text" [value]="user.surname" formControlName="surname"
+                    placeholder="Last Name" id="lastname" name="lastname"/>
+                <small *ngIf="form.get('surname')?.errors?.['minlength']">Last name must have at least 5 characters.</small>
+                <small *ngIf="form.get('surname')?.errors?.['maxlength']">Last name must hace at most 99 characters.</small>
             </div>
             
         </div>
         <div class="buttons">
-            <button id="save" (click)="updateProfile()">Save</button>
-        <button id="logout" routerLink="/login">Log out</button>
+            <button id="save" type="submit">Save</button>
+            <button id="logout" routerLink="/login" type="button">Log out</button>
         </div>
-        
-
-    </div>
+    </form>
 </div>

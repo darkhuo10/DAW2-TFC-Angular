@@ -42,8 +42,18 @@ button {
     padding: 20px;
     background-image: url(../../../assets/img/vgamestore_logo_translucent.svg);
     background-repeat: no-repeat;
-    background-position-y: -10rem;
-    background-size: 100%;
+    background-position-x: center;
+    background-position-y: 15rem;
+    background-size: auto 100%;
+
+    input {
+        background-color: rgba(255,255,255,0.5);
+
+        &:focus {
+            background-color: rgba(230,230,230,0.5);
+        }
+    }
+    
     .user-data {
         display: flex;
         flex-direction: column;
@@ -103,7 +113,11 @@ button {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            gap: 10px;
+            gap: 20px;
+
+            div {
+                flex: 1;
+            }
         }
     }
 
@@ -128,7 +142,9 @@ button {
     }
     
     @media (max-width: 768px) {
-        /* Adjust layout for smaller screens */
+        background-position-y: 30rem;
+        background-size: auto 50%;
+
         *{
             font-size: 1.5rem;
         }
